@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background: #3d4c59;
+}
+.container {
+  width: 1170px;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+}
+.logo__text {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  font-family: 'Roboto Condensed', 'Open Sans', serif;
+}
