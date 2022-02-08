@@ -1,11 +1,11 @@
 import Header from '../header';
-import Test from '../test';
+import Invoice from '../invoice';
 
 const App = () => {
   return (
     <div>
       <Header />
-      <Test />
+      <Invoice />
     </div>
   );
 };
