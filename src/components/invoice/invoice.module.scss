@@ -26,5 +26,17 @@
     4px 4px 0 rgb(0 0 0 / 13%), 6px 6px 0 #fff, 7px 7px 0 rgb(0 0 0 / 15%);
 }
 .form__col {
-  width: calc(50% - 30px);
+  width: calc(50% - 10px);
+}
+.form__logo {
+  margin: 0 0 15px 0;
+}
+.form__area_m {
+  width: 275px;
+  margin: 0 0 15px 0;
+}
+.form__row_s {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

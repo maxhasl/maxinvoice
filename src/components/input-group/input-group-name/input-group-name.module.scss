@@ -1,0 +1,23 @@
+.name {
+  height: 34px;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 0 2px 0;
+  padding: 0 12px;
+  color: #777;
+  background: 0 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  &:focus {
+    border-color: #ccc;
+    cursor: text;
+  }
+}

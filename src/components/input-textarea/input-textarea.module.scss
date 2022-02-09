@@ -1,17 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
-
 .textarea {
+  display: flex;
+  width: 100%;
   min-height: 60px;
   padding: 6px 12px;
   resize: none;
   background: #fff;
   border: 1px solid #c4cdd5;
-  border-radius: 3px;
+  border-radius: 4px;
   font-size: 14px;
   color: #313538;
   line-height: 20px;
-  font-family: 'Roboto Condensed', 'Open Sans', serif;
+  font-family: Helvetica, Arial, sans-serif;
   transition: all 0.2s;
+  &::-webkit-input-placeholder,
+  &::-moz-placeholder,
+  &:-ms-input-placeholder,
+  &:-moz-placeholder {
+    color: #a1a1a1;
+  }
   &:focus {
     border-color: #009e74;
     outline: 0;

@@ -1,4 +1,5 @@
 import InputFile from '../input-file';
+import InputGroup from '../input-group';
 import InputTextarea from '../input-textarea';
 import styles from './invoice.module.scss';
 
@@ -8,8 +9,20 @@ const Invoice = () => {
       <div className={styles.container}>
         <form className={styles.form}>
           <div className={styles.form__col}>
-            <InputFile />
-            <InputTextarea placeholder="Who is this invoice to? (required)" />
+            <div className={styles.form__logo}>
+              <InputFile />
+            </div>
+            <div className={styles.form__area_m}>
+              <InputTextarea placeholder="Who is this invoice from? (required)" />
+            </div>
+            <div className={styles.form__row_s}>
+              <div className={styles.form__col}>
+                <InputGroup defaultName="Bill To" />
+              </div>
+              <div className={styles.form__col}>
+                <InputGroup defaultName="Ship To" />
+              </div>
+            </div>
           </div>
           <div className={styles.form__col}>
             <InputFile />

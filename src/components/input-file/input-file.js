@@ -3,13 +3,11 @@ import styles from './input-file.module.scss';
 
 const InputFile = () => {
   return (
-    <div>
-      <label>
-        <input type="file" />
-        <Plus className={styles.plus} />
-        Add Your Logo
-      </label>
-    </div>
+    <label className={styles.label}>
+      <input type="file" className={styles.file} />
+      <Plus className={styles.plus} />
+      Add Your Logo
+    </label>
   );
 };
 
