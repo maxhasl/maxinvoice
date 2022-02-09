@@ -6,10 +6,17 @@ const Invoice = () => {
   return (
     <section className={styles.body}>
       <div className={styles.container}>
-        <form>
-          <InputFile />
-          <InputTextarea placeholder="Who is this invoice to? (required)" />
+        <form className={styles.form}>
+          <div className={styles.form__col}>
+            <InputFile />
+            <InputTextarea placeholder="Who is this invoice to? (required)" />
+          </div>
+          <div className={styles.form__col}>
+            <InputFile />
+            <InputTextarea placeholder="Who is this invoice to? (required)" />
+          </div>
         </form>
+        <div>Buttons here</div>
       </div>
     </section>
   );
