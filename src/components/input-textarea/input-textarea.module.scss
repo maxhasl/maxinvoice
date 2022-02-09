@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+.textarea {
+  min-height: 60px;
+  padding: 6px 12px;
+  resize: none;
+  background: #fff;
+  border: 1px solid #c4cdd5;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #313538;
+  line-height: 20px;
+  font-family: 'Roboto Condensed', 'Open Sans', serif;
+  transition: all 0.2s;
+  &:focus {
+    border-color: #009e74;
+    outline: 0;
+  }
+}
