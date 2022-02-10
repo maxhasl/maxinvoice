@@ -27,6 +27,11 @@
 }
 .form__col {
   width: calc(50% - 10px);
+  display: flex;
+  flex-direction: column;
+}
+.form__col_rtl {
+  align-items: flex-end;
 }
 .form__logo {
   margin: 0 0 15px 0;

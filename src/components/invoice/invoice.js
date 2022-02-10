@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import InputFile from '../input-file';
 import InputGroup from '../input-group';
 import InputNumber from '../input-number';
@@ -26,7 +27,7 @@ const Invoice = () => {
               </div>
             </div>
           </div>
-          <div className={styles.form__col}>
+          <div className={cn(styles.form__col, styles.form__col_rtl)}>
             <div className={styles.form__title}>
               <InputTitle defaultValue="INVOICE" />
             </div>
