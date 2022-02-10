@@ -32,6 +32,7 @@
 }
 .form__col_rtl {
   align-items: flex-end;
+  text-align: right;
 }
 .form__logo {
   margin: 0 0 15px 0;
@@ -47,4 +48,9 @@
 }
 .form__title {
   margin: 15px 0 10px;
+}
+.form__details {
+  width: 380px;
+  margin: 45px 0 0;
+  text-align: right;
 }

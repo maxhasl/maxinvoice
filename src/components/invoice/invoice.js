@@ -20,10 +20,10 @@ const Invoice = () => {
             </div>
             <div className={styles.form__row_s}>
               <div className={styles.form__col}>
-                <InputGroup defaultName="Bill To" />
+                <InputGroup defaultName="Bill To" type="col" child="textarea" />
               </div>
               <div className={styles.form__col}>
-                <InputGroup defaultName="Ship To" />
+                <InputGroup defaultName="Ship To" type="col" child="textarea" />
               </div>
             </div>
           </div>
@@ -33,6 +33,12 @@ const Invoice = () => {
             </div>
             <div className={styles.form__number}>
               <InputNumber defaultValue="1" />
+            </div>
+            <div className={styles.form__details}>
+              <InputGroup defaultName="Date" type="row" child="date" />
+              <InputGroup defaultName="Date" type="row" child="date" />
+              <InputGroup defaultName="Due Date" type="row" child="date" />
+              <InputGroup defaultName="Date" type="row" child="date" />
             </div>
           </div>
         </form>

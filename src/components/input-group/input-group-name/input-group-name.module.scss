@@ -1,6 +1,7 @@
 .name {
+  flex-grow: 1;
   height: 34px;
-  width: 100%;
+  width: auto;
   max-width: 250px;
   margin: 0 0 2px 0;
   padding: 0 12px;
@@ -11,6 +12,7 @@
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
+  text-align: inherit;
   outline: none;
   cursor: pointer;
   &:hover {
