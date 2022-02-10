@@ -1,6 +1,7 @@
 import InputFile from '../input-file';
 import InputGroup from '../input-group';
 import InputTextarea from '../input-textarea';
+import InputTitle from '../input-title';
 import styles from './invoice.module.scss';
 
 const Invoice = () => {
@@ -25,7 +26,9 @@ const Invoice = () => {
             </div>
           </div>
           <div className={styles.form__col}>
-            <InputFile />
+            <div className={styles.form__title}>
+              <InputTitle defaultValue="INVOICE" />
+            </div>
             <InputTextarea placeholder="Who is this invoice to? (required)" />
           </div>
         </form>
