@@ -12,14 +12,17 @@
   line-height: 20px;
   font-family: Helvetica, Arial, sans-serif;
   transition: all 0.2s;
+  outline: 0;
   &::-webkit-input-placeholder,
   &::-moz-placeholder,
   &:-ms-input-placeholder,
   &:-moz-placeholder {
     color: #a1a1a1;
   }
+  &:hover {
+    border-color: #879099;
+  }
   &:focus {
     border-color: #009e74;
-    outline: 0;
   }
 }
