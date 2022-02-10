@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import InputGroupName from './input-group-name';
 import InputTextarea from '../input-textarea';
 import styles from './input-group.module.scss';
+import InputText from '../input-text';
 
 const InputGroup = ({ defaultName, type, child }) => {
   const [startDate, setStartDate] = useState(new Date());
@@ -15,7 +16,7 @@ const InputGroup = ({ defaultName, type, child }) => {
       case 'textarea':
         return <InputTextarea />;
       case 'text':
-        return <InputTextarea />;
+        return <InputText />;
       case 'date':
         return (
           <DatePicker

@@ -36,9 +36,9 @@ const Invoice = () => {
             </div>
             <div className={styles.form__details}>
               <InputGroup defaultName="Date" type="row" child="date" />
-              <InputGroup defaultName="Date" type="row" child="date" />
+              <InputGroup defaultName="Payment Terms" type="row" child="text" />
               <InputGroup defaultName="Due Date" type="row" child="date" />
-              <InputGroup defaultName="Date" type="row" child="date" />
+              <InputGroup defaultName="PO Number" type="row" child="text" />
             </div>
           </div>
         </form>
