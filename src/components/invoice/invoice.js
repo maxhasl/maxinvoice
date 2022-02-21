@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { useDispatch, useSelector } from 'react-redux';
 import InputFile from '../input-file';
 import InputGroup from '../input-group';
 import InputNumber from '../input-number';
@@ -7,6 +8,13 @@ import InputTitle from '../input-title';
 import styles from './invoice.module.scss';
 
 const Invoice = () => {
+  const dispatch = useDispatch();
+  const title = useSelector((state) => state.title);
+
+  const handleTitle = (value) => {
+    dispatch({ type: 'SET_TITLE', payload: value });
+  };
+
   return (
     <section className={styles.body}>
       <div className={styles.container}>
@@ -29,7 +37,7 @@ const Invoice = () => {
           </div>
           <div className={cn(styles.form__col, styles.form__col_rtl)}>
             <div className={styles.form__title}>
-              <InputTitle defaultValue="INVOICE" />
+              <InputTitle initialValue={title} handleTitle={handleTitle} />
             </div>
             <div className={styles.form__number}>
               <InputNumber defaultValue="1" />
