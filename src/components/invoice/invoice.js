@@ -10,9 +10,14 @@ import styles from './invoice.module.scss';
 const Invoice = () => {
   const dispatch = useDispatch();
   const title = useSelector((state) => state.title);
+  const contactFrom = useSelector((state) => state.contact.from);
 
   const handleTitle = (value) => {
     dispatch({ type: 'SET_TITLE', payload: value });
+  };
+
+  const handleContactFrom = (value) => {
+    dispatch({ type: 'SET_CONTACT_FROM', payload: value });
   };
 
   return (
@@ -24,7 +29,11 @@ const Invoice = () => {
               <InputFile />
             </div>
             <div className={styles.form__area_m}>
-              <InputTextarea placeholder="Who is this invoice from? (required)" />
+              <InputTextarea
+                initialValue={contactFrom}
+                handleContactFrom={handleContactFrom}
+                placeholder="Who is this invoice from? (required)"
+              />
             </div>
             <div className={styles.form__row_s}>
               <div className={styles.form__col}>

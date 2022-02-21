@@ -2,7 +2,7 @@ import useValue from '../../hooks/use-value';
 import styles from './input-title.module.scss';
 
 const InputTitle = ({ initialValue, handleTitle }) => {
-  const { value, onChange } = useValue({ initialValue, handleTitle });
+  const { value, onChange } = useValue(initialValue, handleTitle);
 
   return (
     <input
