@@ -1,6 +1,10 @@
 const defaultState = {
   title: 'INVOICE',
   number: 1,
+  logo: {
+    placeholder: 'Add Your Logo',
+    value: '',
+  },
   contact: {
     from: {
       placeholder: 'Who is this invoice from? (required)',
@@ -43,6 +47,14 @@ const reducer = (state = defaultState, action) => {
       return { ...state, title: action.payload };
     case 'SET_NUMBER':
       return { ...state, number: action.payload < 0 ? 1 : action.payload };
+    case 'SET_LOGO':
+      return {
+        ...state,
+        logo: {
+          ...state.logo,
+          value: action.payload,
+        },
+      };
     case 'SET_CONTACT_FROM':
       return {
         ...state,

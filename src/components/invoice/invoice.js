@@ -12,6 +12,9 @@ const Invoice = () => {
 
   const title = useSelector((state) => state.title);
   const number = useSelector((state) => state.number);
+  const { placeholder: logoPlacehplder, value: logoValue } = useSelector(
+    (state) => state.logo
+  );
 
   const { placeholder: contactFromPlaceholder, value: contactFromValue } =
     useSelector((state) => state.contact.from);
@@ -48,6 +51,11 @@ const Invoice = () => {
 
   const handleNumber = (value) => {
     dispatch({ type: 'SET_NUMBER', payload: value });
+  };
+
+  const handleLogo = (value) => {
+    console.log(value);
+    dispatch({ type: 'SET_LOGO', payload: value });
   };
 
   const handleContactFrom = (value) => {
@@ -108,7 +116,11 @@ const Invoice = () => {
         <form className={styles.form}>
           <div className={styles.form__col}>
             <div className={styles.form__logo}>
-              <InputFile />
+              <InputFile
+                initialValue={logoValue}
+                getValue={handleLogo}
+                placeholder={logoPlacehplder}
+              />
             </div>
             <div className={styles.form__area_m}>
               <InputTextarea

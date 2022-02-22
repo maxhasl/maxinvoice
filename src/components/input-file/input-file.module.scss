@@ -3,26 +3,73 @@
 }
 
 .label {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 130px;
+  width: auto;
+  height: auto;
   background-color: #f5f5f5;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 17px;
   line-height: 17px;
   font-weight: 400;
   color: #777;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   transition: all 0.2s linear;
+  overflow: hidden;
   cursor: pointer;
   &:hover {
     background-color: #eee;
   }
 }
 
+.imgContainer {
+  position: relative;
+  max-width: 200px;
+  max-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img {
+  width: auto;
+  max-width: 200px;
+  height: 100%;
+  max-height: 150px;
+  object-fit: contain;
+}
+.remove {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3a3a3a;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    background-color: #009e74;
+  }
+}
+.removeIcon {
+  width: 10px;
+}
+
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 130px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
 .plus {
   width: 15px;
   margin-right: 4px;
