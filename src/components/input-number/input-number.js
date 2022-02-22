@@ -1,10 +1,18 @@
+import useValue from '../../hooks/use-value';
 import styles from './input-number.module.scss';
 
-const InputNumber = ({ defaultValue }) => {
+const InputNumber = ({ initialValue, getValue }) => {
+  const { value, onChange } = useValue(initialValue, getValue);
+
   return (
     <div className={styles.container}>
       <div className={styles.addon}>#</div>
-      <input type="number" className={styles.number} value={defaultValue} />
+      <input
+        type="number"
+        className={styles.number}
+        value={value}
+        onChange={onChange}
+      />
     </div>
   );
 };

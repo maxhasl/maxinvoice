@@ -9,15 +9,97 @@ import styles from './invoice.module.scss';
 
 const Invoice = () => {
   const dispatch = useDispatch();
+
   const title = useSelector((state) => state.title);
-  const contactFrom = useSelector((state) => state.contact.from);
+  const number = useSelector((state) => state.number);
+
+  const { placeholder: contactFromPlaceholder, value: contactFromValue } =
+    useSelector((state) => state.contact.from);
+
+  const {
+    placeholder: contactFromBillPlaceholder,
+    title: contactFromBillName,
+    value: contactFromBillValue,
+  } = useSelector((state) => state.contact.bill);
+
+  const {
+    placeholder: contactFromShipPlaceholder,
+    title: contactFromShipName,
+    value: contactFromShipValue,
+  } = useSelector((state) => state.contact.ship);
+
+  const { title: detailsDateTitle, value: detailsDateValue } = useSelector(
+    (state) => state.details.date
+  );
+
+  const { title: detailsTermsTitle, value: detailsTermsValue } = useSelector(
+    (state) => state.details.terms
+  );
+
+  const { title: detailsDueDateTitle, value: detailsDueDateValue } =
+    useSelector((state) => state.details.dueDate);
+
+  const { title: detailsPONumberTitle, value: detailsPONumberValue } =
+    useSelector((state) => state.details.poNumber);
 
   const handleTitle = (value) => {
     dispatch({ type: 'SET_TITLE', payload: value });
   };
 
+  const handleNumber = (value) => {
+    dispatch({ type: 'SET_NUMBER', payload: value });
+  };
+
   const handleContactFrom = (value) => {
     dispatch({ type: 'SET_CONTACT_FROM', payload: value });
+  };
+
+  const handleContactBillTitle = (value) => {
+    dispatch({ type: 'SET_CONTACT_BILL_TITLE', payload: value });
+  };
+
+  const handleContactBillValue = (value) => {
+    dispatch({ type: 'SET_CONTACT_BILL_VALUE', payload: value });
+  };
+
+  const handleContactShipTitle = (value) => {
+    dispatch({ type: 'SET_CONTACT_SHIP_TITLE', payload: value });
+  };
+
+  const handleContactShipValue = (value) => {
+    dispatch({ type: 'SET_CONTACT_SHIP_VALUE', payload: value });
+  };
+
+  const handleDetailsDateTitle = (value) => {
+    dispatch({ type: 'SET_DETAILS_DATE_TITLE', payload: value });
+  };
+
+  const handleDetailsDateValue = (value) => {
+    dispatch({ type: 'SET_DETAILS_DATE_VALUE', payload: value });
+  };
+
+  const handleDetailsTermsTitle = (value) => {
+    dispatch({ type: 'SET_DETAILS_TERMS_TITLE', payload: value });
+  };
+
+  const handleDetailsTermsValue = (value) => {
+    dispatch({ type: 'SET_DETAILS_TERMS_VALUE', payload: value });
+  };
+
+  const handleDetailsDueDateTitle = (value) => {
+    dispatch({ type: 'SET_DETAILS_DUE_DATE_TITLE', payload: value });
+  };
+
+  const handleDetailsDueDateValue = (value) => {
+    dispatch({ type: 'SET_DETAILS_DUE_DATE_VALUE', payload: value });
+  };
+
+  const handleDetailsPONumberTitle = (value) => {
+    dispatch({ type: 'SET_DETAILS_PO_NUMBER_TITLE', payload: value });
+  };
+
+  const handleDetailsPONumberValue = (value) => {
+    dispatch({ type: 'SET_DETAILS_PO_NUMBER_VALUE', payload: value });
   };
 
   return (
@@ -30,17 +112,33 @@ const Invoice = () => {
             </div>
             <div className={styles.form__area_m}>
               <InputTextarea
-                initialValue={contactFrom}
-                handleContactFrom={handleContactFrom}
-                placeholder="Who is this invoice from? (required)"
+                initialValue={contactFromValue}
+                getValue={handleContactFrom}
+                placeholder={contactFromPlaceholder}
               />
             </div>
             <div className={styles.form__row_s}>
               <div className={styles.form__col}>
-                <InputGroup defaultName="Bill To" type="col" child="textarea" />
+                <InputGroup
+                  initialName={contactFromBillName}
+                  getName={handleContactBillTitle}
+                  initialValue={contactFromBillValue}
+                  getValue={handleContactBillValue}
+                  placeholder={contactFromBillPlaceholder}
+                  type="col"
+                  child="textarea"
+                />
               </div>
               <div className={styles.form__col}>
-                <InputGroup defaultName="Ship To" type="col" child="textarea" />
+                <InputGroup
+                  initialName={contactFromShipName}
+                  getName={handleContactShipTitle}
+                  initialValue={contactFromShipValue}
+                  getValue={handleContactShipValue}
+                  placeholder={contactFromShipPlaceholder}
+                  type="col"
+                  child="textarea"
+                />
               </div>
             </div>
           </div>
@@ -49,13 +147,41 @@ const Invoice = () => {
               <InputTitle initialValue={title} handleTitle={handleTitle} />
             </div>
             <div className={styles.form__number}>
-              <InputNumber defaultValue="1" />
+              <InputNumber initialValue={number} getValue={handleNumber} />
             </div>
             <div className={styles.form__details}>
-              <InputGroup defaultName="Date" type="row" child="date" />
-              <InputGroup defaultName="Payment Terms" type="row" child="text" />
-              <InputGroup defaultName="Due Date" type="row" child="date" />
-              <InputGroup defaultName="PO Number" type="row" child="text" />
+              <InputGroup
+                initialName={detailsDateTitle}
+                getName={handleDetailsDateTitle}
+                initialValue={detailsDateValue}
+                getValue={handleDetailsDateValue}
+                type="row"
+                child="date"
+              />
+              <InputGroup
+                initialName={detailsTermsTitle}
+                getName={handleDetailsTermsTitle}
+                initialValue={detailsTermsValue}
+                getValue={handleDetailsTermsValue}
+                type="row"
+                child="text"
+              />
+              <InputGroup
+                initialName={detailsDueDateTitle}
+                getName={handleDetailsDueDateTitle}
+                initialValue={detailsDueDateValue}
+                getValue={handleDetailsDueDateValue}
+                type="row"
+                child="date"
+              />
+              <InputGroup
+                initialName={detailsPONumberTitle}
+                getName={handleDetailsPONumberTitle}
+                initialValue={detailsPONumberValue}
+                getValue={handleDetailsPONumberValue}
+                type="row"
+                child="text"
+              />
             </div>
           </div>
         </form>

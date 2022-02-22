@@ -1,8 +1,8 @@
 import useValue from '../../hooks/use-value';
 import styles from './input-textarea.module.scss';
 
-const InputTextarea = ({ initialValue, handleContactFrom, placeholder }) => {
-  const { value, onChange } = useValue(initialValue, handleContactFrom);
+const InputTextarea = ({ initialValue, getValue, placeholder }) => {
+  const { value, onChange } = useValue(initialValue, getValue);
 
   return (
     <textarea
