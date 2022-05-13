@@ -1,5 +1,27 @@
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
+import {
+  setContactBillTitleAction,
+  setContactBillValueAction,
+  setContactFromAction,
+  setContactShipTitleAction,
+  setContactShipValueAction,
+} from '../../redux/features/contact';
+import {
+  setDetailsDateTitleAction,
+  setDetailsDateValueAction,
+  setDetailsDueDateTitleAction,
+  setDetailsDueDateValueAction,
+  setDetailsPONumberTitleAction,
+  setDetailsPONumberValueAction,
+  setDetailsTermsTitleAction,
+  setDetailsTermsValueAction,
+} from '../../redux/features/details';
+import {
+  setLogoAction,
+  setNumberAction,
+  setTitleAction,
+} from '../../redux/features/main';
 import InputFile from '../input-file';
 import InputGroup from '../input-group';
 import InputNumber from '../input-number';
@@ -46,68 +68,67 @@ const Invoice = () => {
     useSelector((state) => state.details.poNumber);
 
   const handleTitle = (value) => {
-    dispatch({ type: 'SET_TITLE', payload: value });
+    dispatch(setTitleAction(value));
   };
 
   const handleNumber = (value) => {
-    dispatch({ type: 'SET_NUMBER', payload: value });
+    dispatch(setNumberAction(value));
   };
 
   const handleLogo = (value) => {
-    console.log(value);
-    dispatch({ type: 'SET_LOGO', payload: value });
+    dispatch(setLogoAction(value));
   };
 
   const handleContactFrom = (value) => {
-    dispatch({ type: 'SET_CONTACT_FROM', payload: value });
+    dispatch(setContactFromAction(value));
   };
 
   const handleContactBillTitle = (value) => {
-    dispatch({ type: 'SET_CONTACT_BILL_TITLE', payload: value });
+    dispatch(setContactBillTitleAction(value));
   };
 
   const handleContactBillValue = (value) => {
-    dispatch({ type: 'SET_CONTACT_BILL_VALUE', payload: value });
+    dispatch(setContactBillValueAction(value));
   };
 
   const handleContactShipTitle = (value) => {
-    dispatch({ type: 'SET_CONTACT_SHIP_TITLE', payload: value });
+    dispatch(setContactShipTitleAction(value));
   };
 
   const handleContactShipValue = (value) => {
-    dispatch({ type: 'SET_CONTACT_SHIP_VALUE', payload: value });
+    dispatch(setContactShipValueAction(value));
   };
 
   const handleDetailsDateTitle = (value) => {
-    dispatch({ type: 'SET_DETAILS_DATE_TITLE', payload: value });
+    dispatch(setDetailsDateTitleAction(value));
   };
 
   const handleDetailsDateValue = (value) => {
-    dispatch({ type: 'SET_DETAILS_DATE_VALUE', payload: value });
+    dispatch(setDetailsDateValueAction(value));
   };
 
   const handleDetailsTermsTitle = (value) => {
-    dispatch({ type: 'SET_DETAILS_TERMS_TITLE', payload: value });
+    dispatch(setDetailsTermsTitleAction(value));
   };
 
   const handleDetailsTermsValue = (value) => {
-    dispatch({ type: 'SET_DETAILS_TERMS_VALUE', payload: value });
+    dispatch(setDetailsTermsValueAction(value));
   };
 
   const handleDetailsDueDateTitle = (value) => {
-    dispatch({ type: 'SET_DETAILS_DUE_DATE_TITLE', payload: value });
+    dispatch(setDetailsDueDateTitleAction(value));
   };
 
   const handleDetailsDueDateValue = (value) => {
-    dispatch({ type: 'SET_DETAILS_DUE_DATE_VALUE', payload: value });
+    dispatch(setDetailsDueDateValueAction(value));
   };
 
   const handleDetailsPONumberTitle = (value) => {
-    dispatch({ type: 'SET_DETAILS_PO_NUMBER_TITLE', payload: value });
+    dispatch(setDetailsPONumberTitleAction(value));
   };
 
   const handleDetailsPONumberValue = (value) => {
-    dispatch({ type: 'SET_DETAILS_PO_NUMBER_VALUE', payload: value });
+    dispatch(setDetailsPONumberValueAction(value));
   };
 
   return (
