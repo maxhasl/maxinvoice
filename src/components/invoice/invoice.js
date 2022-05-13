@@ -10,10 +10,10 @@ import styles from './invoice.module.scss';
 const Invoice = () => {
   const dispatch = useDispatch();
 
-  const title = useSelector((state) => state.title);
-  const number = useSelector((state) => state.number);
+  const title = useSelector((state) => state.main.title);
+  const number = useSelector((state) => state.main.number);
   const { placeholder: logoPlacehplder, value: logoValue } = useSelector(
-    (state) => state.logo
+    (state) => state.main.logo
   );
 
   const { placeholder: contactFromPlaceholder, value: contactFromValue } =
