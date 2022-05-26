@@ -1,13 +1,6 @@
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  setContactBillTitleAction,
-  setContactBillValueAction,
-  setContactFromAction,
-  setContactShipTitleAction,
-  setContactShipValueAction,
-} from '../../redux/features/contact';
-import {
   setDetailsDateTitleAction,
   setDetailsDateValueAction,
   setDetailsDueDateTitleAction,
@@ -17,30 +10,15 @@ import {
   setDetailsTermsTitleAction,
   setDetailsTermsValueAction,
 } from '../../redux/features/details';
+import Contact from '../contact';
 import InputFile from '../input-file';
 import InputGroup from '../input-group';
 import InputNumber from '../input-number';
-import InputTextarea from '../input-textarea';
 import InputTitle from '../input-title';
 import styles from './invoice.module.scss';
 
 const Invoice = () => {
   const dispatch = useDispatch();
-
-  const { placeholder: contactFromPlaceholder, value: contactFromValue } =
-    useSelector((state) => state.contact.from);
-
-  const {
-    placeholder: contactFromBillPlaceholder,
-    title: contactFromBillName,
-    value: contactFromBillValue,
-  } = useSelector((state) => state.contact.bill);
-
-  const {
-    placeholder: contactFromShipPlaceholder,
-    title: contactFromShipName,
-    value: contactFromShipValue,
-  } = useSelector((state) => state.contact.ship);
 
   const { title: detailsDateTitle, value: detailsDateValue } = useSelector(
     (state) => state.details.date
@@ -55,26 +33,6 @@ const Invoice = () => {
 
   const { title: detailsPONumberTitle, value: detailsPONumberValue } =
     useSelector((state) => state.details.poNumber);
-
-  const handleContactFrom = (value) => {
-    dispatch(setContactFromAction(value));
-  };
-
-  const handleContactBillTitle = (value) => {
-    dispatch(setContactBillTitleAction(value));
-  };
-
-  const handleContactBillValue = (value) => {
-    dispatch(setContactBillValueAction(value));
-  };
-
-  const handleContactShipTitle = (value) => {
-    dispatch(setContactShipTitleAction(value));
-  };
-
-  const handleContactShipValue = (value) => {
-    dispatch(setContactShipValueAction(value));
-  };
 
   const handleDetailsDateTitle = (value) => {
     dispatch(setDetailsDateTitleAction(value));
@@ -116,37 +74,7 @@ const Invoice = () => {
             <div className={styles.form__logo}>
               <InputFile />
             </div>
-            <div className={styles.form__area_m}>
-              <InputTextarea
-                initialValue={contactFromValue}
-                getValue={handleContactFrom}
-                placeholder={contactFromPlaceholder}
-              />
-            </div>
-            <div className={styles.form__row_s}>
-              <div className={styles.form__col}>
-                <InputGroup
-                  initialName={contactFromBillName}
-                  getName={handleContactBillTitle}
-                  initialValue={contactFromBillValue}
-                  getValue={handleContactBillValue}
-                  placeholder={contactFromBillPlaceholder}
-                  type="col"
-                  child="textarea"
-                />
-              </div>
-              <div className={styles.form__col}>
-                <InputGroup
-                  initialName={contactFromShipName}
-                  getName={handleContactShipTitle}
-                  initialValue={contactFromShipValue}
-                  getValue={handleContactShipValue}
-                  placeholder={contactFromShipPlaceholder}
-                  type="col"
-                  child="textarea"
-                />
-              </div>
-            </div>
+            <Contact />
           </div>
           <div className={cn(styles.form__col, styles.form__col_rtl)}>
             <div className={styles.form__title}>

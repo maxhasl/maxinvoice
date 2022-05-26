@@ -1,3 +1,11 @@
+import {
+  SET_CONTACT_FROM,
+  SET_CONTACT_BILL_TITLE,
+  SET_CONTACT_BILL_VALUE,
+  SET_CONTACT_SHIP_TITLE,
+  SET_CONTACT_SHIP_VALUE,
+} from '../constants';
+
 const defaultState = {
   from: {
     placeholder: 'Who is this invoice from? (required)',
@@ -15,15 +23,9 @@ const defaultState = {
   },
 };
 
-const SET_CONTACT_FROM = 'SET_CONTACT_FROM';
-const SET_CONTACT_BILL_TITLE = 'SET_CONTACT_BILL_TITLE';
-const SET_CONTACT_BILL_VALUE = 'SET_CONTACT_BILL_VALUE';
-const SET_CONTACT_SHIP_TITLE = 'SET_CONTACT_SHIP_TITLE';
-const SET_CONTACT_SHIP_VALUE = 'SET_CONTACT_SHIP_VALUE';
-
 const contactReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case 'SET_CONTACT_FROM':
+    case SET_CONTACT_FROM:
       return {
         ...state,
         from: {
@@ -31,7 +33,7 @@ const contactReducer = (state = defaultState, action) => {
           value: action.payload,
         },
       };
-    case 'SET_CONTACT_BILL_TITLE':
+    case SET_CONTACT_BILL_TITLE:
       return {
         ...state,
         bill: {
@@ -39,7 +41,7 @@ const contactReducer = (state = defaultState, action) => {
           title: action.payload,
         },
       };
-    case 'SET_CONTACT_BILL_VALUE':
+    case SET_CONTACT_BILL_VALUE:
       return {
         ...state,
         bill: {
@@ -47,7 +49,7 @@ const contactReducer = (state = defaultState, action) => {
           value: action.payload,
         },
       };
-    case 'SET_CONTACT_SHIP_TITLE':
+    case SET_CONTACT_SHIP_TITLE:
       return {
         ...state,
         ship: {
@@ -55,7 +57,7 @@ const contactReducer = (state = defaultState, action) => {
           title: action.payload,
         },
       };
-    case 'SET_CONTACT_SHIP_VALUE':
+    case SET_CONTACT_SHIP_VALUE:
       return {
         ...state,
         ship: {
@@ -70,24 +72,3 @@ const contactReducer = (state = defaultState, action) => {
 };
 
 export default contactReducer;
-
-export const setContactFromAction = (payload) => ({
-  type: SET_CONTACT_FROM,
-  payload,
-});
-export const setContactBillTitleAction = (payload) => ({
-  type: SET_CONTACT_BILL_TITLE,
-  payload,
-});
-export const setContactBillValueAction = (payload) => ({
-  type: SET_CONTACT_BILL_VALUE,
-  payload,
-});
-export const setContactShipTitleAction = (payload) => ({
-  type: SET_CONTACT_SHIP_TITLE,
-  payload,
-});
-export const setContactShipValueAction = (payload) => ({
-  type: SET_CONTACT_SHIP_VALUE,
-  payload,
-});
