@@ -1,3 +1,14 @@
+import {
+  SET_DETAILS_DATE_TITLE,
+  SET_DETAILS_DATE_VALUE,
+  SET_DETAILS_TERMS_TITLE,
+  SET_DETAILS_TERMS_VALUE,
+  SET_DETAILS_DUE_DATE_TITLE,
+  SET_DETAILS_DUE_DATE_VALUE,
+  SET_DETAILS_PO_NUMBER_TITLE,
+  SET_DETAILS_PO_NUMBER_VALUE,
+} from '../constants';
+
 const defaultState = {
   date: {
     title: 'Date',
@@ -17,18 +28,9 @@ const defaultState = {
   },
 };
 
-const SET_DETAILS_DATE_TITLE = 'SET_DETAILS_DATE_TITLE';
-const SET_DETAILS_DATE_VALUE = 'SET_DETAILS_DATE_VALUE';
-const SET_DETAILS_TERMS_TITLE = 'SET_DETAILS_TERMS_TITLE';
-const SET_DETAILS_TERMS_VALUE = 'SET_DETAILS_TERMS_VALUE';
-const SET_DETAILS_DUE_DATE_TITLE = 'SET_DETAILS_DUE_DATE_TITLE';
-const SET_DETAILS_DUE_DATE_VALUE = 'SET_DETAILS_DUE_DATE_VALUE';
-const SET_DETAILS_PO_NUMBER_TITLE = 'SET_DETAILS_PO_NUMBER_TITLE';
-const SET_DETAILS_PO_NUMBER_VALUE = 'SET_DETAILS_PO_NUMBER_VALUE';
-
 const detailsReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case 'SET_DETAILS_DATE_TITLE':
+    case SET_DETAILS_DATE_TITLE:
       return {
         ...state,
         date: {
@@ -36,7 +38,7 @@ const detailsReducer = (state = defaultState, action) => {
           title: action.payload,
         },
       };
-    case 'SET_DETAILS_DATE_VALUE':
+    case SET_DETAILS_DATE_VALUE:
       return {
         ...state,
         date: {
@@ -44,7 +46,7 @@ const detailsReducer = (state = defaultState, action) => {
           value: action.payload,
         },
       };
-    case 'SET_DETAILS_TERMS_TITLE':
+    case SET_DETAILS_TERMS_TITLE:
       return {
         ...state,
         terms: {
@@ -52,7 +54,7 @@ const detailsReducer = (state = defaultState, action) => {
           title: action.payload,
         },
       };
-    case 'SET_DETAILS_TERMS_VALUE':
+    case SET_DETAILS_TERMS_VALUE:
       return {
         ...state,
         terms: {
@@ -60,7 +62,7 @@ const detailsReducer = (state = defaultState, action) => {
           value: action.payload,
         },
       };
-    case 'SET_DETAILS_DUE_DATE_TITLE':
+    case SET_DETAILS_DUE_DATE_TITLE:
       return {
         ...state,
         dueDate: {
@@ -68,7 +70,7 @@ const detailsReducer = (state = defaultState, action) => {
           title: action.payload,
         },
       };
-    case 'SET_DETAILS_DUE_DATE_VALUE':
+    case SET_DETAILS_DUE_DATE_VALUE:
       return {
         ...state,
         dueDate: {
@@ -76,7 +78,7 @@ const detailsReducer = (state = defaultState, action) => {
           value: action.payload,
         },
       };
-    case 'SET_DETAILS_PO_NUMBER_TITLE':
+    case SET_DETAILS_PO_NUMBER_TITLE:
       return {
         ...state,
         poNumber: {
@@ -84,7 +86,7 @@ const detailsReducer = (state = defaultState, action) => {
           title: action.payload,
         },
       };
-    case 'SET_DETAILS_PO_NUMBER_VALUE':
+    case SET_DETAILS_PO_NUMBER_VALUE:
       return {
         ...state,
         poNumber: {
@@ -98,36 +100,3 @@ const detailsReducer = (state = defaultState, action) => {
 };
 
 export default detailsReducer;
-
-export const setDetailsDateTitleAction = (payload) => ({
-  type: SET_DETAILS_DATE_TITLE,
-  payload,
-});
-export const setDetailsDateValueAction = (payload) => ({
-  type: SET_DETAILS_DATE_VALUE,
-  payload,
-});
-export const setDetailsTermsTitleAction = (payload) => ({
-  type: SET_DETAILS_TERMS_TITLE,
-  payload,
-});
-export const setDetailsTermsValueAction = (payload) => ({
-  type: SET_DETAILS_TERMS_VALUE,
-  payload,
-});
-export const setDetailsDueDateTitleAction = (payload) => ({
-  type: SET_DETAILS_DUE_DATE_TITLE,
-  payload,
-});
-export const setDetailsDueDateValueAction = (payload) => ({
-  type: SET_DETAILS_DUE_DATE_VALUE,
-  payload,
-});
-export const setDetailsPONumberTitleAction = (payload) => ({
-  type: SET_DETAILS_PO_NUMBER_TITLE,
-  payload,
-});
-export const setDetailsPONumberValueAction = (payload) => ({
-  type: SET_DETAILS_PO_NUMBER_VALUE,
-  payload,
-});
