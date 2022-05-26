@@ -1,17 +1,24 @@
-import useValue from '../../hooks/use-value';
+import { connect } from 'react-redux';
+import { setTitleAction } from '../../redux/actions';
 import styles from './input-title.module.scss';
 
-const InputTitle = ({ initialValue, handleTitle }) => {
-  const { value, onChange } = useValue(initialValue, handleTitle);
-
+const InputTitle = ({ title, onChange }) => {
   return (
     <input
       type="text"
       className={styles.title}
-      value={value}
+      value={title}
       onChange={onChange}
     />
   );
 };
 
-export default InputTitle;
+const mapStateToProps = (state) => ({
+  title: state.main.title
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  onChange: (e) => dispatch(setTitleAction(e.target.value))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputTitle);

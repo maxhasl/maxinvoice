@@ -1,8 +1,8 @@
-import useValue from '../../hooks/use-value';
+import { connect } from 'react-redux';
+import { setNumberAction } from '../../redux/actions';
 import styles from './input-number.module.scss';
 
-const InputNumber = ({ initialValue, getValue }) => {
-  const { value, onChange } = useValue(initialValue, getValue);
+const InputNumber = ({ number, onChange }) => {
 
   return (
     <div className={styles.container}>
@@ -10,11 +10,19 @@ const InputNumber = ({ initialValue, getValue }) => {
       <input
         type="number"
         className={styles.number}
-        value={value}
+        value={number}
         onChange={onChange}
       />
     </div>
   );
 };
 
-export default InputNumber;
+const mapStateToProps = (state) => ({
+  number: state.main.number
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  onChange: (e) => dispatch(setNumberAction(+e.target.value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputNumber);

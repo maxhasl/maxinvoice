@@ -1,33 +1,20 @@
-import { useState } from 'react';
+import { connect } from 'react-redux';
+import { setLogoAction, removeLogoAction } from '../../redux/actions';
 import { ReactComponent as Plus } from './plus.svg';
 import { ReactComponent as Close } from './close.svg';
 import styles from './input-file.module.scss';
 
-const InputFile = ({ initialValue, placeholder, getValue }) => {
-  const [image, setImage] = useState(initialValue);
-
-  const getLogoUrl = (e) => {
-    if (e.target.files.length !== 0) {
-      setImage(URL.createObjectURL(e.target.files[0]));
-      getValue(URL.createObjectURL(e.target.files[0]));
-    }
-  };
-
-  const removeLogo = (e) => {
-    e.preventDefault();
-    setImage(null);
-    getValue(null);
-  };
+const InputFile = ({ placeholder, value, onChange, remove }) => {
 
   return (
     <label className={styles.label}>
-      <input type="file" className={styles.file} onChange={getLogoUrl} />
-      {image ? (
+      <input type="file" accept="image/png, image/gif, image/jpeg" className={styles.file} onChange={onChange} />
+      {value ? (
         <div className={styles.imgContainer}>
-          <button className={styles.remove} onClick={removeLogo}>
+          <button className={styles.remove} onClick={remove}>
             <Close className={styles.removeIcon} />
           </button>
-          <img src={image} alt="Logo" className={styles.img} />
+          <img src={value} alt="Logo" className={styles.img} />
         </div>
       ) : (
         <div className={styles.placeholder}>
@@ -38,4 +25,17 @@ const InputFile = ({ initialValue, placeholder, getValue }) => {
   );
 };
 
-export default InputFile;
+const mapStateToProps = (state) => ({
+  value: state.main.logo.value,
+  placeholder: state.main.logo.placeholder
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  onChange: (e) => dispatch(setLogoAction(URL.createObjectURL(e.target.files[0]) || null)),
+  remove: (e) => {
+    e.preventDefault()
+    dispatch(removeLogoAction())
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputFile);

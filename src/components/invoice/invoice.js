@@ -17,11 +17,6 @@ import {
   setDetailsTermsTitleAction,
   setDetailsTermsValueAction,
 } from '../../redux/features/details';
-import {
-  setLogoAction,
-  setNumberAction,
-  setTitleAction,
-} from '../../redux/features/main';
 import InputFile from '../input-file';
 import InputGroup from '../input-group';
 import InputNumber from '../input-number';
@@ -31,12 +26,6 @@ import styles from './invoice.module.scss';
 
 const Invoice = () => {
   const dispatch = useDispatch();
-
-  const title = useSelector((state) => state.main.title);
-  const number = useSelector((state) => state.main.number);
-  const { placeholder: logoPlacehplder, value: logoValue } = useSelector(
-    (state) => state.main.logo
-  );
 
   const { placeholder: contactFromPlaceholder, value: contactFromValue } =
     useSelector((state) => state.contact.from);
@@ -66,18 +55,6 @@ const Invoice = () => {
 
   const { title: detailsPONumberTitle, value: detailsPONumberValue } =
     useSelector((state) => state.details.poNumber);
-
-  const handleTitle = (value) => {
-    dispatch(setTitleAction(value));
-  };
-
-  const handleNumber = (value) => {
-    dispatch(setNumberAction(value));
-  };
-
-  const handleLogo = (value) => {
-    dispatch(setLogoAction(value));
-  };
 
   const handleContactFrom = (value) => {
     dispatch(setContactFromAction(value));
@@ -137,11 +114,7 @@ const Invoice = () => {
         <form className={styles.form}>
           <div className={styles.form__col}>
             <div className={styles.form__logo}>
-              <InputFile
-                initialValue={logoValue}
-                getValue={handleLogo}
-                placeholder={logoPlacehplder}
-              />
+              <InputFile />
             </div>
             <div className={styles.form__area_m}>
               <InputTextarea
@@ -177,10 +150,10 @@ const Invoice = () => {
           </div>
           <div className={cn(styles.form__col, styles.form__col_rtl)}>
             <div className={styles.form__title}>
-              <InputTitle initialValue={title} handleTitle={handleTitle} />
+              <InputTitle />
             </div>
             <div className={styles.form__number}>
-              <InputNumber initialValue={number} getValue={handleNumber} />
+              <InputNumber />
             </div>
             <div className={styles.form__details}>
               <InputGroup
