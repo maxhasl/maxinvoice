@@ -2,13 +2,17 @@ import { connect } from 'react-redux';
 import { setLogoAction, removeLogoAction } from '../../redux/actions';
 import { ReactComponent as Plus } from './plus.svg';
 import { ReactComponent as Close } from './close.svg';
-import styles from './input-file.module.scss';
+import styles from './logo.module.scss';
 
-const InputFile = ({ placeholder, value, onChange, remove }) => {
-
+const Logo = ({ placeholder, value, onChange, remove }) => {
   return (
     <label className={styles.label}>
-      <input type="file" accept="image/png, image/gif, image/jpeg" className={styles.file} onChange={onChange} />
+      <input
+        type="file"
+        accept="image/png, image/gif, image/jpeg"
+        className={styles.file}
+        onChange={onChange}
+      />
       {value ? (
         <div className={styles.imgContainer}>
           <button className={styles.remove} onClick={remove}>
@@ -27,15 +31,19 @@ const InputFile = ({ placeholder, value, onChange, remove }) => {
 
 const mapStateToProps = (state) => ({
   value: state.main.logo.value,
-  placeholder: state.main.logo.placeholder
-})
+  placeholder: state.main.logo.placeholder,
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  onChange: (e) => dispatch(setLogoAction(URL.createObjectURL(e.target.files[0]) || null)),
+  onChange: (e) => {
+    e.target.files.length
+      ? dispatch(setLogoAction(URL.createObjectURL(e.target.files[0])))
+      : dispatch(removeLogoAction());
+  },
   remove: (e) => {
-    e.preventDefault()
-    dispatch(removeLogoAction())
-  }
-})
+    e.preventDefault();
+    dispatch(removeLogoAction());
+  },
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputFile);
+export default connect(mapStateToProps, mapDispatchToProps)(Logo);

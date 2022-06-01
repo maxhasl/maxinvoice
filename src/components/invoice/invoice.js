@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import Contact from '../contact';
 import Details from '../details/details';
-import InputFile from '../input-file';
+import Logo from '../logo';
 import InputNumber from '../input-number';
 import InputTitle from '../input-title';
 import styles from './invoice.module.scss';
@@ -13,7 +13,7 @@ const Invoice = () => {
         <form className={styles.form}>
           <div className={styles.form__col}>
             <div className={styles.form__logo}>
-              <InputFile />
+              <Logo />
             </div>
             <Contact />
           </div>
