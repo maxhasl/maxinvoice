@@ -2,15 +2,15 @@ import { connect } from 'react-redux';
 import InputGroup from '../input-group';
 import styles from '../invoice/invoice.module.scss';
 import {
-  setDetailsDateTitleAction,
-  setDetailsDateValueAction,
-  setDetailsDueDateTitleAction,
-  setDetailsDueDateValueAction,
-  setDetailsPONumberTitleAction,
-  setDetailsPONumberValueAction,
-  setDetailsTermsTitleAction,
-  setDetailsTermsValueAction,
-} from '../../redux/actions';
+  dateTitle,
+  dateValue,
+  termsTitle,
+  termsValue,
+  dueDateTitle,
+  dueDateValue,
+  poNumberTitle,
+  poNumberValue,
+} from '../../redux/features/details';
 
 export const Details = ({
   detailsDateTitle,
@@ -80,20 +80,14 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleDetailsDateTitle: (value) => dispatch(setDetailsDateTitleAction(value)),
-  handleDetailsDateValue: (value) => dispatch(setDetailsDateValueAction(value)),
-  handleDetailsTermsTitle: (value) =>
-    dispatch(setDetailsTermsTitleAction(value)),
-  handleDetailsTermsValue: (value) =>
-    dispatch(setDetailsTermsValueAction(value)),
-  handleDetailsDueDateTitle: (value) =>
-    dispatch(setDetailsDueDateTitleAction(value)),
-  handleDetailsDueDateValue: (value) =>
-    dispatch(setDetailsDueDateValueAction(value)),
-  handleDetailsPONumberTitle: (value) =>
-    dispatch(setDetailsPONumberTitleAction(value)),
-  handleDetailsPONumberValue: (value) =>
-    dispatch(setDetailsPONumberValueAction(value)),
+  handleDetailsDateTitle: (value) => dispatch(dateTitle(value)),
+  handleDetailsDateValue: (value) => dispatch(dateValue(String(value))),
+  handleDetailsTermsTitle: (value) => dispatch(termsTitle(value)),
+  handleDetailsTermsValue: (value) => dispatch(termsValue(value)),
+  handleDetailsDueDateTitle: (value) => dispatch(dueDateTitle(value)),
+  handleDetailsDueDateValue: (value) => dispatch(dueDateValue(String(value))),
+  handleDetailsPONumberTitle: (value) => dispatch(poNumberTitle(value)),
+  handleDetailsPONumberValue: (value) => dispatch(poNumberValue(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Details);

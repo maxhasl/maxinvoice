@@ -1,18 +1,9 @@
-import {
-  SET_DETAILS_DATE_TITLE,
-  SET_DETAILS_DATE_VALUE,
-  SET_DETAILS_TERMS_TITLE,
-  SET_DETAILS_TERMS_VALUE,
-  SET_DETAILS_DUE_DATE_TITLE,
-  SET_DETAILS_DUE_DATE_VALUE,
-  SET_DETAILS_PO_NUMBER_TITLE,
-  SET_DETAILS_PO_NUMBER_VALUE,
-} from '../constants';
+import { createSlice } from '@reduxjs/toolkit';
 
-const defaultState = {
+const initialState = {
   date: {
     title: 'Date',
-    value: new Date(),
+    value: String(new Date()),
   },
   terms: {
     title: 'Patment Terms',
@@ -28,75 +19,57 @@ const defaultState = {
   },
 };
 
-const detailsReducer = (state = defaultState, action) => {
-  switch (action.type) {
-    case SET_DETAILS_DATE_TITLE:
-      return {
-        ...state,
-        date: {
-          ...state.date,
-          title: action.payload,
-        },
-      };
-    case SET_DETAILS_DATE_VALUE:
-      return {
-        ...state,
-        date: {
-          ...state.date,
-          value: action.payload,
-        },
-      };
-    case SET_DETAILS_TERMS_TITLE:
-      return {
-        ...state,
-        terms: {
-          ...state.terms,
-          title: action.payload,
-        },
-      };
-    case SET_DETAILS_TERMS_VALUE:
-      return {
-        ...state,
-        terms: {
-          ...state.terms,
-          value: action.payload,
-        },
-      };
-    case SET_DETAILS_DUE_DATE_TITLE:
-      return {
-        ...state,
-        dueDate: {
-          ...state.dueDate,
-          title: action.payload,
-        },
-      };
-    case SET_DETAILS_DUE_DATE_VALUE:
-      return {
-        ...state,
-        dueDate: {
-          ...state.dueDate,
-          value: action.payload,
-        },
-      };
-    case SET_DETAILS_PO_NUMBER_TITLE:
-      return {
-        ...state,
-        poNumber: {
-          ...state.poNumber,
-          title: action.payload,
-        },
-      };
-    case SET_DETAILS_PO_NUMBER_VALUE:
-      return {
-        ...state,
-        poNumber: {
-          ...state.poNumber,
-          value: action.payload,
-        },
-      };
-    default:
-      return state;
-  }
-};
+const { reducer, actions } = createSlice({
+  name: 'details',
+  initialState,
+  reducers: {
+    dateTitle(state, { payload: value }) {
+      state.date.title = value;
+    },
+    dateValue(state, { payload: value }) {
+      state.date.value = value;
+    },
+    termsTitle(state, { payload: value }) {
+      state.terms.title = value;
+    },
+    termsValue(state, { payload: value }) {
+      state.terms.value = value;
+    },
+    dueDateTitle(state, { payload: value }) {
+      state.dueDate.title = value;
+    },
+    dueDateValue(state, { payload: value }) {
+      state.dueDate.value = value;
+    },
+    poNumberTitle(state, { payload: value }) {
+      state.poNumber.title = value;
+    },
+    poNumberValue(state, { payload: value }) {
+      state.poNumber.value = value;
+    },
+  },
+});
 
-export default detailsReducer;
+export default reducer;
+
+const {
+  dateTitle,
+  dateValue,
+  termsTitle,
+  termsValue,
+  dueDateTitle,
+  dueDateValue,
+  poNumberTitle,
+  poNumberValue,
+} = actions;
+
+export {
+  dateTitle,
+  dateValue,
+  termsTitle,
+  termsValue,
+  dueDateTitle,
+  dueDateValue,
+  poNumberTitle,
+  poNumberValue,
+};

@@ -1,12 +1,6 @@
-import {
-  SET_CONTACT_FROM,
-  SET_CONTACT_BILL_TITLE,
-  SET_CONTACT_BILL_VALUE,
-  SET_CONTACT_SHIP_TITLE,
-  SET_CONTACT_SHIP_VALUE,
-} from '../constants';
+import { createSlice } from '@reduxjs/toolkit';
 
-const defaultState = {
+const initialState = {
   from: {
     placeholder: 'Who is this invoice from? (required)',
     value: '',
@@ -23,52 +17,30 @@ const defaultState = {
   },
 };
 
-const contactReducer = (state = defaultState, action) => {
-  switch (action.type) {
-    case SET_CONTACT_FROM:
-      return {
-        ...state,
-        from: {
-          ...state.from,
-          value: action.payload,
-        },
-      };
-    case SET_CONTACT_BILL_TITLE:
-      return {
-        ...state,
-        bill: {
-          ...state.bill,
-          title: action.payload,
-        },
-      };
-    case SET_CONTACT_BILL_VALUE:
-      return {
-        ...state,
-        bill: {
-          ...state.bill,
-          value: action.payload,
-        },
-      };
-    case SET_CONTACT_SHIP_TITLE:
-      return {
-        ...state,
-        ship: {
-          ...state.ship,
-          title: action.payload,
-        },
-      };
-    case SET_CONTACT_SHIP_VALUE:
-      return {
-        ...state,
-        ship: {
-          ...state.ship,
-          value: action.payload,
-        },
-      };
+const { reducer, actions } = createSlice({
+  name: 'contact',
+  initialState,
+  reducers: {
+    from(state, { payload: value }) {
+      state.from.value = value;
+    },
+    billTitle(state, { payload: value }) {
+      state.bill.title = value;
+    },
+    billValue(state, { payload: value }) {
+      state.bill.value = value;
+    },
+    shipTitle(state, { payload: value }) {
+      state.ship.title = value;
+    },
+    shipValue(state, { payload: value }) {
+      state.ship.value = value;
+    },
+  },
+});
 
-    default:
-      return state;
-  }
-};
+export default reducer;
 
-export default contactReducer;
+const { from, billTitle, billValue, shipTitle, shipValue } = actions;
+
+export { from, billTitle, billValue, shipTitle, shipValue };

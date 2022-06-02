@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setLogoAction, removeLogoAction } from '../../redux/actions';
+import { setLogo, removeLogo } from '../../redux/features/main';
 import { ReactComponent as Plus } from './plus.svg';
 import { ReactComponent as Close } from './close.svg';
 import styles from './logo.module.scss';
@@ -37,12 +37,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onChange: (e) => {
     e.target.files.length
-      ? dispatch(setLogoAction(URL.createObjectURL(e.target.files[0])))
-      : dispatch(removeLogoAction());
+      ? dispatch(setLogo(URL.createObjectURL(e.target.files[0])))
+      : dispatch(removeLogo());
   },
   remove: (e) => {
     e.preventDefault();
-    dispatch(removeLogoAction());
+    dispatch(removeLogo());
   },
 });
 

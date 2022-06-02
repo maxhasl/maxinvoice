@@ -1,6 +1,6 @@
-import { SET_LOGO, REMOVE_LOGO, SET_NUMBER, SET_TITLE } from "../constants";
+import { createSlice } from '@reduxjs/toolkit';
 
-const defaultState = {
+const initialState = {
   title: 'INVOICE',
   number: 7,
   logo: {
@@ -9,31 +9,27 @@ const defaultState = {
   },
 };
 
-const mainReducer = (state = defaultState, action) => {
-  switch (action.type) {
-    case SET_TITLE:
-      return { ...state, title: action.payload };
-    case SET_NUMBER:
-      return { ...state, number: action.payload < 1 ? 1 : action.payload };
-    case SET_LOGO:
-      return {
-        ...state,
-        logo: {
-          ...state.logo,
-          value: action.payload,
-        },
-      };
-      case REMOVE_LOGO:
-        return {
-          ...state,
-          logo: {
-            ...state.logo,
-            value: null,
-          },
-        };
-    default:
-      return state;
-  }
-};
+const { reducer, actions } = createSlice({
+  name: 'main',
+  initialState,
+  reducers: {
+    title(state, { payload: value }) {
+      state.title = value;
+    },
+    number(state, { payload: value }) {
+      state.number = value > 0 ? value : 1;
+    },
+    setLogo(state, { payload: value }) {
+      state.logo.value = value;
+    },
+    removeLogo(state) {
+      state.logo.value = null;
+    },
+  },
+});
 
-export default mainReducer;
+export default reducer;
+
+const { title, number, setLogo, removeLogo } = actions;
+
+export { title, number, setLogo, removeLogo };

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setTitleAction } from '../../redux/actions';
+import { title } from '../../redux/features/main';
 import styles from './input-title.module.scss';
 
 const InputTitle = ({ title, onChange }) => {
@@ -14,11 +14,11 @@ const InputTitle = ({ title, onChange }) => {
 };
 
 const mapStateToProps = (state) => ({
-  title: state.main.title
-})
+  title: state.main.title,
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  onChange: (e) => dispatch(setTitleAction(e.target.value))
-})
+  onChange: (e) => dispatch(title(e.target.value)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(InputTitle);

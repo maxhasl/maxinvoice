@@ -1,12 +1,9 @@
-import { combineReducers } from 'redux';
-import contactReducer from './features/contact';
-import detailsReducer from './features/details';
-import mainReducer from './features/main';
+import contact from './features/contact';
+import details from './features/details';
+import main from './features/main';
 
-const reducer = combineReducers({
-  main: mainReducer,
-  contact: contactReducer,
-  details: detailsReducer,
-});
-
-export default reducer;
+export default {
+  main,
+  contact,
+  details,
+};

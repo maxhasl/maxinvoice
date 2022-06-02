@@ -1,11 +1,11 @@
-import { useState } from 'react';
 import cn from 'classnames';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import InputGroupName from './input-group-name';
 import InputTextarea from '../input-textarea';
-import styles from './input-group.module.scss';
 import InputText from '../input-text';
+
+import InputGroupDatepicker from './input-group-datepicker';
+
+import styles from './input-group.module.scss';
 
 const InputGroup = ({
   initialName,
@@ -16,7 +16,6 @@ const InputGroup = ({
   type,
   child,
 }) => {
-  const [startDate, setStartDate] = useState(initialValue);
   const classType = type === 'col' ? true : false;
 
   const switchChild = (child) => {
@@ -32,17 +31,10 @@ const InputGroup = ({
       case 'text':
         return <InputText initialValue={initialValue} getValue={getValue} />;
       case 'date':
-        const onChange = (date) => {
-          setStartDate(date);
-          getValue(date);
-        };
         return (
-          <DatePicker
-            selected={startDate}
-            onChange={onChange}
-            wrapperClassName={styles.datepicker_wrapper}
-            className={styles.datepicker_input}
-            popperClassName={styles.datepicker__popper}
+          <InputGroupDatepicker
+            initialValue={initialValue}
+            getValue={getValue}
           />
         );
       default:

@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import InputTextarea from '../input-textarea';
 import InputGroup from '../input-group';
 import {
-  setContactFromAction,
-  setContactBillTitleAction,
-  setContactBillValueAction,
-  setContactShipTitleAction,
-  setContactShipValueAction,
-} from '../../redux/actions';
+  from,
+  billTitle,
+  billValue,
+  shipTitle,
+  shipValue,
+} from '../../redux/features/contact';
 import styles from '../invoice/invoice.module.scss';
 
 const Contact = ({
@@ -76,11 +76,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleContactFrom: (value) => dispatch(setContactFromAction(value)),
-  handleContactBillTitle: (value) => dispatch(setContactBillTitleAction(value)),
-  handleContactBillValue: (value) => dispatch(setContactBillValueAction(value)),
-  handleContactShipTitle: (value) => dispatch(setContactShipTitleAction(value)),
-  handleContactShipValue: (value) => dispatch(setContactShipValueAction(value)),
+  handleContactFrom: (value) => dispatch(from(value)),
+  handleContactBillTitle: (value) => dispatch(billTitle(value)),
+  handleContactBillValue: (value) => dispatch(billValue(value)),
+  handleContactShipTitle: (value) => dispatch(shipTitle(value)),
+  handleContactShipValue: (value) => dispatch(shipValue(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contact);
