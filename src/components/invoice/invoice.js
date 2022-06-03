@@ -5,26 +5,32 @@ import Logo from '../logo';
 import InputNumber from '../input-number';
 import InputTitle from '../input-title';
 import styles from './invoice.module.scss';
+import List from '../list';
 
 const Invoice = () => {
   return (
     <section className={styles.body}>
       <div className={styles.container}>
         <form className={styles.form}>
-          <div className={styles.form__col}>
-            <div className={styles.form__logo}>
-              <Logo />
+          <div className={styles.form__row}>
+            <div className={styles.form__col}>
+              <div className={styles.form__logo}>
+                <Logo />
+              </div>
+              <Contact />
             </div>
-            <Contact />
+            <div className={cn(styles.form__col, styles.form__col_rtl)}>
+              <div className={styles.form__title}>
+                <InputTitle />
+              </div>
+              <div className={styles.form__number}>
+                <InputNumber />
+              </div>
+              <Details />
+            </div>
           </div>
-          <div className={cn(styles.form__col, styles.form__col_rtl)}>
-            <div className={styles.form__title}>
-              <InputTitle />
-            </div>
-            <div className={styles.form__number}>
-              <InputNumber />
-            </div>
-            <Details />
+          <div className={styles.form__row}>
+            <List />
           </div>
         </form>
         <div>Buttons here</div>

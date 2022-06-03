@@ -15,6 +15,7 @@
   text-align: inherit;
   outline: none;
   cursor: pointer;
+  transition: 0.2s all linear;
   &:hover {
     border-color: rgba(0, 0, 0, 0.1);
   }

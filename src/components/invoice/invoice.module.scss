@@ -12,7 +12,7 @@
 }
 .form {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   width: 916px;
   padding: 20px;
   background: white;
@@ -24,6 +24,10 @@
     7px 7px 0 rgba(0, 0, 0, 0.15);
   box-shadow: 1px 1px 0 rgb(0 0 0 / 10%), 3px 3px 0 #fff,
     4px 4px 0 rgb(0 0 0 / 13%), 6px 6px 0 #fff, 7px 7px 0 rgb(0 0 0 / 15%);
+}
+.form__row{
+  display: flex;
+  justify-content: space-between;
 }
 .form__col {
   width: calc(50% - 10px);
