@@ -11,7 +11,7 @@ const Invoice = () => {
   return (
     <section className={styles.body}>
       <div className={styles.container}>
-        <form className={styles.form}>
+        <div className={styles.form}>
           <div className={styles.form__row}>
             <div className={styles.form__col}>
               <div className={styles.form__logo}>
@@ -32,7 +32,7 @@ const Invoice = () => {
           <div className={styles.form__row}>
             <List />
           </div>
-        </form>
+        </div>
         <div>Buttons here</div>
       </div>
     </section>
