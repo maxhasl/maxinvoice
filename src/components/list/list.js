@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { ListAllSelector } from '../../redux/features/list';
 import ListAdd from './list-add/list-add';
 import ListHeader from './list-header';
 import ListItem from './list-item/list-item';
@@ -17,7 +18,7 @@ const List = ({ entities, add }) => {
 };
 
 const mapStateToProps = (state) => ({
-  entities: state.list,
+  entities: ListAllSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({});

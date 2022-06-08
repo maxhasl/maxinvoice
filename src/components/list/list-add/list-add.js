@@ -13,8 +13,8 @@ const ListAdd = ({ add }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  add: (e) => {
-    dispatch(add(Date.now()));
+  add: () => {
+    dispatch(add({ id: Date.now() }));
   },
 });
 

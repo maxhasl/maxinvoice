@@ -1,31 +1,41 @@
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import { ReactComponent as Close } from './close.svg';
-import { listItemSelector, remove, name } from '../../../redux/features/list';
+import {
+  listItemSelector,
+  remove,
+  name,
+  quantity,
+  cost,
+  amount,
+} from '../../../redux/features/list';
 import styles from './list-item.module.scss';
 
-const ListItem = ({ id, item, remove }) => {
+const ListItem = ({ item, remove, name, quantity, cost }) => {
   return (
     <div className={styles.wrapper}>
       <textarea
         type="textarea"
         className={cn(styles.input, styles.input__big, styles.textarea)}
-        defaultValue={item.name}
+        value={item.name}
+        onChange={name}
       />
       <input
         type="number"
         className={styles.input}
-        defaultValue={item.quantity}
+        value={item.quantity}
+        onChange={quantity}
       />
       <div className={styles.cost}>
         <span className={styles.currency}>$</span>
         <input
           type="number"
           className={cn(styles.input, styles.input__cost)}
-          defaultValue={item.cost}
+          value={item.cost}
+          onChange={cost}
         />
       </div>
-      <div className={styles.amount}>{item.amount}</div>
+      <div className={styles.amount}>${item.amount}</div>
       <button className={styles.remove} onClick={remove}>
         <Close className={styles.icon} />
       </button>
@@ -39,7 +49,16 @@ const mapStateToProps = (state, { id }) => ({
 
 const mapDispatchToProps = (dispatch, props) => ({
   remove: () => dispatch(remove(props.id)),
-  name: () => dispatch(name(props.id)),
+  name: (e) =>
+    dispatch(name({ id: props.id, changes: { name: e.target.value || '' } })),
+  quantity: (e) => {
+    dispatch(quantity({ id: props.id, quantity: e.target.value || '' }));
+    dispatch(amount(props.id));
+  },
+  cost: (e) => {
+    dispatch(cost({ id: props.id, cost: e.target.value || '' }));
+    dispatch(amount(props.id));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListItem);
