@@ -4,8 +4,10 @@ import Details from '../details/details';
 import Logo from '../logo';
 import InputNumber from '../input-number';
 import InputTitle from '../input-title';
-import styles from './invoice.module.scss';
 import List from '../list';
+import Description from '../description/description';
+
+import styles from './invoice.module.scss';
 
 const Invoice = () => {
   return (
@@ -31,6 +33,11 @@ const Invoice = () => {
           </div>
           <div className={styles.form__row}>
             <List />
+          </div>
+          <div className={styles.form__row}>
+            <div className={styles.form__col}>
+              <Description />
+            </div>
           </div>
         </div>
         <div>Buttons here</div>
