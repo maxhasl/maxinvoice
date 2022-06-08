@@ -5,6 +5,11 @@
     align-items: flex-start;
     width: 100%;
     margin-top: 2px;
+    &:hover{
+        .remove{
+            display: flex;
+        }
+    }
 }
 .input{
     width: 120px;
@@ -69,7 +74,7 @@
     font-family: Helvetica, Arial, sans-serif;
 }
 .remove{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     position: absolute;
