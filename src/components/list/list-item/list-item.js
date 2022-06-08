@@ -35,7 +35,7 @@ const ListItem = ({ item, remove, name, quantity, cost }) => {
           onChange={cost}
         />
       </div>
-      <div className={styles.amount}>${item.amount}</div>
+      <div className={styles.amount}>${item.amount.toLocaleString()}</div>
       <button className={styles.remove} onClick={remove}>
         <Close className={styles.icon} />
       </button>
