@@ -22,8 +22,6 @@ const { setTitle } = actions;
 
 export { setTitle };
 
-const selectState = (state) => state;
-
-export const subtotalSelector = createSelector(selectState, (state) => {
-  return ListAllSelector(state).reduce((acc, item) => acc + item.amount, 0);
-});
+export const subtotalSelector = createSelector(ListAllSelector, (state) =>
+  state.reduce((acc, item) => acc + item.amount, 0)
+);
