@@ -4,6 +4,7 @@ import main from './features/main';
 import listHeader from './features/list-header';
 import list from './features/list';
 import description from './features/description';
+import subtotal from './features/subtotal';
 
 export default {
   main,
@@ -12,4 +13,5 @@ export default {
   listHeader,
   list,
   description,
+  subtotal,
 };
