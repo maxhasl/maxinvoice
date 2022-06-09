@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Contact from '../contact';
 import Details from '../details/details';
 import Logo from '../logo';
-import InputNumber from '../input-number';
+import Number from '../number';
 import InputTitle from '../input-title';
 import List from '../list';
 import Description from '../description/description';
@@ -27,7 +27,7 @@ const Invoice = () => {
                 <InputTitle />
               </div>
               <div className={styles.form__number}>
-                <InputNumber />
+                <Number />
               </div>
               <Details />
             </div>
