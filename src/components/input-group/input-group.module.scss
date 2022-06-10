@@ -1,5 +1,11 @@
 .container {
   display: flex;
+  position: relative;
+  &:hover{
+    .remove{
+      opacity: 1;
+    }
+  }
 }
 .container_col {
   flex-direction: column;
@@ -38,4 +44,28 @@
   &:focus {
     border-color: #009e74;
   }
+}
+.remove{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 15px;
+    height: 10px;
+    right: -15px;
+    top: 12px;
+    padding: 0 0 0 5px;
+    background: 0;
+    border: 0;
+    opacity: 0;
+    cursor: pointer;
+    &:hover, &:focus{
+        .icon{
+            color: #009e74;
+        }
+    }
+}
+.icon{
+    color: #c4cdd5;
+    transition: 0.2s all linear;
 }

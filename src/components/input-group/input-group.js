@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { ReactComponent as Close } from './close.svg';
 import InputGroupName from './input-group-name';
 import InputTextarea from '../input-textarea';
 import InputText from '../input-text';
@@ -16,10 +17,15 @@ const InputGroup = ({
   initialType,
   getType,
   placeholder,
+  visible = true,
+  close = false,
+  setClose,
   controlled,
   type,
   child,
 }) => {
+  if (!visible) return null;
+
   const classType = type === 'col' ? true : false;
 
   const switchChild = (child) => {
@@ -41,6 +47,7 @@ const InputGroup = ({
             getValue={getValue}
             initialType={initialType}
             getType={getType}
+            visible={visible}
             controlled={controlled}
           />
         );
@@ -71,6 +78,11 @@ const InputGroup = ({
     >
       <InputGroupName initialName={initialName} getName={getName} />
       {switchChild(child)}
+      {close && (
+        <button className={styles.remove} onClick={setClose}>
+          <Close className={styles.icon} />
+        </button>
+      )}
     </div>
   );
 };

@@ -5,16 +5,22 @@ const initialState = {
     title: 'Discount',
     value: 0,
     type: 'percent',
+    visible: false,
+    button: true,
   },
   tax: {
     title: 'Tax',
     value: 0,
     type: 'percent',
+    visible: false,
+    button: true,
   },
   shipping: {
     title: 'Shipping',
     value: 0,
     type: 'cash',
+    visible: false,
+    button: true,
   },
 };
 
@@ -31,6 +37,11 @@ const { reducer, actions } = createSlice({
     setDiscountType(state, { payload: value }) {
       state.discount.type = value;
     },
+    setDiscountVisible(state) {
+      state.discount.visible = !state.discount.visible;
+      state.discount.button = !state.discount.button;
+    },
+
     setTaxTitle(state, { payload: value }) {
       state.tax.title = value;
     },
@@ -40,11 +51,20 @@ const { reducer, actions } = createSlice({
     setTaxType(state, { payload: value }) {
       state.tax.type = value;
     },
+    setTaxVisible(state) {
+      state.tax.visible = !state.tax.visible;
+      state.tax.button = !state.tax.button;
+    },
+
     setShippingTitle(state, { payload: value }) {
       state.shipping.title = value;
     },
     setShippingValue(state, { payload: value }) {
       state.shipping.value = value > 0 ? value : 0;
+    },
+    setShippingVisible(state) {
+      state.shipping.visible = !state.shipping.visible;
+      state.shipping.button = !state.shipping.button;
     },
   },
 });
@@ -60,6 +80,9 @@ const {
   setTaxType,
   setShippingTitle,
   setShippingValue,
+  setDiscountVisible,
+  setTaxVisible,
+  setShippingVisible,
 } = actions;
 
 export {
@@ -71,6 +94,9 @@ export {
   setTaxType,
   setShippingTitle,
   setShippingValue,
+  setDiscountVisible,
+  setTaxVisible,
+  setShippingVisible,
 };
 
 export const discountSelector = (state) => state.addons.discount;

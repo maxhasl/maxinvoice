@@ -1,19 +1,22 @@
 import { connect } from 'react-redux';
 import InputGroup from '../input-group';
+import AddonsControl from './addons-control/addons-control';
 import {
   setDiscountTitle,
   setDiscountValue,
   setDiscountType,
+  setDiscountVisible,
   setTaxTitle,
   setTaxValue,
   setTaxType,
+  setTaxVisible,
   setShippingTitle,
   setShippingValue,
+  setShippingVisible,
   discountSelector,
   taxSelector,
   shippingSelector,
 } from '../../redux/features/addons';
-
 import styles from './addons.module.scss';
 
 const Addons = ({
@@ -23,11 +26,14 @@ const Addons = ({
   setDiscountTitle,
   setDiscountValue,
   setDiscountType,
+  setDiscountVisible,
   setTaxTitle,
   setTaxValue,
   setTaxType,
+  setTaxVisible,
   setShippingTitle,
   setShippingValue,
+  setShippingVisible,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -38,6 +44,9 @@ const Addons = ({
         getValue={setDiscountValue}
         initialType={discount.type}
         getType={setDiscountType}
+        visible={discount.visible}
+        close={true}
+        setClose={setDiscountVisible}
         controlled
         type="row"
         child="number"
@@ -49,6 +58,9 @@ const Addons = ({
         getValue={setTaxValue}
         initialType={tax.type}
         getType={setTaxType}
+        visible={tax.visible}
+        close={true}
+        setClose={setTaxVisible}
         controlled
         type="row"
         child="number"
@@ -59,9 +71,13 @@ const Addons = ({
         initialValue={shipping.value}
         getValue={setShippingValue}
         initialType={shipping.type}
+        visible={shipping.visible}
+        close={true}
+        setClose={setShippingVisible}
         type="row"
         child="number"
       />
+      <AddonsControl />
     </div>
   );
 };
@@ -76,13 +92,16 @@ const mapDispatchToProps = (dispatch) => ({
   setDiscountTitle: (value) => dispatch(setDiscountTitle(value)),
   setDiscountValue: (value) => dispatch(setDiscountValue(+value)),
   setDiscountType: (value) => dispatch(setDiscountType(value)),
+  setDiscountVisible: () => dispatch(setDiscountVisible()),
 
   setTaxTitle: (value) => dispatch(setTaxTitle(value)),
   setTaxValue: (value) => dispatch(setTaxValue(+value)),
   setTaxType: (value) => dispatch(setTaxType(value)),
+  setTaxVisible: () => dispatch(setTaxVisible()),
 
   setShippingTitle: (value) => dispatch(setShippingTitle(value)),
   setShippingValue: (value) => dispatch(setShippingValue(+value)),
+  setShippingVisible: () => dispatch(setShippingVisible()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Addons);
