@@ -5,6 +5,7 @@ import listHeader from './features/list-header';
 import list from './features/list';
 import description from './features/description';
 import subtotal from './features/subtotal';
+import addons from './features/addons';
 
 export default {
   main,
@@ -14,4 +15,5 @@ export default {
   list,
   description,
   subtotal,
+  addons,
 };

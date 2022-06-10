@@ -7,6 +7,7 @@ import InputTitle from '../input-title';
 import List from '../list';
 import Description from '../description/description';
 import Subtotal from '../subtotal';
+import Addons from '../addons';
 
 import styles from './invoice.module.scss';
 
@@ -41,6 +42,7 @@ const Invoice = () => {
             </div>
             <div className={cn(styles.form__col, styles.form__col_rtl)}>
               <Subtotal />
+              <Addons />
             </div>
           </div>
         </div>

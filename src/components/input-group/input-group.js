@@ -2,6 +2,7 @@ import cn from 'classnames';
 import InputGroupName from './input-group-name';
 import InputTextarea from '../input-textarea';
 import InputText from '../input-text';
+import InputNumber from '../input-number';
 
 import InputGroupDatepicker from './input-group-datepicker';
 
@@ -12,7 +13,10 @@ const InputGroup = ({
   getName,
   initialValue,
   getValue,
+  initialType,
+  getType,
   placeholder,
+  controlled,
   type,
   child,
 }) => {
@@ -30,6 +34,16 @@ const InputGroup = ({
         );
       case 'text':
         return <InputText initialValue={initialValue} getValue={getValue} />;
+      case 'number':
+        return (
+          <InputNumber
+            initialValue={initialValue}
+            getValue={getValue}
+            initialType={initialType}
+            getType={getType}
+            controlled={controlled}
+          />
+        );
       case 'date':
         return (
           <InputGroupDatepicker
