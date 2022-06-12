@@ -1,5 +1,6 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
-import { ListAllSelector } from './list';
+import { listAllSelector } from './list';
+import { discountSelector } from './addons';
 
 const initialState = {
   subtotal: {
@@ -26,9 +27,14 @@ const { reducer, actions } = createSlice({
     setSubtotalValue(state, { payload: value }) {
       state.subtotal.value = value;
     },
+
     setTotalTitle(state, { payload: title }) {
       state.total.title = title;
     },
+    setTotalValue(state, { payload: value }) {
+      state.total.value = value;
+    },
+
     setBalanceDueTitle(state, { payload: title }) {
       state.balanceDue.title = title;
     },
@@ -42,6 +48,7 @@ const {
   setTotalTitle,
   setBalanceDueTitle,
   setSubtotalValue,
+  setTotalValue,
 } = actions;
 
 export {
@@ -49,12 +56,20 @@ export {
   setTotalTitle,
   setBalanceDueTitle,
   setSubtotalValue,
+  setTotalValue,
 };
 
-export const subtotalSelector = createSelector(ListAllSelector, (state) =>
-  state.reduce((acc, item) => acc + item.amount, 0)
+export const subtotalSelector = createSelector(listAllSelector, (entities) =>
+  entities.reduce((acc, item) => acc + item.amount, 0)
 );
 
-export const totalSelector = createSelector(ListAllSelector, (state) =>
-  state.reduce((acc, item) => acc + item.amount, 0)
+export const totalSelector = createSelector(
+  subtotalSelector,
+  discountSelector,
+  (subtotal, discount) => {
+    const { type, value } = discount;
+    const total =
+      type === 'cash' ? subtotal - value : subtotal - (subtotal / 100) * value;
+    return total;
+  }
 );

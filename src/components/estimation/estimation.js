@@ -4,10 +4,11 @@ import Addons from '../addons';
 import {
   setSubtotalTitle,
   setSubtotalValue,
-  setTotalTitle,
-  setBalanceDueTitle,
   subtotalSelector,
+  setTotalTitle,
+  setTotalValue,
   totalSelector,
+  setBalanceDueTitle,
 } from '../../redux/features/totals';
 
 import styles from './estimation.module.scss';
@@ -20,6 +21,7 @@ const Estimation = ({
   totalTitle,
   totalValue,
   setTotalTitle,
+  setTotalValue,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -30,7 +32,12 @@ const Estimation = ({
         getValue={setSubtotalValue}
       />
       <Addons />
-      {/* <Total title={totalTitle} value={totalValue} getTitle={setTotalTitle} /> */}
+      <Total
+        title={totalTitle}
+        value={totalValue}
+        getTitle={setTotalTitle}
+        getValue={setTotalValue}
+      />
       {/* <InputGroup
         initialName={shipping.title}
         getName={setShippingTitle}
@@ -59,7 +66,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setSubtotalTitle: (value) => dispatch(setSubtotalTitle(value)),
   setSubtotalValue: (value) => dispatch(setSubtotalValue(value)),
+
   setTotalTitle: (value) => dispatch(setTotalTitle(value)),
+  setTotalValue: (value) => dispatch(setTotalValue(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Estimation);

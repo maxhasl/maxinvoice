@@ -61,7 +61,7 @@ export { add, remove, name, quantity, cost, amount };
 
 export const listSelectors = List.getSelectors((state) => state.list);
 
-export const ListAllSelector = listSelectors.selectAll;
+export const listAllSelector = listSelectors.selectAll;
 
 export const listItemSelector = (state, id) =>
   listSelectors.selectById(state, id);
