@@ -1,6 +1,6 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { listAllSelector } from './list';
-import { discountSelector } from './addons';
+import { discountSelector, taxSelector, shippingSelector } from './addons';
 
 const initialState = {
   subtotal: {
@@ -66,10 +66,24 @@ export const subtotalSelector = createSelector(listAllSelector, (entities) =>
 export const totalSelector = createSelector(
   subtotalSelector,
   discountSelector,
-  (subtotal, discount) => {
-    const { type, value } = discount;
-    const total =
-      type === 'cash' ? subtotal - value : subtotal - (subtotal / 100) * value;
+  taxSelector,
+  shippingSelector,
+  (subtotal, discount, tax, shipping) => {
+    const { type: discountType, value: discountValue } = discount;
+    const { type: taxType, value: taxValue } = tax;
+    const { value: shippingValue } = shipping;
+
+    const discountTotal =
+      discountType === 'cash'
+        ? subtotal - discountValue
+        : subtotal - (subtotal / 100) * discountValue;
+
+    const taxTotal =
+      taxType === 'cash'
+        ? discountTotal + taxValue
+        : discountTotal + (discountTotal / 100) * taxValue;
+
+    const total = taxTotal + shippingValue;
     return total;
   }
 );
