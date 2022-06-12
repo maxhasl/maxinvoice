@@ -4,7 +4,7 @@ import main from './features/main';
 import listHeader from './features/list-header';
 import list from './features/list';
 import description from './features/description';
-import total from './features/total';
+import totals from './features/totals';
 import addons from './features/addons';
 
 export default {
@@ -14,6 +14,6 @@ export default {
   listHeader,
   list,
   description,
-  total,
+  totals,
   addons,
 };
