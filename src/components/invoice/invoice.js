@@ -5,9 +5,8 @@ import Logo from '../logo';
 import Number from '../number';
 import InputTitle from '../input-title';
 import List from '../list';
-import Description from '../description/description';
-import Total from '../total';
-import Addons from '../addons';
+import Description from '../description';
+import Estimation from '../estimation';
 
 import styles from './invoice.module.scss';
 
@@ -41,8 +40,7 @@ const Invoice = () => {
               <Description />
             </div>
             <div className={cn(styles.form__col, styles.form__col_rtl)}>
-              <Total />
-              <Addons />
+              <Estimation />
             </div>
           </div>
         </div>
