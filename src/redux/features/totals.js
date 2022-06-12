@@ -38,6 +38,9 @@ const { reducer, actions } = createSlice({
     setBalanceDueTitle(state, { payload: title }) {
       state.balanceDue.title = title;
     },
+    setBalanceDueValue(state, { payload: value }) {
+      state.balanceDue.value = value;
+    },
   },
 });
 
@@ -45,18 +48,20 @@ export default reducer;
 
 const {
   setSubtotalTitle,
-  setTotalTitle,
-  setBalanceDueTitle,
   setSubtotalValue,
+  setTotalTitle,
   setTotalValue,
+  setBalanceDueTitle,
+  setBalanceDueValue,
 } = actions;
 
 export {
   setSubtotalTitle,
-  setTotalTitle,
-  setBalanceDueTitle,
   setSubtotalValue,
+  setTotalTitle,
   setTotalValue,
+  setBalanceDueTitle,
+  setBalanceDueValue,
 };
 
 export const subtotalSelector = createSelector(listAllSelector, (entities) =>
@@ -86,4 +91,12 @@ export const totalSelector = createSelector(
     const total = taxTotal + shippingValue;
     return total;
   }
+);
+
+export const paidSelector = (state) => state.paid.value;
+
+export const balanceDueSelector = createSelector(
+  totalSelector,
+  paidSelector,
+  (total, paid) => total - paid
 );

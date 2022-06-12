@@ -9,7 +9,13 @@ import {
   setTotalValue,
   totalSelector,
   setBalanceDueTitle,
+  setBalanceDueValue,
+  balanceDueSelector,
 } from '../../redux/features/totals';
+
+import { setPaidTitle, setPaidValue } from '../../redux/features/paid';
+
+import InputGroup from '../input-group';
 
 import styles from './estimation.module.scss';
 
@@ -22,6 +28,15 @@ const Estimation = ({
   totalValue,
   setTotalTitle,
   setTotalValue,
+  paidTitle,
+  setPaidTitle,
+  paidValue,
+  setPaidValue,
+  paidType,
+  balanceDueTitle,
+  balanceDueValue,
+  setBalanceDueTitle,
+  setBalanceDueValue,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -38,19 +53,21 @@ const Estimation = ({
         getTitle={setTotalTitle}
         getValue={setTotalValue}
       />
-      {/* <InputGroup
-        initialName={shipping.title}
-        getName={setShippingTitle}
-        initialValue={shipping.value}
-        getValue={setShippingValue}
-        initialType={shipping.type}
-        visible={shipping.visible}
-        close={true}
-        setClose={setShippingVisible}
+      <InputGroup
+        initialName={paidTitle}
+        getName={setPaidTitle}
+        initialValue={paidValue}
+        getValue={setPaidValue}
+        initialType={paidType}
         type="row"
         child="number"
-      /> */}
-      {/* <Total /> */}
+      />
+      <Total
+        title={balanceDueTitle}
+        value={balanceDueValue}
+        getTitle={setBalanceDueTitle}
+        getValue={setBalanceDueValue}
+      />
     </div>
   );
 };
@@ -61,6 +78,13 @@ const mapStateToProps = (state) => ({
 
   totalTitle: state.totals.total.title,
   totalValue: totalSelector(state),
+
+  paidTitle: state.paid.title,
+  paidValue: state.paid.value,
+  paidType: state.paid.type,
+
+  balanceDueTitle: state.totals.balanceDue.title,
+  balanceDueValue: balanceDueSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -69,6 +93,12 @@ const mapDispatchToProps = (dispatch) => ({
 
   setTotalTitle: (value) => dispatch(setTotalTitle(value)),
   setTotalValue: (value) => dispatch(setTotalValue(value)),
+
+  setPaidTitle: (value) => dispatch(setPaidTitle(value)),
+  setPaidValue: (value) => dispatch(setPaidValue(value)),
+
+  setBalanceDueTitle: (value) => dispatch(setBalanceDueTitle(value)),
+  setBalanceDueValue: (value) => dispatch(setBalanceDueValue(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Estimation);

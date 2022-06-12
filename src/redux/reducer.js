@@ -6,6 +6,7 @@ import list from './features/list';
 import description from './features/description';
 import totals from './features/totals';
 import addons from './features/addons';
+import paid from './features/paid';
 
 export default {
   main,
@@ -16,4 +17,5 @@ export default {
   description,
   totals,
   addons,
+  paid,
 };
