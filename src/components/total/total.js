@@ -1,6 +1,11 @@
+import { useEffect } from 'react';
 import styles from './total.module.scss';
 
-const Total = ({ title, value, getTitle }) => {
+const Total = ({ title, value, getTitle, getValue }) => {
+  useEffect(() => {
+    getValue(value);
+  }, [value, getValue]);
+
   return (
     <div className={styles.wrapper}>
       <input

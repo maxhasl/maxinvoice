@@ -23,6 +23,9 @@ const { reducer, actions } = createSlice({
     setSubtotalTitle(state, { payload: title }) {
       state.subtotal.title = title;
     },
+    setSubtotalValue(state, { payload: value }) {
+      state.subtotal.value = value;
+    },
     setTotalTitle(state, { payload: title }) {
       state.total.title = title;
     },
@@ -34,10 +37,24 @@ const { reducer, actions } = createSlice({
 
 export default reducer;
 
-const { setSubtotalTitle, setTotalTitle, setBalanceDueTitle } = actions;
+const {
+  setSubtotalTitle,
+  setTotalTitle,
+  setBalanceDueTitle,
+  setSubtotalValue,
+} = actions;
 
-export { setSubtotalTitle, setTotalTitle, setBalanceDueTitle };
+export {
+  setSubtotalTitle,
+  setTotalTitle,
+  setBalanceDueTitle,
+  setSubtotalValue,
+};
 
 export const subtotalSelector = createSelector(ListAllSelector, (state) =>
+  state.reduce((acc, item) => acc + item.amount, 0)
+);
+
+export const totalSelector = createSelector(ListAllSelector, (state) =>
   state.reduce((acc, item) => acc + item.amount, 0)
 );
