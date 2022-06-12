@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const { reducer, actions } = createSlice({
-  name: 'subtotal',
+  name: 'total',
   initialState,
   reducers: {
     setTitle(state, { payload: title }) {
@@ -22,6 +22,6 @@ const { setTitle } = actions;
 
 export { setTitle };
 
-export const subtotalSelector = createSelector(ListAllSelector, (state) =>
+export const totalSelector = createSelector(ListAllSelector, (state) =>
   state.reduce((acc, item) => acc + item.amount, 0)
 );

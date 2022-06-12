@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { setTitle, subtotalSelector } from '../../redux/features/subtotal';
-import styles from './subtotal.module.scss';
+import { setTitle, totalSelector } from '../../redux/features/total';
+import styles from './total.module.scss';
 
-const Subtotal = ({ title, subtotal, setTitle }) => {
+const Total = ({ title, total, setTitle }) => {
   return (
     <div className={styles.wrapper}>
       <input
@@ -11,18 +11,18 @@ const Subtotal = ({ title, subtotal, setTitle }) => {
         value={title}
         onChange={setTitle}
       />
-      <div className={styles.value}>${subtotal.toLocaleString()}</div>
+      <div className={styles.value}>${total.toLocaleString()}</div>
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  title: state.subtotal.title,
-  subtotal: subtotalSelector(state),
+  title: state.total.title,
+  total: totalSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setTitle: (e) => dispatch(setTitle(e.target.value || '')),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Subtotal);
+export default connect(mapStateToProps, mapDispatchToProps)(Total);
