@@ -40,6 +40,8 @@ const { reducer, actions } = createSlice({
     setDiscountVisible(state) {
       state.discount.visible = !state.discount.visible;
       state.discount.button = !state.discount.button;
+      state.discount.type = 'percent';
+      state.discount.value = 0;
     },
 
     setTaxTitle(state, { payload: value }) {
@@ -54,6 +56,8 @@ const { reducer, actions } = createSlice({
     setTaxVisible(state) {
       state.tax.visible = !state.tax.visible;
       state.tax.button = !state.tax.button;
+      state.tax.type = 'percent';
+      state.tax.value = 0;
     },
 
     setShippingTitle(state, { payload: value }) {
@@ -65,6 +69,7 @@ const { reducer, actions } = createSlice({
     setShippingVisible(state) {
       state.shipping.visible = !state.shipping.visible;
       state.shipping.button = !state.shipping.button;
+      state.shipping.value = 0;
     },
   },
 });
