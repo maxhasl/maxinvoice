@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { ReactComponent as Repeat } from './repeat.svg';
 import cn from 'classnames';
-import useValue from '../../hooks/use-value';
 import styles from './input-number.module.scss';
 
 const InputNumber = ({
@@ -11,8 +10,6 @@ const InputNumber = ({
   initialType,
   getType,
 }) => {
-  const { value, onChange } = useValue(initialValue, getValue);
-
   const [type, setType] = useState(initialType);
 
   const changeType = () => {
@@ -27,8 +24,8 @@ const InputNumber = ({
       <input
         type="number"
         className={cn(styles.input, controlled && styles.input__controlled)}
-        value={value}
-        onChange={onChange}
+        value={initialValue}
+        onChange={(e) => getValue(e.target.value)}
       />
 
       {controlled && (
