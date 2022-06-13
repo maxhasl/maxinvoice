@@ -1,6 +1,5 @@
 .wrapper{
-    width: 380px;
-    margin-top: 15px;
+    margin-bottom: 2px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +33,7 @@
 .value{
     width: 144px;
     margin-left: 4px;
-    padding: 6px 12px;
+    padding: 6px 0 6px 12px;
     font-size: 14px;
     color: #313538;
     line-height: 20px;
