@@ -22,31 +22,26 @@ const { reducer, actions } = createSlice({
     remove: List.removeOne,
     name: List.updateOne,
     quantity(state, { payload: { id, quantity } }) {
+      const finalQuantity =
+        quantity !== '' ? (Number(quantity) > 0 ? Number(quantity) : 0) : '';
+
       List.updateOne(state, {
         id,
         changes: {
-          quantity:
-            quantity !== ''
-              ? Number(quantity) > 0
-                ? Number(quantity)
-                : 0
-              : '',
+          quantity: finalQuantity,
+          amount: state.entities[id].cost * finalQuantity,
         },
       });
     },
     cost(state, { payload: { id, cost } }) {
+      const finalCost =
+        cost !== '' ? (Number(cost) > 0 ? Number(cost) : 0) : '';
+
       List.updateOne(state, {
         id,
         changes: {
-          cost: cost !== '' ? (Number(cost) > 0 ? Number(cost) : 0) : '',
-        },
-      });
-    },
-    amount(state, { payload: id }) {
-      List.updateOne(state, {
-        id,
-        changes: {
-          amount: state.entities[id].cost * state.entities[id].quantity,
+          cost: finalCost,
+          amount: state.entities[id].quantity * finalCost,
         },
       });
     },
@@ -55,9 +50,9 @@ const { reducer, actions } = createSlice({
 
 export default reducer;
 
-const { add, remove, name, quantity, cost, amount } = actions;
+const { add, remove, name, quantity, cost } = actions;
 
-export { add, remove, name, quantity, cost, amount };
+export { add, remove, name, quantity, cost };
 
 export const listSelectors = List.getSelectors((state) => state.list);
 

@@ -53,11 +53,9 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(name({ id: props.id, changes: { name: e.target.value || '' } })),
   quantity: (e) => {
     dispatch(quantity({ id: props.id, quantity: e.target.value || '' }));
-    dispatch(amount(props.id));
   },
   cost: (e) => {
     dispatch(cost({ id: props.id, cost: e.target.value || '' }));
-    dispatch(amount(props.id));
   },
 });
 
