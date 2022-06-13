@@ -17,6 +17,7 @@ import {
   taxSelector,
   shippingSelector,
 } from '../../redux/features/addons';
+
 import styles from './addons.module.scss';
 
 const Addons = ({
@@ -38,44 +39,44 @@ const Addons = ({
   return (
     <div className={styles.wrapper}>
       <InputGroup
+        type="row"
+        child="number"
+        controlled
+        close={true}
+        visible={discount.visible}
         initialName={discount.title}
         getName={setDiscountTitle}
         initialValue={discount.value}
         getValue={setDiscountValue}
         initialType={discount.type}
         getType={setDiscountType}
-        visible={discount.visible}
-        close={true}
         setClose={setDiscountVisible}
-        controlled
-        type="row"
-        child="number"
       />
       <InputGroup
+        type="row"
+        child="number"
+        controlled
+        close={true}
+        visible={tax.visible}
+        setClose={setTaxVisible}
         initialName={tax.title}
         getName={setTaxTitle}
         initialValue={tax.value}
         getValue={setTaxValue}
         initialType={tax.type}
         getType={setTaxType}
-        visible={tax.visible}
-        close={true}
-        setClose={setTaxVisible}
-        controlled
-        type="row"
-        child="number"
       />
       <InputGroup
+        type="row"
+        child="number"
+        close={true}
+        visible={shipping.visible}
+        setClose={setShippingVisible}
+        initialType={shipping.type}
         initialName={shipping.title}
         getName={setShippingTitle}
         initialValue={shipping.value}
         getValue={setShippingValue}
-        initialType={shipping.type}
-        visible={shipping.visible}
-        close={true}
-        setClose={setShippingVisible}
-        type="row"
-        child="number"
       />
       <AddonsControl />
     </div>

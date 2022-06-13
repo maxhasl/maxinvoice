@@ -21,19 +21,19 @@ const { reducer, actions } = createSlice({
   name: 'contact',
   initialState,
   reducers: {
-    from(state, { payload: value }) {
+    setFromValue(state, { payload: value }) {
       state.from.value = value;
     },
-    billTitle(state, { payload: value }) {
+    setBillTitle(state, { payload: value }) {
       state.bill.title = value;
     },
-    billValue(state, { payload: value }) {
+    setBillValue(state, { payload: value }) {
       state.bill.value = value;
     },
-    shipTitle(state, { payload: value }) {
+    setShipTitle(state, { payload: value }) {
       state.ship.title = value;
     },
-    shipValue(state, { payload: value }) {
+    setShipValue(state, { payload: value }) {
       state.ship.value = value;
     },
   },
@@ -41,6 +41,10 @@ const { reducer, actions } = createSlice({
 
 export default reducer;
 
-const { from, billTitle, billValue, shipTitle, shipValue } = actions;
-
-export { from, billTitle, billValue, shipTitle, shipValue };
+export const {
+  setFromValue,
+  setBillTitle,
+  setBillValue,
+  setShipTitle,
+  setShipValue,
+} = actions;

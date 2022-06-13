@@ -23,28 +23,28 @@ const { reducer, actions } = createSlice({
   name: 'details',
   initialState,
   reducers: {
-    dateTitle(state, { payload: value }) {
+    setDateTitle(state, { payload: value }) {
       state.date.title = value;
     },
-    dateValue(state, { payload: value }) {
+    setDateValue(state, { payload: value }) {
       state.date.value = value;
     },
-    termsTitle(state, { payload: value }) {
+    setTermsTitle(state, { payload: value }) {
       state.terms.title = value;
     },
-    termsValue(state, { payload: value }) {
+    setTermsValue(state, { payload: value }) {
       state.terms.value = value;
     },
-    dueDateTitle(state, { payload: value }) {
+    setDueDateTitle(state, { payload: value }) {
       state.dueDate.title = value;
     },
-    dueDateValue(state, { payload: value }) {
+    setDueDateValue(state, { payload: value }) {
       state.dueDate.value = value;
     },
-    poNumberTitle(state, { payload: value }) {
+    setPoNumberTitle(state, { payload: value }) {
       state.poNumber.title = value;
     },
-    poNumberValue(state, { payload: value }) {
+    setPoNumberValue(state, { payload: value }) {
       state.poNumber.value = value;
     },
   },
@@ -52,24 +52,13 @@ const { reducer, actions } = createSlice({
 
 export default reducer;
 
-const {
-  dateTitle,
-  dateValue,
-  termsTitle,
-  termsValue,
-  dueDateTitle,
-  dueDateValue,
-  poNumberTitle,
-  poNumberValue,
+export const {
+  setDateTitle,
+  setDateValue,
+  setTermsTitle,
+  setTermsValue,
+  setDueDateTitle,
+  setDueDateValue,
+  setPoNumberTitle,
+  setPoNumberValue,
 } = actions;
-
-export {
-  dateTitle,
-  dateValue,
-  termsTitle,
-  termsValue,
-  dueDateTitle,
-  dueDateValue,
-  poNumberTitle,
-  poNumberValue,
-};

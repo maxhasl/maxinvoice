@@ -1,48 +1,48 @@
 import { connect } from 'react-redux';
 import InputGroup from '../input-group';
 import {
-  notesTitle,
-  notesValue,
-  termsTitle,
-  termsValue,
+  setNotesTitle,
+  setNotesValue,
+  setTermsTitle,
+  setTermsValue,
 } from '../../redux/features/description';
 
 import styles from './description.module.scss';
 
 const Description = ({
-  notesTitle,
   notesPlaceholder,
-  notesValue,
+  notesTitle,
   setNotesTitle,
+  notesValue,
   setNotesValue,
-  termsTitle,
   termsPlaceholder,
-  termsValue,
+  termsTitle,
   setTermsTitle,
+  termsValue,
   setTermsValue,
 }) => {
   return (
     <div>
       <div className={styles.description__item}>
         <InputGroup
+          type="col"
+          child="textarea"
+          placeholder={notesPlaceholder}
           initialName={notesTitle}
           getName={setNotesTitle}
           initialValue={notesValue}
           getValue={setNotesValue}
-          placeholder={notesPlaceholder}
-          type="col"
-          child="textarea"
         />
       </div>
       <div className={styles.description__item}>
         <InputGroup
+          type="col"
+          child="textarea"
+          placeholder={termsPlaceholder}
           initialName={termsTitle}
           getName={setTermsTitle}
           initialValue={termsValue}
           getValue={setTermsValue}
-          placeholder={termsPlaceholder}
-          type="col"
-          child="textarea"
         />
       </div>
     </div>
@@ -50,21 +50,21 @@ const Description = ({
 };
 
 const mapStateToProps = (state) => ({
-  notesTitle: state.description.notes.title,
   notesPlaceholder: state.description.notes.placeholder,
+  notesTitle: state.description.notes.title,
   notesValue: state.description.notes.value,
 
-  termsTitle: state.description.terms.title,
   termsPlaceholder: state.description.terms.placeholder,
+  termsTitle: state.description.terms.title,
   termsValue: state.description.terms.value,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setNotesTitle: (value) => dispatch(notesTitle(value)),
-  setNotesValue: (value) => dispatch(notesValue(value)),
+  setNotesTitle: (value) => dispatch(setNotesTitle(value)),
+  setNotesValue: (value) => dispatch(setNotesValue(value)),
 
-  setTermsTitle: (value) => dispatch(termsTitle(value)),
-  setTermsValue: (value) => dispatch(termsValue(value)),
+  setTermsTitle: (value) => dispatch(setTermsTitle(value)),
+  setTermsValue: (value) => dispatch(setTermsValue(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Description);

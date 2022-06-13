@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
-import { title } from '../../redux/features/main';
-import styles from './input-title.module.scss';
+import { setTitle } from '../../redux/features/main';
 
-const InputTitle = ({ title, onChange }) => {
+import styles from './title.module.scss';
+
+const InputTitle = ({ title, setTitle }) => {
   return (
     <input
       type="text"
       className={styles.title}
       value={title}
-      onChange={onChange}
+      onChange={setTitle}
     />
   );
 };
@@ -18,7 +19,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onChange: (e) => dispatch(title(e.target.value)),
+  setTitle: (e) => dispatch(setTitle(e.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InputTitle);

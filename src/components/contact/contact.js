@@ -2,59 +2,59 @@ import { connect } from 'react-redux';
 import InputTextarea from '../input-textarea';
 import InputGroup from '../input-group';
 import {
-  from,
-  billTitle,
-  billValue,
-  shipTitle,
-  shipValue,
+  setFromValue,
+  setBillTitle,
+  setBillValue,
+  setShipTitle,
+  setShipValue,
 } from '../../redux/features/contact';
 import styles from '../invoice/invoice.module.scss';
 
 const Contact = ({
-  contactFromValue,
-  contactFromPlaceholder,
-  handleContactFrom,
-  contactFromBillName,
-  handleContactBillTitle,
-  contactFromBillValue,
-  contactFromBillPlaceholder,
-  handleContactBillValue,
-  contactFromShipName,
-  handleContactShipTitle,
-  contactFromShipValue,
-  handleContactShipValue,
-  contactFromShipPlaceholder,
+  fromPlaceholder,
+  fromValue,
+  setFromValue,
+  billPlaceholder,
+  billTitle,
+  setBillTitle,
+  billValue,
+  setBillValue,
+  shipPlaceholder,
+  shipTitle,
+  setShipTitle,
+  shipValue,
+  setShipValue,
 }) => {
   return (
     <div>
       <div className={styles.form__area_m}>
         <InputTextarea
-          initialValue={contactFromValue}
-          getValue={handleContactFrom}
-          placeholder={contactFromPlaceholder}
+          placeholder={fromPlaceholder}
+          initialValue={fromValue}
+          getValue={setFromValue}
         />
       </div>
       <div className={styles.form__row_s}>
         <div className={styles.form__col}>
           <InputGroup
-            initialName={contactFromBillName}
-            getName={handleContactBillTitle}
-            initialValue={contactFromBillValue}
-            getValue={handleContactBillValue}
-            placeholder={contactFromBillPlaceholder}
             type="col"
             child="textarea"
+            placeholder={billPlaceholder}
+            initialName={billTitle}
+            getName={setBillTitle}
+            initialValue={billValue}
+            getValue={setBillValue}
           />
         </div>
         <div className={styles.form__col}>
           <InputGroup
-            initialName={contactFromShipName}
-            getName={handleContactShipTitle}
-            initialValue={contactFromShipValue}
-            getValue={handleContactShipValue}
-            placeholder={contactFromShipPlaceholder}
             type="col"
             child="textarea"
+            placeholder={shipPlaceholder}
+            initialName={shipTitle}
+            getName={setShipTitle}
+            initialValue={shipValue}
+            getValue={setShipValue}
           />
         </div>
       </div>
@@ -63,24 +63,24 @@ const Contact = ({
 };
 
 const mapStateToProps = (state) => ({
-  contactFromValue: state.contact.from.value,
-  contactFromPlaceholder: state.contact.from.placeholder,
+  fromPlaceholder: state.contact.from.placeholder,
+  fromValue: state.contact.from.value,
 
-  contactFromBillName: state.contact.bill.title,
-  contactFromBillValue: state.contact.bill.value,
-  contactFromBillPlaceholder: state.contact.bill.placeholder,
+  billPlaceholder: state.contact.bill.placeholder,
+  billTitle: state.contact.bill.title,
+  billValue: state.contact.bill.value,
 
-  contactFromShipName: state.contact.ship.title,
-  contactFromShipValue: state.contact.ship.value,
-  contactFromShipPlaceholder: state.contact.ship.placeholder,
+  shipPlaceholder: state.contact.ship.placeholder,
+  shipTitle: state.contact.ship.title,
+  shipValue: state.contact.ship.value,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleContactFrom: (value) => dispatch(from(value)),
-  handleContactBillTitle: (value) => dispatch(billTitle(value)),
-  handleContactBillValue: (value) => dispatch(billValue(value)),
-  handleContactShipTitle: (value) => dispatch(shipTitle(value)),
-  handleContactShipValue: (value) => dispatch(shipValue(value)),
+  setFromValue: (value) => dispatch(setFromValue(value)),
+  setBillTitle: (value) => dispatch(setBillTitle(value)),
+  setBillValue: (value) => dispatch(setBillValue(value)),
+  setShipTitle: (value) => dispatch(setShipTitle(value)),
+  setShipValue: (value) => dispatch(setShipValue(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contact);

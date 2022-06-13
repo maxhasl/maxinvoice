@@ -46,7 +46,7 @@ const { reducer, actions } = createSlice({
 
 export default reducer;
 
-const {
+export const {
   setSubtotalTitle,
   setSubtotalValue,
   setTotalTitle,
@@ -54,15 +54,6 @@ const {
   setBalanceDueTitle,
   setBalanceDueValue,
 } = actions;
-
-export {
-  setSubtotalTitle,
-  setSubtotalValue,
-  setTotalTitle,
-  setTotalValue,
-  setBalanceDueTitle,
-  setBalanceDueValue,
-};
 
 export const subtotalSelector = createSelector(listAllSelector, (entities) =>
   entities.reduce((acc, item) => acc + item.amount, 0)

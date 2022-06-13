@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import { number } from '../../redux/features/main';
+import { setNumber } from '../../redux/features/main';
+
 import styles from './number.module.scss';
 
-const Number = ({ number, onChange }) => {
+const Number = ({ number, setNumber }) => {
   return (
     <div className={styles.container}>
       <div className={styles.addon}>#</div>
@@ -10,7 +11,7 @@ const Number = ({ number, onChange }) => {
         type="number"
         className={styles.number}
         value={number}
-        onChange={onChange}
+        onChange={setNumber}
       />
     </div>
   );
@@ -21,7 +22,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onChange: (e) => dispatch(number(+e.target.value)),
+  setNumber: (e) => dispatch(setNumber(+e.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Number);

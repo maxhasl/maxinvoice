@@ -18,16 +18,16 @@ const { reducer, actions } = createSlice({
   name: 'description',
   initialState,
   reducers: {
-    notesTitle(state, { payload: value }) {
+    setNotesTitle(state, { payload: value }) {
       state.notes.title = value;
     },
-    notesValue(state, { payload: value }) {
+    setNotesValue(state, { payload: value }) {
       state.notes.value = value;
     },
-    termsTitle(state, { payload: value }) {
+    setTermsTitle(state, { payload: value }) {
       state.terms.title = value;
     },
-    termsValue(state, { payload: value }) {
+    setTermsValue(state, { payload: value }) {
       state.terms.value = value;
     },
   },
@@ -35,6 +35,5 @@ const { reducer, actions } = createSlice({
 
 export default reducer;
 
-const { notesTitle, notesValue, termsTitle, termsValue } = actions;
-
-export { notesTitle, notesValue, termsTitle, termsValue };
+export const { setNotesTitle, setNotesValue, setTermsTitle, setTermsValue } =
+  actions;

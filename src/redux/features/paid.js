@@ -21,6 +21,4 @@ const { reducer, actions } = createSlice({
 
 export default reducer;
 
-const { setPaidTitle, setPaidValue } = actions;
-
-export { setPaidTitle, setPaidValue };
+export const { setPaidTitle, setPaidValue } = actions;

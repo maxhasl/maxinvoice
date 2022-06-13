@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { ReactComponent as Plus } from './plus.svg';
 import { addListItem } from '../../../redux/features/list';
+
 import styles from './list-add.module.scss';
 
 const ListAdd = ({ addListItem }) => {

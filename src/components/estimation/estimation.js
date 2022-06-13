@@ -21,21 +21,21 @@ import styles from './estimation.module.scss';
 
 const Estimation = ({
   subtotalTitle,
-  subtotalValue,
   setSubtotalTitle,
+  subtotalValue,
   setSubtotalValue,
   totalTitle,
-  totalValue,
   setTotalTitle,
+  totalValue,
   setTotalValue,
+  paidType,
   paidTitle,
   setPaidTitle,
   paidValue,
   setPaidValue,
-  paidType,
   balanceDueTitle,
-  balanceDueValue,
   setBalanceDueTitle,
+  balanceDueValue,
   setBalanceDueValue,
 }) => {
   return (
@@ -54,13 +54,13 @@ const Estimation = ({
         getValue={setTotalValue}
       />
       <InputGroup
+        type="row"
+        child="number"
         initialName={paidTitle}
         getName={setPaidTitle}
         initialValue={paidValue}
         getValue={setPaidValue}
         initialType={paidType}
-        type="row"
-        child="number"
       />
       <Total
         title={balanceDueTitle}
@@ -79,9 +79,9 @@ const mapStateToProps = (state) => ({
   totalTitle: state.totals.total.title,
   totalValue: totalSelector(state),
 
+  paidType: state.paid.type,
   paidTitle: state.paid.title,
   paidValue: state.paid.value,
-  paidType: state.paid.type,
 
   balanceDueTitle: state.totals.balanceDue.title,
   balanceDueValue: balanceDueSelector(state),

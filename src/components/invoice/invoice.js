@@ -1,9 +1,9 @@
 import cn from 'classnames';
-import Contact from '../contact';
-import Details from '../details/details';
 import Logo from '../logo';
+import Contact from '../contact';
+import Title from '../title';
 import Number from '../number';
-import InputTitle from '../input-title';
+import Details from '../details/details';
 import List from '../list';
 import Description from '../description';
 import Estimation from '../estimation';
@@ -24,7 +24,7 @@ const Invoice = () => {
             </div>
             <div className={cn(styles.form__col, styles.form__col_rtl)}>
               <div className={styles.form__title}>
-                <InputTitle />
+                <Title />
               </div>
               <div className={styles.form__number}>
                 <Number />

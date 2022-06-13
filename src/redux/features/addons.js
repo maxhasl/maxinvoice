@@ -76,7 +76,7 @@ const { reducer, actions } = createSlice({
 
 export default reducer;
 
-const {
+export const {
   setDiscountTitle,
   setDiscountValue,
   setDiscountType,
@@ -89,20 +89,6 @@ const {
   setTaxVisible,
   setShippingVisible,
 } = actions;
-
-export {
-  setDiscountTitle,
-  setDiscountValue,
-  setDiscountType,
-  setTaxTitle,
-  setTaxValue,
-  setTaxType,
-  setShippingTitle,
-  setShippingValue,
-  setDiscountVisible,
-  setTaxVisible,
-  setShippingVisible,
-};
 
 export const discountSelector = (state) => state.addons.discount;
 

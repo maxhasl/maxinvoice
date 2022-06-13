@@ -2,92 +2,92 @@ import { connect } from 'react-redux';
 import InputGroup from '../input-group';
 import styles from '../invoice/invoice.module.scss';
 import {
-  dateTitle,
-  dateValue,
-  termsTitle,
-  termsValue,
-  dueDateTitle,
-  dueDateValue,
-  poNumberTitle,
-  poNumberValue,
+  setDateTitle,
+  setDateValue,
+  setTermsTitle,
+  setTermsValue,
+  setDueDateTitle,
+  setDueDateValue,
+  setPoNumberTitle,
+  setPoNumberValue,
 } from '../../redux/features/details';
 
 export const Details = ({
-  detailsDateTitle,
-  handleDetailsDateTitle,
-  detailsDateValue,
-  handleDetailsDateValue,
-  detailsTermsTitle,
-  handleDetailsTermsTitle,
-  detailsTermsValue,
-  handleDetailsTermsValue,
-  detailsDueDateTitle,
-  handleDetailsDueDateTitle,
-  detailsDueDateValue,
-  handleDetailsDueDateValue,
-  detailsPONumberTitle,
-  handleDetailsPONumberTitle,
-  detailsPONumberValue,
-  handleDetailsPONumberValue,
+  dateTitle,
+  setDateTitle,
+  dateValue,
+  setDateValue,
+  termsTitle,
+  setTermsTitle,
+  termsValue,
+  setTermsValue,
+  dueDateTitle,
+  setDueDateTitle,
+  dueDateValue,
+  setDueDateValue,
+  poNumberTitle,
+  setPoNumberTitle,
+  poNumberValue,
+  setPoNumberValue,
 }) => {
   return (
     <div className={styles.form__details}>
       <InputGroup
-        initialName={detailsDateTitle}
-        getName={handleDetailsDateTitle}
-        initialValue={detailsDateValue}
-        getValue={handleDetailsDateValue}
         type="row"
         child="date"
+        initialName={dateTitle}
+        getName={setDateTitle}
+        initialValue={dateValue}
+        getValue={setDateValue}
       />
       <InputGroup
-        initialName={detailsTermsTitle}
-        getName={handleDetailsTermsTitle}
-        initialValue={detailsTermsValue}
-        getValue={handleDetailsTermsValue}
         type="row"
         child="text"
+        initialName={termsTitle}
+        getName={setTermsTitle}
+        initialValue={termsValue}
+        getValue={setTermsValue}
       />
       <InputGroup
-        initialName={detailsDueDateTitle}
-        getName={handleDetailsDueDateTitle}
-        initialValue={detailsDueDateValue}
-        getValue={handleDetailsDueDateValue}
         type="row"
         child="date"
+        initialName={dueDateTitle}
+        getName={setDueDateTitle}
+        initialValue={dueDateValue}
+        getValue={setDueDateValue}
       />
       <InputGroup
-        initialName={detailsPONumberTitle}
-        getName={handleDetailsPONumberTitle}
-        initialValue={detailsPONumberValue}
-        getValue={handleDetailsPONumberValue}
         type="row"
         child="text"
+        initialName={poNumberTitle}
+        getName={setPoNumberTitle}
+        initialValue={poNumberValue}
+        getValue={setPoNumberValue}
       />
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  detailsDateTitle: state.details.date.title,
-  detailsDateValue: state.details.date.value,
-  detailsTermsTitle: state.details.terms.title,
-  detailsTermsValue: state.details.terms.value,
-  detailsDueDateTitle: state.details.dueDate.title,
-  detailsDueDateValue: state.details.dueDate.value,
-  detailsPONumberTitle: state.details.poNumber.title,
-  detailsPONumberValue: state.details.poNumber.value,
+  dateTitle: state.details.date.title,
+  dateValue: state.details.date.value,
+  termsTitle: state.details.terms.title,
+  termsValue: state.details.terms.value,
+  dueDateTitle: state.details.dueDate.title,
+  dueDateValue: state.details.dueDate.value,
+  poNumberTitle: state.details.poNumber.title,
+  poNumberValue: state.details.poNumber.value,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleDetailsDateTitle: (value) => dispatch(dateTitle(value)),
-  handleDetailsDateValue: (value) => dispatch(dateValue(String(value))),
-  handleDetailsTermsTitle: (value) => dispatch(termsTitle(value)),
-  handleDetailsTermsValue: (value) => dispatch(termsValue(value)),
-  handleDetailsDueDateTitle: (value) => dispatch(dueDateTitle(value)),
-  handleDetailsDueDateValue: (value) => dispatch(dueDateValue(String(value))),
-  handleDetailsPONumberTitle: (value) => dispatch(poNumberTitle(value)),
-  handleDetailsPONumberValue: (value) => dispatch(poNumberValue(value)),
+  setDateTitle: (value) => dispatch(setDateTitle(value)),
+  setDateValue: (value) => dispatch(setDateValue(String(value))),
+  setTermsTitle: (value) => dispatch(setTermsTitle(value)),
+  setTermsValue: (value) => dispatch(setTermsValue(value)),
+  setDueDateTitle: (value) => dispatch(setDueDateTitle(value)),
+  setDueDateValue: (value) => dispatch(setDueDateValue(String(value))),
+  setPoNumberTitle: (value) => dispatch(setPoNumberTitle(value)),
+  setPoNumberValue: (value) => dispatch(setPoNumberValue(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Details);

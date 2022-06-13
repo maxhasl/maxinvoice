@@ -2,13 +2,14 @@ import { connect } from 'react-redux';
 import { listAllSelector } from '../../redux/features/list';
 import ListAdd from './list-add/list-add';
 import ListHeader from './list-header';
-import ListItem from './list-item/list-item';
+import ListItem from './list-item';
+
 import styles from './list.module.scss';
 
-const List = ({ entities, add }) => {
+const List = ({ entities }) => {
   return (
     <div className={styles.list}>
-      <ListHeader onClick={add} />
+      <ListHeader />
       {entities.map((entity) => (
         <ListItem key={entity.id} id={entity.id} />
       ))}
@@ -21,6 +22,4 @@ const mapStateToProps = (state) => ({
   entities: listAllSelector(state),
 });
 
-const mapDispatchToProps = (dispatch) => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(mapStateToProps)(List);
