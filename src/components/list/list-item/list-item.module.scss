@@ -7,7 +7,7 @@
     margin-top: 2px;
     &:hover{
         .remove{
-            display: flex;
+            opacity: 1;
         }
     }
 }
@@ -67,23 +67,25 @@
     justify-content: flex-end;
     width: 120px;
     height: 34px;
-    padding: 6px 12px;
+    padding: 6px 0 6px 12px;
     font-size: 14px;
     color: #313538;
     line-height: 20px;
     font-family: Helvetica, Arial, sans-serif;
 }
 .remove{
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    width: 10px;
+    width: 15px;
     height: 10px;
-    right: -7px;
+    right: -15px;
     top: 12px;
+    padding: 0 0 0 5px;
     background: 0;
     border: 0;
+    opacity: 0;
     cursor: pointer;
     &:hover, &:focus{
         .icon{

@@ -8,6 +8,7 @@
 .header__item{
     width: 120px;
     padding: 3px 12px;
+    margin-right: 2px;
     border: 0;
     color: white;
     font-family: Helvetica, Arial, sans-serif;
@@ -17,6 +18,9 @@
     background: transparent;
     outline: none;
     transition: all 0.2s linear;
+    &:last-child{
+        margin-right: 0;
+    }
     &:hover{
         background: #2e3942;
     }
@@ -24,7 +28,7 @@
         background: #39434c;
     }
     &.header__item_big{
-        width: calc(100% - 360px);
+        width: calc(100% - 366px);
     }
     &.header__item_rtl{
         text-align: right;
