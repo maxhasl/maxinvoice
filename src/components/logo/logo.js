@@ -6,7 +6,6 @@ import { ReactComponent as Close } from './close.svg';
 import styles from './logo.module.scss';
 
 const Logo = ({ placeholder, value, onChange, remove }) => {
-  console.log(value);
   return (
     <label className={styles.label}>
       <input
@@ -38,10 +37,11 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onChange: (e) => {
-    console.log(e.target.files.length);
     e.target.files.length
       ? dispatch(setLogo(URL.createObjectURL(e.target.files[0])))
       : dispatch(removeLogo());
+
+    e.target.value = null;
   },
   remove: (e) => {
     e.preventDefault();
