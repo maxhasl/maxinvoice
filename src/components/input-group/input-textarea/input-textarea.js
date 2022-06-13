@@ -1,4 +1,4 @@
-import useValue from '../../hooks/use-value';
+import useValue from '../../../hooks/use-value';
 import styles from './input-textarea.module.scss';
 
 const InputTextarea = ({ initialValue, getValue, placeholder }) => {

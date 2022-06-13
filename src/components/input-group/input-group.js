@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import { ReactComponent as Close } from './close.svg';
 import InputGroupName from './input-group-name';
-import InputTextarea from '../input-textarea';
-import InputText from '../input-text';
-import InputNumber from '../input-number';
+import InputTextarea from './input-textarea';
+import InputText from './input-text';
+import InputNumber from './input-number';
 
 import InputGroupDatepicker from './input-group-datepicker';
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import InputTextarea from '../input-textarea';
+import InputTextarea from '../input-group/input-textarea';
 import InputGroup from '../input-group';
 import {
   setFromValue,

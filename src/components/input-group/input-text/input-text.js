@@ -1,4 +1,4 @@
-import useValue from '../../hooks/use-value';
+import useValue from '../../../hooks/use-value';
 import styles from './input-text.module.scss';
 
 const InputText = ({ initialValue, getValue }) => {
