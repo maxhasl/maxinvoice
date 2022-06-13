@@ -3,28 +3,33 @@ import { connect } from 'react-redux';
 import { ReactComponent as Close } from './close.svg';
 import {
   listItemSelector,
-  remove,
-  name,
-  quantity,
-  cost,
-  amount,
+  removeListItem,
+  setListItemName,
+  setListItemQuantity,
+  setListItemCost,
 } from '../../../redux/features/list';
 import styles from './list-item.module.scss';
 
-const ListItem = ({ item, remove, name, quantity, cost }) => {
+const ListItem = ({
+  item,
+  removeListItem,
+  setListItemName,
+  setListItemQuantity,
+  setListItemCost,
+}) => {
   return (
     <div className={styles.wrapper}>
       <textarea
         type="textarea"
         className={cn(styles.input, styles.input__big, styles.textarea)}
         value={item.name}
-        onChange={name}
+        onChange={setListItemName}
       />
       <input
         type="number"
         className={styles.input}
         value={item.quantity}
-        onChange={quantity}
+        onChange={setListItemQuantity}
       />
       <div className={styles.cost}>
         <span className={styles.currency}>$</span>
@@ -32,11 +37,11 @@ const ListItem = ({ item, remove, name, quantity, cost }) => {
           type="number"
           className={cn(styles.input, styles.input__cost)}
           value={item.cost}
-          onChange={cost}
+          onChange={setListItemCost}
         />
       </div>
       <div className={styles.amount}>${item.amount.toLocaleString()}</div>
-      <button className={styles.remove} onClick={remove}>
+      <button className={styles.remove} onClick={removeListItem}>
         <Close className={styles.icon} />
       </button>
     </div>
@@ -48,14 +53,18 @@ const mapStateToProps = (state, { id }) => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  remove: () => dispatch(remove(props.id)),
-  name: (e) =>
-    dispatch(name({ id: props.id, changes: { name: e.target.value || '' } })),
-  quantity: (e) => {
-    dispatch(quantity({ id: props.id, quantity: e.target.value || '' }));
+  removeListItem: () => dispatch(removeListItem(props.id)),
+  setListItemName: (e) =>
+    dispatch(
+      setListItemName({ id: props.id, changes: { name: e.target.value || '' } })
+    ),
+  setListItemQuantity: (e) => {
+    dispatch(
+      setListItemQuantity({ id: props.id, quantity: e.target.value || '' })
+    );
   },
-  cost: (e) => {
-    dispatch(cost({ id: props.id, cost: e.target.value || '' }));
+  setListItemCost: (e) => {
+    dispatch(setListItemCost({ id: props.id, cost: e.target.value || '' }));
   },
 });
 

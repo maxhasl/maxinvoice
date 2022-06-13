@@ -2,7 +2,14 @@ import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 
 const List = createEntityAdapter();
 
-const initialState = List.getInitialState();
+const initialState = List.getInitialState({
+  listHeader: {
+    name: 'Item',
+    quantity: 'Quantity',
+    cost: 'Rate',
+    amount: 'Amount',
+  },
+});
 
 const defaultState = List.upsertOne(initialState, {
   id: 0,
@@ -16,12 +23,25 @@ const { reducer, actions } = createSlice({
   name: 'list',
   initialState: defaultState,
   reducers: {
-    add(state, { payload: { id } }) {
+    setListHeaderName(state, { payload: value }) {
+      state.listHeader.name = value;
+    },
+    setListHeaderQuantity(state, { payload: value }) {
+      state.listHeader.quantity = value;
+    },
+    setListHeaderCost(state, { payload: value }) {
+      state.listHeader.cost = value;
+    },
+    setListHeaderAmount(state, { payload: value }) {
+      state.listHeader.amount = value;
+    },
+
+    addListItem(state, { payload: { id } }) {
       List.addOne(state, { id, name: '', quantity: 1, cost: 0, amount: 0 });
     },
-    remove: List.removeOne,
-    name: List.updateOne,
-    quantity(state, { payload: { id, quantity } }) {
+    removeListItem: List.removeOne,
+    setListItemName: List.updateOne,
+    setListItemQuantity(state, { payload: { id, quantity } }) {
       const finalQuantity =
         quantity !== '' ? (Number(quantity) > 0 ? Number(quantity) : 0) : '';
 
@@ -33,7 +53,7 @@ const { reducer, actions } = createSlice({
         },
       });
     },
-    cost(state, { payload: { id, cost } }) {
+    setListItemCost(state, { payload: { id, cost } }) {
       const finalCost =
         cost !== '' ? (Number(cost) > 0 ? Number(cost) : 0) : '';
 
@@ -50,9 +70,17 @@ const { reducer, actions } = createSlice({
 
 export default reducer;
 
-const { add, remove, name, quantity, cost } = actions;
-
-export { add, remove, name, quantity, cost };
+export const {
+  setListHeaderName,
+  setListHeaderQuantity,
+  setListHeaderCost,
+  setListHeaderAmount,
+  addListItem,
+  removeListItem,
+  setListItemName,
+  setListItemQuantity,
+  setListItemCost,
+} = actions;
 
 export const listSelectors = List.getSelectors((state) => state.list);
 

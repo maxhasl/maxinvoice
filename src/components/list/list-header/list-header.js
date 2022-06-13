@@ -2,21 +2,21 @@ import { connect } from 'react-redux';
 import cn from 'classnames';
 import styles from './list-header.module.scss';
 import {
-  amount,
-  cost,
-  name,
-  quantity,
-} from '../../../redux/features/list-header';
+  setListHeaderName,
+  setListHeaderQuantity,
+  setListHeaderCost,
+  setListHeaderAmount,
+} from '../../../redux/features/list';
 
 const ListHeader = ({
   name,
   quantity,
   cost,
   amount,
-  setName,
-  setQuantity,
-  setCost,
-  setAmount,
+  setListHeaderName,
+  setListHeaderQuantity,
+  setListHeaderCost,
+  setListHeaderAmount,
 }) => {
   return (
     <div className={styles.header}>
@@ -24,42 +24,42 @@ const ListHeader = ({
         type="text"
         className={cn(styles.header__item, styles.header__item_big)}
         value={name}
-        onChange={setName}
+        onChange={setListHeaderName}
       />
       <input
         type="text"
         className={styles.header__item}
         value={quantity}
-        onChange={setQuantity}
+        onChange={setListHeaderQuantity}
       />
       <input
         type="text"
         className={styles.header__item}
         value={cost}
-        onChange={setCost}
+        onChange={setListHeaderCost}
       />
       <input
         type="text"
         className={cn(styles.header__item, styles.header__item_rtl)}
         value={amount}
-        onChange={setAmount}
+        onChange={setListHeaderAmount}
       />
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  name: state.listHeader.name,
-  quantity: state.listHeader.quantity,
-  cost: state.listHeader.cost,
-  amount: state.listHeader.amount,
+  name: state.list.listHeader.name,
+  quantity: state.list.listHeader.quantity,
+  cost: state.list.listHeader.cost,
+  amount: state.list.listHeader.amount,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setName: (e) => dispatch(name(e.target.value)),
-  setQuantity: (e) => dispatch(quantity(e.target.value)),
-  setCost: (e) => dispatch(cost(e.target.value)),
-  setAmount: (e) => dispatch(amount(e.target.value)),
+  setListHeaderName: (e) => dispatch(setListHeaderName(e.target.value)),
+  setListHeaderQuantity: (e) => dispatch(setListHeaderQuantity(e.target.value)),
+  setListHeaderCost: (e) => dispatch(setListHeaderCost(e.target.value)),
+  setListHeaderAmount: (e) => dispatch(setListHeaderAmount(e.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListHeader);

@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { ReactComponent as Plus } from './plus.svg';
-import { add } from '../../../redux/features/list';
+import { addListItem } from '../../../redux/features/list';
 import styles from './list-add.module.scss';
 
-const ListAdd = ({ add }) => {
+const ListAdd = ({ addListItem }) => {
   return (
-    <button className={styles.button} onClick={add}>
+    <button className={styles.button} onClick={addListItem}>
       <Plus className={styles.icon} />
       Line Item
     </button>
@@ -13,8 +13,8 @@ const ListAdd = ({ add }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  add: () => {
-    dispatch(add({ id: Date.now() }));
+  addListItem: () => {
+    dispatch(addListItem({ id: Date.now() }));
   },
 });
 
