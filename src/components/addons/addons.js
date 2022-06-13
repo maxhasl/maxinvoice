@@ -91,17 +91,17 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setDiscountTitle: (value) => dispatch(setDiscountTitle(value)),
-  setDiscountValue: (value) => dispatch(setDiscountValue(+value)),
+  setDiscountValue: (value) => dispatch(setDiscountValue(value)),
   setDiscountType: (value) => dispatch(setDiscountType(value)),
   setDiscountVisible: () => dispatch(setDiscountVisible()),
 
   setTaxTitle: (value) => dispatch(setTaxTitle(value)),
-  setTaxValue: (value) => dispatch(setTaxValue(+value)),
+  setTaxValue: (value) => dispatch(setTaxValue(value)),
   setTaxType: (value) => dispatch(setTaxType(value)),
   setTaxVisible: () => dispatch(setTaxVisible()),
 
   setShippingTitle: (value) => dispatch(setShippingTitle(value)),
-  setShippingValue: (value) => dispatch(setShippingValue(+value)),
+  setShippingValue: (value) => dispatch(setShippingValue(value)),
   setShippingVisible: () => dispatch(setShippingVisible()),
 });
 

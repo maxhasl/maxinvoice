@@ -32,7 +32,7 @@ const { reducer, actions } = createSlice({
       state.discount.title = value;
     },
     setDiscountValue(state, { payload: value }) {
-      state.discount.value = value > 0 ? value : 0;
+      state.discount.value = value !== '' ? (+value > 0 ? +value : 0) : '';
     },
     setDiscountType(state, { payload: value }) {
       state.discount.type = value;
@@ -48,7 +48,7 @@ const { reducer, actions } = createSlice({
       state.tax.title = value;
     },
     setTaxValue(state, { payload: value }) {
-      state.tax.value = value > 0 ? value : 0;
+      state.tax.value = value !== '' ? (+value > 0 ? +value : 0) : '';
     },
     setTaxType(state, { payload: value }) {
       state.tax.type = value;
@@ -64,7 +64,7 @@ const { reducer, actions } = createSlice({
       state.shipping.title = value;
     },
     setShippingValue(state, { payload: value }) {
-      state.shipping.value = value > 0 ? value : 0;
+      state.shipping.value = value !== '' ? (+value > 0 ? +value : 0) : '';
     },
     setShippingVisible(state) {
       state.shipping.visible = !state.shipping.visible;

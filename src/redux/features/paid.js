@@ -14,7 +14,7 @@ const { reducer, actions } = createSlice({
       state.title = title;
     },
     setPaidValue(state, { payload: value }) {
-      state.value = value >= 0 ? +value : 0;
+      state.value = value !== '' ? (+value > 0 ? +value : 0) : '';
     },
   },
 });
