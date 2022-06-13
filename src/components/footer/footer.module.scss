@@ -1,0 +1,20 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+    border-top: 2px solid #ddd;
+    font-size: 16px;
+    background: #dfe3e8;
+}
+.link{
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #3d4c59;
+    text-decoration: none;
+    transition: 0.2s all linear;
+    &:hover{
+      color: #10806f;
+    }
+}

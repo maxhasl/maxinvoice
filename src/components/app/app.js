@@ -1,3 +1,4 @@
+import Footer from '../footer';
 import Header from '../header';
 import Invoice from '../invoice';
 
@@ -6,6 +7,7 @@ const App = () => {
     <div>
       <Header />
       <Invoice />
+      <Footer />
     </div>
   );
 };
