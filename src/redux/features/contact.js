@@ -48,3 +48,9 @@ export const {
   setShipTitle,
   setShipValue,
 } = actions;
+
+export const contactFromSelector = (state) => state.contact.from;
+
+export const contactBillSelector = (state) => state.contact.bill;
+
+export const contactShipSelector = (state) => state.contact.ship;

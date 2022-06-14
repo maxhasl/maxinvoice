@@ -84,6 +84,8 @@ export const {
 
 export const listSelectors = List.getSelectors((state) => state.list);
 
+export const listHeaderSelector = (state) => state.list.listHeader;
+
 export const listAllSelector = listSelectors.selectAll;
 
 export const listItemSelector = (state, id) =>

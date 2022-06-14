@@ -7,30 +7,28 @@ import {
   setBillValue,
   setShipTitle,
   setShipValue,
+  contactFromSelector,
+  contactBillSelector,
+  contactShipSelector,
 } from '../../redux/features/contact';
 import styles from '../invoice/invoice.module.scss';
 
 const Contact = ({
-  fromPlaceholder,
-  fromValue,
+  from,
+  bill,
+  ship,
   setFromValue,
-  billPlaceholder,
-  billTitle,
   setBillTitle,
-  billValue,
   setBillValue,
-  shipPlaceholder,
-  shipTitle,
   setShipTitle,
-  shipValue,
   setShipValue,
 }) => {
   return (
     <div>
       <div className={styles.form__area_m}>
         <InputTextarea
-          placeholder={fromPlaceholder}
-          initialValue={fromValue}
+          placeholder={from.placeholder}
+          initialValue={from.value}
           getValue={setFromValue}
         />
       </div>
@@ -39,10 +37,10 @@ const Contact = ({
           <InputGroup
             type="col"
             child="textarea"
-            placeholder={billPlaceholder}
-            initialName={billTitle}
+            placeholder={bill.placeholder}
+            initialName={bill.title}
             getName={setBillTitle}
-            initialValue={billValue}
+            initialValue={bill.value}
             getValue={setBillValue}
           />
         </div>
@@ -50,10 +48,10 @@ const Contact = ({
           <InputGroup
             type="col"
             child="textarea"
-            placeholder={shipPlaceholder}
-            initialName={shipTitle}
+            placeholder={ship.placeholder}
+            initialName={ship.title}
             getName={setShipTitle}
-            initialValue={shipValue}
+            initialValue={ship.value}
             getValue={setShipValue}
           />
         </div>
@@ -63,16 +61,9 @@ const Contact = ({
 };
 
 const mapStateToProps = (state) => ({
-  fromPlaceholder: state.contact.from.placeholder,
-  fromValue: state.contact.from.value,
-
-  billPlaceholder: state.contact.bill.placeholder,
-  billTitle: state.contact.bill.title,
-  billValue: state.contact.bill.value,
-
-  shipPlaceholder: state.contact.ship.placeholder,
-  shipTitle: state.contact.ship.title,
-  shipValue: state.contact.ship.value,
+  from: contactFromSelector(state),
+  bill: contactBillSelector(state),
+  ship: contactShipSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

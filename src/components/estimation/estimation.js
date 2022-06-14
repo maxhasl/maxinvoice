@@ -13,7 +13,11 @@ import {
   balanceDueSelector,
 } from '../../redux/features/totals';
 
-import { setPaidTitle, setPaidValue } from '../../redux/features/paid';
+import {
+  setPaidTitle,
+  setPaidValue,
+  paidSelector,
+} from '../../redux/features/paid';
 
 import InputGroup from '../input-group';
 
@@ -28,10 +32,8 @@ const Estimation = ({
   setTotalTitle,
   totalValue,
   setTotalValue,
-  paidType,
-  paidTitle,
+  paid,
   setPaidTitle,
-  paidValue,
   setPaidValue,
   balanceDueTitle,
   setBalanceDueTitle,
@@ -56,11 +58,11 @@ const Estimation = ({
       <InputGroup
         type="row"
         child="number"
-        initialName={paidTitle}
+        initialName={paid.title}
         getName={setPaidTitle}
-        initialValue={paidValue}
+        initialValue={paid.value}
         getValue={setPaidValue}
-        initialType={paidType}
+        initialType={paid.type}
       />
       <Total
         title={balanceDueTitle}
@@ -79,9 +81,7 @@ const mapStateToProps = (state) => ({
   totalTitle: state.totals.total.title,
   totalValue: totalSelector(state),
 
-  paidType: state.paid.type,
-  paidTitle: state.paid.title,
-  paidValue: state.paid.value,
+  paid: paidSelector(state),
 
   balanceDueTitle: state.totals.balanceDue.title,
   balanceDueValue: balanceDueSelector(state),

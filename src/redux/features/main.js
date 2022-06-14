@@ -17,7 +17,7 @@ const { reducer, actions } = createSlice({
       state.title = value;
     },
     setNumber(state, { payload: value }) {
-      state.number = value > 0 ? value : 1;
+      state.number = value > 0 ? +value : 1;
     },
     setLogo(state, { payload: value }) {
       state.logo.value = value;
@@ -31,3 +31,9 @@ const { reducer, actions } = createSlice({
 export default reducer;
 
 export const { setTitle, setNumber, setLogo, removeLogo } = actions;
+
+export const mainTitleSelector = (state) => state.main.title;
+
+export const mainNumberSelector = (state) => state.main.number;
+
+export const mainLogoSelector = (state) => state.main.logo;

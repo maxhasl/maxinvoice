@@ -37,3 +37,7 @@ export default reducer;
 
 export const { setNotesTitle, setNotesValue, setTermsTitle, setTermsValue } =
   actions;
+
+export const descriptionNotesSelector = (state) => state.description.notes;
+
+export const descriptionTermsSelector = (state) => state.description.terms;

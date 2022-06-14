@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setNumber } from '../../redux/features/main';
+import { setNumber, mainNumberSelector } from '../../redux/features/main';
 
 import styles from './number.module.scss';
 
@@ -18,11 +18,11 @@ const Number = ({ number, setNumber }) => {
 };
 
 const mapStateToProps = (state) => ({
-  number: state.main.number,
+  number: mainNumberSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setNumber: (e) => dispatch(setNumber(+e.target.value)),
+  setNumber: (e) => dispatch(setNumber(e.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Number);

@@ -6,13 +6,11 @@ import {
   setListHeaderQuantity,
   setListHeaderCost,
   setListHeaderAmount,
+  listHeaderSelector,
 } from '../../../redux/features/list';
 
 const ListHeader = ({
-  name,
-  quantity,
-  cost,
-  amount,
+  listHeader,
   setListHeaderName,
   setListHeaderQuantity,
   setListHeaderCost,
@@ -23,25 +21,25 @@ const ListHeader = ({
       <input
         type="text"
         className={cn(styles.header__item, styles.header__item_big)}
-        value={name}
+        value={listHeader.name}
         onChange={setListHeaderName}
       />
       <input
         type="text"
         className={styles.header__item}
-        value={quantity}
+        value={listHeader.quantity}
         onChange={setListHeaderQuantity}
       />
       <input
         type="text"
         className={styles.header__item}
-        value={cost}
+        value={listHeader.cost}
         onChange={setListHeaderCost}
       />
       <input
         type="text"
         className={cn(styles.header__item, styles.header__item_rtl)}
-        value={amount}
+        value={listHeader.amount}
         onChange={setListHeaderAmount}
       />
     </div>
@@ -49,10 +47,7 @@ const ListHeader = ({
 };
 
 const mapStateToProps = (state) => ({
-  name: state.list.listHeader.name,
-  quantity: state.list.listHeader.quantity,
-  cost: state.list.listHeader.cost,
-  amount: state.list.listHeader.amount,
+  listHeader: listHeaderSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

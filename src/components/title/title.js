@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setTitle } from '../../redux/features/main';
+import { setTitle, mainTitleSelector } from '../../redux/features/main';
 
 import styles from './title.module.scss';
 
@@ -15,7 +15,7 @@ const InputTitle = ({ title, setTitle }) => {
 };
 
 const mapStateToProps = (state) => ({
-  title: state.main.title,
+  title: mainTitleSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

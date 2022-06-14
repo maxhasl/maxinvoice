@@ -5,20 +5,18 @@ import {
   setNotesValue,
   setTermsTitle,
   setTermsValue,
+  descriptionNotesSelector,
+  descriptionTermsSelector,
 } from '../../redux/features/description';
 
 import styles from './description.module.scss';
 
 const Description = ({
-  notesPlaceholder,
-  notesTitle,
+  notes,
+  terms,
   setNotesTitle,
-  notesValue,
   setNotesValue,
-  termsPlaceholder,
-  termsTitle,
   setTermsTitle,
-  termsValue,
   setTermsValue,
 }) => {
   return (
@@ -27,10 +25,10 @@ const Description = ({
         <InputGroup
           type="col"
           child="textarea"
-          placeholder={notesPlaceholder}
-          initialName={notesTitle}
+          placeholder={notes.placeholder}
+          initialName={notes.title}
           getName={setNotesTitle}
-          initialValue={notesValue}
+          initialValue={notes.value}
           getValue={setNotesValue}
         />
       </div>
@@ -38,10 +36,10 @@ const Description = ({
         <InputGroup
           type="col"
           child="textarea"
-          placeholder={termsPlaceholder}
-          initialName={termsTitle}
+          placeholder={terms.placeholder}
+          initialName={terms.title}
           getName={setTermsTitle}
-          initialValue={termsValue}
+          initialValue={terms.value}
           getValue={setTermsValue}
         />
       </div>
@@ -50,13 +48,8 @@ const Description = ({
 };
 
 const mapStateToProps = (state) => ({
-  notesPlaceholder: state.description.notes.placeholder,
-  notesTitle: state.description.notes.title,
-  notesValue: state.description.notes.value,
-
-  termsPlaceholder: state.description.terms.placeholder,
-  termsTitle: state.description.terms.title,
-  termsValue: state.description.terms.value,
+  notes: descriptionNotesSelector(state),
+  terms: descriptionTermsSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

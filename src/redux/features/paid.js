@@ -22,3 +22,5 @@ const { reducer, actions } = createSlice({
 export default reducer;
 
 export const { setPaidTitle, setPaidValue } = actions;
+
+export const paidSelector = (state) => state.paid;

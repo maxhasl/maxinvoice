@@ -10,24 +10,23 @@ import {
   setDueDateValue,
   setPoNumberTitle,
   setPoNumberValue,
+  detailsDateSelector,
+  detailsTermsSelector,
+  detailsDueDateSelector,
+  detailsPoNumberSelector,
 } from '../../redux/features/details';
 
 export const Details = ({
-  dateTitle,
-  setDateTitle,
-  dateValue,
+  date,
+  terms,
+  dueDate,
+  poNumber,
   setDateValue,
-  termsTitle,
   setTermsTitle,
-  termsValue,
   setTermsValue,
-  dueDateTitle,
   setDueDateTitle,
-  dueDateValue,
   setDueDateValue,
-  poNumberTitle,
   setPoNumberTitle,
-  poNumberValue,
   setPoNumberValue,
 }) => {
   return (
@@ -35,33 +34,33 @@ export const Details = ({
       <InputGroup
         type="row"
         child="date"
-        initialName={dateTitle}
+        initialName={date.title}
         getName={setDateTitle}
-        initialValue={dateValue}
+        initialValue={date.value}
         getValue={setDateValue}
       />
       <InputGroup
         type="row"
         child="text"
-        initialName={termsTitle}
+        initialName={terms.title}
         getName={setTermsTitle}
-        initialValue={termsValue}
+        initialValue={terms.value}
         getValue={setTermsValue}
       />
       <InputGroup
         type="row"
         child="date"
-        initialName={dueDateTitle}
+        initialName={dueDate.title}
         getName={setDueDateTitle}
-        initialValue={dueDateValue}
+        initialValue={dueDate.value}
         getValue={setDueDateValue}
       />
       <InputGroup
         type="row"
         child="text"
-        initialName={poNumberTitle}
+        initialName={poNumber.title}
         getName={setPoNumberTitle}
-        initialValue={poNumberValue}
+        initialValue={poNumber.value}
         getValue={setPoNumberValue}
       />
     </div>
@@ -69,14 +68,10 @@ export const Details = ({
 };
 
 const mapStateToProps = (state) => ({
-  dateTitle: state.details.date.title,
-  dateValue: state.details.date.value,
-  termsTitle: state.details.terms.title,
-  termsValue: state.details.terms.value,
-  dueDateTitle: state.details.dueDate.title,
-  dueDateValue: state.details.dueDate.value,
-  poNumberTitle: state.details.poNumber.title,
-  poNumberValue: state.details.poNumber.value,
+  date: detailsDateSelector(state),
+  terms: detailsTermsSelector(state),
+  dueDate: detailsDueDateSelector(state),
+  poNumber: detailsPoNumberSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

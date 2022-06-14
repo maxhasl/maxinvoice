@@ -62,3 +62,11 @@ export const {
   setPoNumberTitle,
   setPoNumberValue,
 } = actions;
+
+export const detailsDateSelector = (state) => state.details.date;
+
+export const detailsTermsSelector = (state) => state.details.terms;
+
+export const detailsDueDateSelector = (state) => state.details.dueDate;
+
+export const detailsPoNumberSelector = (state) => state.details.poNumber;
