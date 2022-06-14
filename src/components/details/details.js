@@ -21,6 +21,7 @@ export const Details = ({
   terms,
   dueDate,
   poNumber,
+  setDateTitle,
   setDateValue,
   setTermsTitle,
   setTermsValue,
