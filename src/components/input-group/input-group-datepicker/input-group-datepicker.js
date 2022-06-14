@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import styles from '../input-group.module.scss';
+import styles from './input-group-datapicker.module.scss';
+import './input-group-datapicker.scss';
 
 function InputGroupDatepicker({ initialValue, getValue }) {
   const [startDate, setStartDate] = useState(Date.parse(initialValue));

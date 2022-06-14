@@ -1,4 +1,9 @@
 {
-    "singleQuote": true,
-    "bracketSpacing": true
-  }
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "prettier.cssEnable": [
+    "css",
+    "less",
+    "sccs"
+  ]
+}
