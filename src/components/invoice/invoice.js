@@ -12,39 +12,36 @@ import styles from './invoice.module.scss';
 
 const Invoice = () => {
   return (
-    <section className={styles.body}>
-      <div className={styles.container}>
-        <div className={styles.form}>
-          <div className={styles.form__row}>
-            <div className={styles.form__col}>
-              <div className={styles.form__logo}>
-                <Logo />
-              </div>
-              <Contact />
-            </div>
-            <div className={cn(styles.form__col, styles.form__col_rtl)}>
-              <div className={styles.form__title}>
-                <Title />
-              </div>
-              <div className={styles.form__number}>
-                <Number />
-              </div>
-              <Details />
-            </div>
+    <section className={styles.wrap}>
+      <div className={styles.row}>
+        <div className={styles.col}>
+          <div className={styles.logo}>
+            <Logo />
           </div>
-          <div className={styles.form__row}>
-            <List />
+          <Contact />
+        </div>
+        <div className={cn(styles.col, styles.col_rtl)}>
+          <div className={styles.title}>
+            <Title />
           </div>
-          <div className={styles.form__row}>
-            <div className={styles.form__col}>
-              <Description />
-            </div>
-            <div className={cn(styles.form__col, styles.form__col_rtl)}>
-              <Estimation />
-            </div>
+          <div className={styles.number}>
+            <Number />
+          </div>
+          <div className={styles.details}>
+            <Details />
           </div>
         </div>
-        <div>Buttons here</div>
+      </div>
+      <div className={styles.row}>
+        <List />
+      </div>
+      <div className={styles.row}>
+        <div className={styles.col}>
+          <Description />
+        </div>
+        <div className={cn(styles.col, styles.col_rtl)}>
+          <Estimation />
+        </div>
       </div>
     </section>
   );

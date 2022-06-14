@@ -18,7 +18,7 @@ const ListItem = ({
   setListItemCost,
 }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrap}>
       <textarea
         type="textarea"
         className={cn(styles.input, styles.input__big, styles.textarea)}

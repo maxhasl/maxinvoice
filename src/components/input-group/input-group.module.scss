@@ -1,4 +1,4 @@
-.container {
+.wrap {
   display: flex;
   position: relative;
   &:hover {
@@ -7,10 +7,10 @@
     }
   }
 }
-.container_col {
+.wrap_col {
   flex-direction: column;
 }
-.container_row {
+.wrap_row {
   flex-direction: row;
 }
 .remove {

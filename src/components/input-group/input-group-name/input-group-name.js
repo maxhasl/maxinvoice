@@ -7,7 +7,7 @@ const InputGroupName = ({ initialName, getName }) => {
   return (
     <input
       type="text"
-      className={styles.name}
+      className={styles.title}
       value={value}
       onChange={onChange}
     />

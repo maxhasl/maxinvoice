@@ -37,7 +37,7 @@ const Addons = ({
   setShippingVisible,
 }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrap}>
       <InputGroup
         type="row"
         child="number"

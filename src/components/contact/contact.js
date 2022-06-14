@@ -11,7 +11,8 @@ import {
   contactBillSelector,
   contactShipSelector,
 } from '../../redux/features/contact';
-import styles from '../invoice/invoice.module.scss';
+
+import styles from './contact.module.scss';
 
 const Contact = ({
   from,
@@ -25,36 +26,32 @@ const Contact = ({
 }) => {
   return (
     <div>
-      <div className={styles.form__area_m}>
+      <div className={styles.wrap}>
         <InputTextarea
           placeholder={from.placeholder}
           initialValue={from.value}
           getValue={setFromValue}
         />
       </div>
-      <div className={styles.form__row_s}>
-        <div className={styles.form__col}>
-          <InputGroup
-            type="col"
-            child="textarea"
-            placeholder={bill.placeholder}
-            initialName={bill.title}
-            getName={setBillTitle}
-            initialValue={bill.value}
-            getValue={setBillValue}
-          />
-        </div>
-        <div className={styles.form__col}>
-          <InputGroup
-            type="col"
-            child="textarea"
-            placeholder={ship.placeholder}
-            initialName={ship.title}
-            getName={setShipTitle}
-            initialValue={ship.value}
-            getValue={setShipValue}
-          />
-        </div>
+      <div className={styles.row}>
+        <InputGroup
+          type="col"
+          child="textarea"
+          placeholder={bill.placeholder}
+          initialName={bill.title}
+          getName={setBillTitle}
+          initialValue={bill.value}
+          getValue={setBillValue}
+        />
+        <InputGroup
+          type="col"
+          child="textarea"
+          placeholder={ship.placeholder}
+          initialName={ship.title}
+          getName={setShipTitle}
+          initialValue={ship.value}
+          getValue={setShipValue}
+        />
       </div>
     </div>
   );

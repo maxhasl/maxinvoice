@@ -8,7 +8,7 @@ import styles from './list.module.scss';
 
 const List = ({ entities }) => {
   return (
-    <div className={styles.list}>
+    <div className={styles.wrap}>
       <ListHeader />
       {entities.map((entity) => (
         <ListItem key={entity.id} id={entity.id} />

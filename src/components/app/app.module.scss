@@ -1,0 +1,12 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  background: #f3f5f7;
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1180px;
+  padding: 40px 0;
+}

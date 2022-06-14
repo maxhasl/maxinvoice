@@ -21,7 +21,7 @@ const Description = ({
 }) => {
   return (
     <div>
-      <div className={styles.description__item}>
+      <div className={styles.item}>
         <InputGroup
           type="col"
           child="textarea"
@@ -32,7 +32,7 @@ const Description = ({
           getValue={setNotesValue}
         />
       </div>
-      <div className={styles.description__item}>
+      <div className={styles.item}>
         <InputGroup
           type="col"
           child="textarea"

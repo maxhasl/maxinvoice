@@ -17,28 +17,28 @@ const ListHeader = ({
   setListHeaderAmount,
 }) => {
   return (
-    <div className={styles.header}>
+    <div className={styles.wrap}>
       <input
         type="text"
-        className={cn(styles.header__item, styles.header__item_big)}
+        className={cn(styles.item, styles.item_big)}
         value={listHeader.name}
         onChange={setListHeaderName}
       />
       <input
         type="text"
-        className={styles.header__item}
+        className={styles.item}
         value={listHeader.quantity}
         onChange={setListHeaderQuantity}
       />
       <input
         type="text"
-        className={styles.header__item}
+        className={styles.item}
         value={listHeader.cost}
         onChange={setListHeaderCost}
       />
       <input
         type="text"
-        className={cn(styles.header__item, styles.header__item_rtl)}
+        className={cn(styles.item, styles.item_rtl)}
         value={listHeader.amount}
         onChange={setListHeaderAmount}
       />

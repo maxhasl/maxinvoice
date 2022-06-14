@@ -1,7 +1,7 @@
-.wrapper{
+.wrap {
   position: relative;
 }
-.type{
+.type {
   position: absolute;
   left: 14px;
   top: 10px;
@@ -15,56 +15,56 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 .input {
-    display: block;
-    width: 144px;
-    height: 34px;
-    margin-left: 4px;
-    padding: 6px 10px 6px 28px;
-    background: #fff;
-    border: 1px solid #c4cdd5;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #313538;
-    line-height: 20px;
-    font-family: Helvetica, Arial, sans-serif;
-    outline: 0;
-    text-align: left;
-    transition: all 0.2s;
-    &::-webkit-input-placeholder,
-    &::-moz-placeholder,
-    &:-ms-input-placeholder,
-    &:-moz-placeholder {
-      color: #a1a1a1;
-    }
-    &:hover {
-      border-color: #879099;
-    }
-    &:focus {
-      border-color: #009e74;
-    }
-    &.input__controlled {
-      padding: 6px 28px;
+  display: block;
+  width: 144px;
+  height: 34px;
+  margin-left: 4px;
+  padding: 6px 10px 6px 28px;
+  background: #fff;
+  border: 1px solid #c4cdd5;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #313538;
+  line-height: 20px;
+  font-family: Helvetica, Arial, sans-serif;
+  outline: 0;
+  text-align: left;
+  transition: all 0.2s;
+  &::-webkit-input-placeholder,
+  &::-moz-placeholder,
+  &:-ms-input-placeholder,
+  &:-moz-placeholder {
+    color: #a1a1a1;
+  }
+  &:hover {
+    border-color: #879099;
+  }
+  &:focus {
+    border-color: #009e74;
+  }
+  &.input__controlled {
+    padding: 6px 28px;
+  }
+}
+.button {
+  position: absolute;
+  right: 10px;
+  top: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: 0;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    .icon {
+      color: #009e74;
     }
   }
-  .button{
-    position: absolute;
-    right: 10px;
-    top: 11px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: 0;    
-    border: 0;
-    outline: none;
-    cursor: pointer;
-    &:hover{
-      .icon{
-        color:#009e74
-      }
-    }
-  }
-  .icon{
-    width: 12px;
-    color: #c4cdd5;
-    transition: 0.2s all linear;
-  }
+}
+.icon {
+  width: 12px;
+  color: #c4cdd5;
+  transition: 0.2s all linear;
+}

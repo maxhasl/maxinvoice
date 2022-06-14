@@ -7,7 +7,7 @@ const Total = ({ title, value, getTitle, getValue }) => {
   }, [value, getValue]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrap}>
       <input
         type="text"
         className={styles.title}

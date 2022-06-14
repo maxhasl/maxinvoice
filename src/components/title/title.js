@@ -7,7 +7,7 @@ const InputTitle = ({ title, setTitle }) => {
   return (
     <input
       type="text"
-      className={styles.title}
+      className={styles.input}
       value={title}
       onChange={setTitle}
     />

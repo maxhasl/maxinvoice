@@ -1,4 +1,4 @@
-.container {
+.wrap {
   display: flex;
   width: 170px;
   height: 34px;
@@ -41,10 +41,10 @@
   }
 
   &::-webkit-inner-spin-button,
-  &::-webkit-outer-spin-button { 
+  &::-webkit-outer-spin-button {
     -webkit-appearance: none;
-    margin: 0; 
-}
+    margin: 0;
+  }
   &:hover {
     border-color: #879099;
   }
@@ -52,6 +52,6 @@
     border-color: #009e74;
   }
 }
-input[type=number]{
+input[type='number'] {
   -moz-appearance: textfield;
 }

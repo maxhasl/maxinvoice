@@ -41,7 +41,7 @@ const Estimation = ({
   setBalanceDueValue,
 }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrap}>
       <Total
         title={subtotalTitle}
         value={subtotalValue}

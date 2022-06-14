@@ -1,28 +1,28 @@
-.wrapper{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+.wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
-.button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 10px;
-    background: 0;
-    border: 0;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #009e74;
-    cursor: pointer;
-    transition: all 0.2s linear;
-    &:hover{
-        color: #10806f;
-    }
-    &:last-child{
-        padding-right: 0;
-    }
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px;
+  background: 0;
+  border: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #009e74;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  &:hover {
+    color: #10806f;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
 }
-.icon{
-    width: 10px;
-    margin-right: 2px;
+.icon {
+  width: 10px;
+  margin-right: 2px;
 }

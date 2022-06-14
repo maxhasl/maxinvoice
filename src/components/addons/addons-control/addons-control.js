@@ -21,7 +21,7 @@ const AddonsControl = ({
   setShippingVisible,
 }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrap}>
       {discount && (
         <button className={styles.button} onClick={setDiscountVisible}>
           <Plus className={styles.icon} />

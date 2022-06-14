@@ -19,7 +19,7 @@ const InputNumber = ({
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrap}>
       <span className={styles.type}>{type === 'cash' ? '$' : '%'}</span>
       <input
         type="number"

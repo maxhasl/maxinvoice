@@ -4,7 +4,6 @@ import InputGroupName from './input-group-name';
 import InputTextarea from './input-textarea';
 import InputText from './input-text';
 import InputNumber from './input-number';
-
 import InputGroupDatepicker from './input-group-datepicker';
 
 import styles from './input-group.module.scss';
@@ -71,10 +70,7 @@ const InputGroup = ({
 
   return (
     <div
-      className={cn(
-        styles.container,
-        classType ? styles.container_col : styles.container_row
-      )}
+      className={cn(styles.wrap, classType ? styles.wrap_col : styles.wrap_row)}
     >
       <InputGroupName initialName={initialName} getName={getName} />
       {switchChild(child)}

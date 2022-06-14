@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import InputGroup from '../input-group';
-import styles from '../invoice/invoice.module.scss';
 import {
   setDateTitle,
   setDateValue,
@@ -31,7 +30,7 @@ export const Details = ({
   setPoNumberValue,
 }) => {
   return (
-    <div className={styles.form__details}>
+    <div>
       <InputGroup
         type="row"
         child="date"
