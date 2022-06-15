@@ -1,6 +1,7 @@
 import Header from '../header';
 import Invoice from '../invoice';
 import Footer from '../footer';
+import Aside from '../aside';
 
 import styles from './app.module.scss';
 
@@ -11,7 +12,7 @@ const App = () => {
       <div className={styles.wrap}>
         <main className={styles.main}>
           <Invoice />
-          <div>Buttons</div>
+          <Aside />
         </main>
       </div>
       <Footer />

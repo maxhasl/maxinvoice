@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { ReactComponent as Repeat } from './repeat.svg';
+import { connect } from 'react-redux';
 import cn from 'classnames';
+import { ReactComponent as Repeat } from './repeat.svg';
+import { currencySelectedSelector } from '../../../redux/features/currency';
 import styles from './input-number.module.scss';
 
 const InputNumber = ({
@@ -9,6 +11,7 @@ const InputNumber = ({
   getValue,
   initialType,
   getType,
+  currency,
 }) => {
   const [type, setType] = useState(initialType);
 
@@ -20,7 +23,9 @@ const InputNumber = ({
 
   return (
     <div className={styles.wrap}>
-      <span className={styles.type}>{type === 'cash' ? '$' : '%'}</span>
+      <span className={styles.type}>
+        {type === 'cash' ? currency.value : '%'}
+      </span>
       <input
         type="number"
         className={cn(styles.input, controlled && styles.input__controlled)}
@@ -37,4 +42,8 @@ const InputNumber = ({
   );
 };
 
-export default InputNumber;
+const mapStateToProps = (state) => ({
+  currency: currencySelectedSelector(state),
+});
+
+export default connect(mapStateToProps)(InputNumber);

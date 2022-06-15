@@ -8,10 +8,12 @@ import {
   setListItemQuantity,
   setListItemCost,
 } from '../../../redux/features/list';
+import { currencySelectedSelector } from '../../../redux/features/currency';
 import styles from './list-item.module.scss';
 
 const ListItem = ({
   item,
+  currency,
   removeListItem,
   setListItemName,
   setListItemQuantity,
@@ -32,7 +34,7 @@ const ListItem = ({
         onChange={setListItemQuantity}
       />
       <div className={styles.cost}>
-        <span className={styles.currency}>$</span>
+        <span className={styles.currency}>{currency.value}</span>
         <input
           type="number"
           className={cn(styles.input, styles.input__cost)}
@@ -40,7 +42,10 @@ const ListItem = ({
           onChange={setListItemCost}
         />
       </div>
-      <div className={styles.amount}>${item.amount.toLocaleString()}</div>
+      <div className={styles.amount}>
+        {currency.value}
+        {item.amount.toLocaleString()}
+      </div>
       <button className={styles.remove} onClick={removeListItem}>
         <Close className={styles.icon} />
       </button>
@@ -50,6 +55,7 @@ const ListItem = ({
 
 const mapStateToProps = (state, { id }) => ({
   item: listItemSelector(state, id),
+  currency: currencySelectedSelector(state),
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

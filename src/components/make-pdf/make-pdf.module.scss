@@ -1,0 +1,25 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 44px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  border-radius: 3px;
+  color: white;
+  background-color: #009e74;
+  box-shadow: 0 1px 0 0 rgb(22 29 37 / 10%),
+    inset 0 1px 0 1px rgb(255 255 255 / 6%);
+  border: 0;
+  cursor: pointer;
+  transition: 0.2s all linear;
+  &:hover {
+    background-color: #10806f;
+  }
+}
+.icon {
+  width: 14px;
+  margin-right: 8px;
+}

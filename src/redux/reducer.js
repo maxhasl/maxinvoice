@@ -6,8 +6,9 @@ import description from './features/description';
 import totals from './features/totals';
 import addons from './features/addons';
 import paid from './features/paid';
+import currency from './features/currency';
 
-export default {
+const reducer = {
   main,
   contact,
   details,
@@ -16,4 +17,7 @@ export default {
   totals,
   addons,
   paid,
+  currency,
 };
+
+export default reducer;

@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { currencySelectedSelector } from '../../redux/features/currency';
 import styles from './total.module.scss';
 
-const Total = ({ title, value, getTitle, getValue }) => {
+const Total = ({ title, value, getTitle, getValue, currency }) => {
   useEffect(() => {
     getValue(value);
   }, [value, getValue]);
@@ -14,9 +16,16 @@ const Total = ({ title, value, getTitle, getValue }) => {
         defaultValue={title}
         onChange={(e) => getTitle(e.target.value || '')}
       />
-      <div className={styles.value}>${value.toLocaleString()}</div>
+      <div className={styles.value}>
+        {currency.value}
+        {value.toLocaleString()}
+      </div>
     </div>
   );
 };
 
-export default Total;
+const mapStateToProps = (state) => ({
+  currency: currencySelectedSelector(state),
+});
+
+export default connect(mapStateToProps)(Total);
