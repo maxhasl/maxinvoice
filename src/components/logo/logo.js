@@ -40,9 +40,15 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onChange: (e) => {
-    e.target.files.length
-      ? dispatch(setLogo(URL.createObjectURL(e.target.files[0])))
-      : dispatch(removeLogo());
+    if (e.target.files.length) {
+      const file = e.target.files[0];
+
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (evt) => dispatch(setLogo(evt.target.result));
+    } else {
+      dispatch(removeLogo());
+    }
 
     e.target.value = null;
   },

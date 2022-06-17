@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './input-group-datapicker.module.scss';
@@ -9,7 +10,7 @@ function InputGroupDatepicker({ initialValue, getValue }) {
 
   const onChange = (date) => {
     setStartDate(date);
-    getValue(date);
+    getValue(moment(date).format('MM/DD/YYYY'));
   };
 
   return (

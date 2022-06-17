@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import moment from 'moment';
 
 const initialState = {
   date: {
     title: 'Date',
-    value: String(new Date()),
+    value: moment().format('MM/DD/YYYY'),
   },
   terms: {
     title: 'Patment Terms',
