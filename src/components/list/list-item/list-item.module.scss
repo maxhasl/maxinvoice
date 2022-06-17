@@ -47,7 +47,8 @@
 .textarea {
   box-sizing: border-box;
   min-height: 34px;
-  resize: vertical;
+  resize: none;
+  overflow: hidden;
 }
 .cost {
   position: relative;

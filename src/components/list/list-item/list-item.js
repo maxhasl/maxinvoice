@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import { connect } from 'react-redux';
+import TextareaAutosize from 'react-textarea-autosize';
 import { ReactComponent as Close } from './close.svg';
 import {
   listItemSelector,
@@ -21,8 +22,7 @@ const ListItem = ({
 }) => {
   return (
     <div className={styles.wrap}>
-      <textarea
-        type="textarea"
+      <TextareaAutosize
         className={cn(styles.input, styles.input__big, styles.textarea)}
         value={item.name}
         onChange={setListItemName}
