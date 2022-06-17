@@ -39,6 +39,7 @@
   color: #313538;
   line-height: 16px;
   font-family: Helvetica, Arial, sans-serif;
+  white-space: pre-wrap;
 }
 .contact__title {
   margin-bottom: 5px;
@@ -165,6 +166,7 @@
   color: #313538;
   line-height: 18px;
   font-family: Helvetica, Arial, sans-serif;
+  white-space: pre-wrap;
   &:first-child {
     font-weight: 900;
     width: calc(100% - 314px);
@@ -192,4 +194,5 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
+  white-space: pre-wrap;
 }

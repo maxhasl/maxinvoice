@@ -31,16 +31,16 @@ const template = (state) => {
               />
             </div>
           ) : null}
-          <p className={styles.contact__text}>{contact.from.value}</p>
+          <pre className={styles.re}>{contact.from.value}</pre>
           <div className={styles.row}>
             <div className={styles.col}>
               <h3 className={styles.contact__title}>{contact.bill.title}</h3>
-              <p className={styles.contact__text}>{contact.bill.value}</p>
+              <pre className={styles.contact__text}>{contact.bill.value}</pre>
             </div>
             {contact.bill.value ? (
               <div className={styles.col}>
                 <h3 className={styles.contact__title}>{contact.ship.title}</h3>
-                <p className={styles.contact__text}>{contact.ship.value}</p>
+                <pre className={styles.contact__text}>{contact.ship.value}</pre>
               </div>
             ) : null}
           </div>
@@ -119,7 +119,7 @@ const template = (state) => {
           <ul className={styles.list}>
             {entities.map((e) => (
               <li className={styles.list__item} key={e.id}>
-                <span className={styles.list__value}>{e.name}</span>
+                <pre className={styles.list__value}>{e.name}</pre>
                 <span className={styles.list__value}>{e.quantity}</span>
                 <span className={styles.list__value}>
                   {currency.selected.value}
@@ -214,7 +214,9 @@ const template = (state) => {
           <h3 className={styles.description__title}>
             {description.terms.title}:
           </h3>
-          <p className={styles.description__text}>{description.terms.value}</p>
+          <pre className={styles.description__text}>
+            {description.terms.value}
+          </pre>
         </section>
       ) : null}
     </div>
