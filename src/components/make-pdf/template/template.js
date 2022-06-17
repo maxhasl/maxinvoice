@@ -1,6 +1,6 @@
 import ReactDOMServer from 'react-dom/server';
 import cn from 'classnames';
-import { listAllSelector } from '../../redux/features/list';
+import { listAllSelector } from '../../../redux/features/list';
 import styles from './template.module.scss';
 
 const template = (state) => {
