@@ -4,7 +4,7 @@ import { setTitle, mainTitleSelector } from '../../redux/features/main';
 
 import styles from './title.module.scss';
 
-const InputTitle = ({ title, setTitle }) => {
+const Title = ({ title, setTitle }) => {
   return (
     <input
       type="text"
@@ -15,7 +15,7 @@ const InputTitle = ({ title, setTitle }) => {
   );
 };
 
-InputTitle.propTypes = {
+Title.propTypes = {
   title: PropTypes.string.isRequired,
   setTitle: PropTypes.func.isRequired,
 };
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch) => ({
   setTitle: (e) => dispatch(setTitle(e.target.value)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(InputTitle);
+export default connect(mapStateToProps, mapDispatchToProps)(Title);
