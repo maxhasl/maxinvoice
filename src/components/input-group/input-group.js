@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ReactComponent as Close } from './close.svg';
 import InputGroupName from './input-group-name';
@@ -81,6 +82,22 @@ const InputGroup = ({
       )}
     </div>
   );
+};
+
+InputGroup.propTypes = {
+  initialName: PropTypes.string.isRequired,
+  initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  initialType: PropTypes.oneOf(['cash', 'percent']),
+  placeholder: PropTypes.string,
+  visible: PropTypes.bool,
+  controlled: PropTypes.bool,
+  close: PropTypes.bool,
+  type: PropTypes.oneOf(['col', 'row']).isRequired,
+  child: PropTypes.oneOf(['textarea', 'text', 'number', 'date']),
+  getName: PropTypes.func.isRequired,
+  getValue: PropTypes.func.isRequired,
+  getType: PropTypes.func,
+  setClose: PropTypes.func,
 };
 
 export default InputGroup;

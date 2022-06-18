@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -23,5 +24,10 @@ function InputGroupDatepicker({ initialValue, getValue }) {
     />
   );
 }
+
+InputGroupDatepicker.propTypes = {
+  initialValue: PropTypes.string.isRequired,
+  getValue: PropTypes.func.isRequired,
+};
 
 export default InputGroupDatepicker;

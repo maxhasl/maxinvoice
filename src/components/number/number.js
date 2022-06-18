@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setNumber, mainNumberSelector } from '../../redux/features/main';
 
@@ -15,6 +16,11 @@ const Number = ({ number, setNumber }) => {
       />
     </div>
   );
+};
+
+Number.propTypes = {
+  number: PropTypes.number.isRequired,
+  setNumber: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

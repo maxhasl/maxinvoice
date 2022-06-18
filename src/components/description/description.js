@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import InputGroup from '../input-group';
 import {
@@ -45,6 +46,23 @@ const Description = ({
       </div>
     </div>
   );
+};
+
+Description.propTypes = {
+  notes: PropTypes.shape({
+    title: PropTypes.string,
+    placeholder: PropTypes.string.isRequired,
+    value: PropTypes.string,
+  }),
+  terms: PropTypes.shape({
+    title: PropTypes.string,
+    placeholder: PropTypes.string.isRequired,
+    value: PropTypes.string,
+  }),
+  setNotesTitle: PropTypes.func.isRequired,
+  setNotesValue: PropTypes.func.isRequired,
+  setTermsTitle: PropTypes.func.isRequired,
+  setTermsValue: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import TextareaAutosize from 'react-textarea-autosize';
@@ -51,6 +52,20 @@ const ListItem = ({
       </button>
     </div>
   );
+};
+
+ListItem.propTypes = {
+  item: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+    cost: PropTypes.number.isRequired,
+    amount: PropTypes.number.isRequired,
+  }),
+  currency: PropTypes.objectOf(PropTypes.string.isRequired),
+  removeListItem: PropTypes.func.isRequired,
+  setListItemName: PropTypes.func.isRequired,
+  setListItemQuantity: PropTypes.func.isRequired,
+  setListItemCost: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, { id }) => ({

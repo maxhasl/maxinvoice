@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Select from 'react-select';
 import {
@@ -22,6 +23,20 @@ const Currency = ({ currency, options, setCurrency }) => {
       />
     </div>
   );
+};
+
+Currency.propTypes = {
+  currency: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+  }),
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ),
+  setCurrency: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import jsPDF from 'jspdf';
 import { ReactComponent as Download } from './download.svg';
@@ -25,6 +26,10 @@ const MakePdf = ({ state }) => {
       Download Invoice
     </button>
   );
+};
+
+MakePdf.propTypes = {
+  state: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import cn from 'classnames';
 import styles from './list-header.module.scss';
@@ -44,6 +45,14 @@ const ListHeader = ({
       />
     </div>
   );
+};
+
+ListHeader.propTypes = {
+  listHeader: PropTypes.objectOf(PropTypes.string.isRequired),
+  setListHeaderName: PropTypes.func.isRequired,
+  setListHeaderQuantity: PropTypes.func.isRequired,
+  setListHeaderCost: PropTypes.func.isRequired,
+  setListHeaderAmount: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

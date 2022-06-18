@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import useValue from '../../../hooks/use-value';
 import styles from './input-text.module.scss';
 
@@ -12,6 +13,11 @@ const InputText = ({ initialValue, getValue }) => {
       onChange={onChange}
     />
   );
+};
+
+InputText.propTypes = {
+  initialValue: PropTypes.string.isRequired,
+  getValue: PropTypes.func.isRequired,
 };
 
 export default InputText;

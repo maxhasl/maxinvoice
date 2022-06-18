@@ -1,5 +1,6 @@
-import { ReactComponent as Plus } from './plus.svg';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { ReactComponent as Plus } from './plus.svg';
 
 import {
   setDiscountVisible,
@@ -42,6 +43,15 @@ const AddonsControl = ({
       )}
     </div>
   );
+};
+
+AddonsControl.propTypes = {
+  discount: PropTypes.bool,
+  tax: PropTypes.bool,
+  shipping: PropTypes.bool,
+  setDiscountVisible: PropTypes.func.isRequired,
+  setTaxVisible: PropTypes.func.isRequired,
+  setShippingVisible: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

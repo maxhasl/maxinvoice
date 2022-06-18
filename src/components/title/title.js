@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setTitle, mainTitleSelector } from '../../redux/features/main';
 
@@ -12,6 +13,11 @@ const InputTitle = ({ title, setTitle }) => {
       onChange={setTitle}
     />
   );
+};
+
+InputTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  setTitle: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

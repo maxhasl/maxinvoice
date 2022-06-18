@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { currencySelectedSelector } from '../../redux/features/currency';
@@ -22,6 +23,14 @@ const Total = ({ title, value, getTitle, getValue, currency }) => {
       </div>
     </div>
   );
+};
+
+Total.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  getTitle: PropTypes.func.isRequired,
+  getValue: PropTypes.func.isRequired,
+  currency: PropTypes.objectOf(PropTypes.string.isRequired),
 };
 
 const mapStateToProps = (state) => ({

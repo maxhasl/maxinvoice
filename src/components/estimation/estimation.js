@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Total from '../total';
 import Addons from '../addons';
@@ -72,6 +73,28 @@ const Estimation = ({
       />
     </div>
   );
+};
+
+Estimation.propTypes = {
+  subtotalTitle: PropTypes.string.isRequired,
+  subtotalValue: PropTypes.number.isRequired,
+  totalTitle: PropTypes.string.isRequired,
+  totalValue: PropTypes.number.isRequired,
+  paid: PropTypes.shape({
+    title: PropTypes.string,
+    value: PropTypes.number,
+    type: PropTypes.oneOf(['cash']),
+  }),
+  balanceDueTitle: PropTypes.string.isRequired,
+  balanceDueValue: PropTypes.number.isRequired,
+  setSubtotalTitle: PropTypes.func,
+  setSubtotalValue: PropTypes.func,
+  setTotalTitle: PropTypes.func.isRequired,
+  setTotalValue: PropTypes.func.isRequired,
+  setPaidTitle: PropTypes.func.isRequired,
+  setPaidValue: PropTypes.func.isRequired,
+  setBalanceDueTitle: PropTypes.func.isRequired,
+  setBalanceDueValue: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import cn from 'classnames';
 import { ReactComponent as Repeat } from './repeat.svg';
@@ -40,6 +41,15 @@ const InputNumber = ({
       )}
     </div>
   );
+};
+
+InputNumber.propTypes = {
+  controlled: PropTypes.bool,
+  initialValue: PropTypes.number.isRequired,
+  initialType: PropTypes.oneOf(['cash', 'percent']),
+  currency: PropTypes.objectOf(PropTypes.string),
+  getValue: PropTypes.func.isRequired,
+  getType: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({

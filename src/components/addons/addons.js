@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import InputGroup from '../input-group';
 import AddonsControl from './addons-control/addons-control';
@@ -81,6 +82,41 @@ const Addons = ({
       <AddonsControl />
     </div>
   );
+};
+
+Addons.propTypes = {
+  discount: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    type: PropTypes.oneOf(['cash', 'percent']),
+    visible: PropTypes.bool.isRequired,
+    button: PropTypes.bool.isRequired,
+  }),
+  tax: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    type: PropTypes.oneOf(['cash', 'percent']),
+    visible: PropTypes.bool.isRequired,
+    button: PropTypes.bool.isRequired,
+  }),
+  shipping: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+    type: PropTypes.oneOf(['cash', 'percent']),
+    visible: PropTypes.bool.isRequired,
+    button: PropTypes.bool.isRequired,
+  }),
+  setDiscountTitle: PropTypes.func.isRequired,
+  setDiscountValue: PropTypes.func.isRequired,
+  setDiscountType: PropTypes.func.isRequired,
+  setDiscountVisible: PropTypes.func.isRequired,
+  setTaxTitle: PropTypes.func.isRequired,
+  setTaxValue: PropTypes.func.isRequired,
+  setTaxType: PropTypes.func.isRequired,
+  setTaxVisible: PropTypes.func.isRequired,
+  setShippingTitle: PropTypes.func.isRequired,
+  setShippingValue: PropTypes.func.isRequired,
+  setShippingVisible: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

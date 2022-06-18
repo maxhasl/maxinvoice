@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
   setLogo,
@@ -32,6 +33,12 @@ const Logo = ({ logo, onChange, remove }) => {
       )}
     </label>
   );
+};
+
+Logo.propTypes = {
+  logo: PropTypes.objectOf(PropTypes.string.isRequired),
+  onChange: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

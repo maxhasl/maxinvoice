@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import InputTextarea from '../input-group/input-textarea';
 import InputGroup from '../input-group';
@@ -55,6 +56,28 @@ const Contact = ({
       </div>
     </div>
   );
+};
+
+Contact.propTypes = {
+  from: PropTypes.shape({
+    placeholder: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+  }),
+  bill: PropTypes.shape({
+    placeholder: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+  }),
+  ship: PropTypes.shape({
+    placeholder: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    value: PropTypes.string,
+  }),
+  setFromValue: PropTypes.func.isRequired,
+  setBillTitle: PropTypes.func.isRequired,
+  setBillValue: PropTypes.func.isRequired,
+  setShipTitle: PropTypes.func.isRequired,
+  setShipValue: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

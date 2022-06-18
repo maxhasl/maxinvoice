@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import TextareaAutosize from 'react-textarea-autosize';
 import useValue from '../../../hooks/use-value';
 import styles from './input-textarea.module.scss';
@@ -13,6 +14,12 @@ const InputTextarea = ({ initialValue, getValue, placeholder }) => {
       onChange={onChange}
     />
   );
+};
+
+InputTextarea.propTypes = {
+  initialValue: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  getValue: PropTypes.func.isRequired,
 };
 
 export default InputTextarea;
