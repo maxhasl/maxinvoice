@@ -34,3 +34,34 @@
     text-align: right;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .wrap {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .item {
+    width: 120px;
+    padding: 3px 12px;
+    margin: 0;
+    &.item_big {
+      width: 100%;
+    }
+    &:nth-child(3) {
+      text-align: right;
+    }
+    &:last-child {
+      margin-left: calc(100% - 120px);
+    }
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .item {
+    width: 100px;
+    &:last-child {
+      margin-left: calc(100% - 100px);
+    }
+  }
+}

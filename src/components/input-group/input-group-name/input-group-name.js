@@ -6,12 +6,14 @@ const InputGroupName = ({ initialName, getName }) => {
   const { value, onChange } = useValue(initialName, getName);
 
   return (
-    <input
-      type="text"
-      className={styles.title}
-      value={value}
-      onChange={onChange}
-    />
+    <div className={styles.wrap}>
+      <input
+        type="text"
+        className={styles.title}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
   );
 };
 

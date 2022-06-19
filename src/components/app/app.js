@@ -7,13 +7,11 @@ import styles from './app.module.scss';
 
 const App = () => {
   return (
-    <div>
+    <div className={styles.body}>
       <Header />
       <div className={styles.wrap}>
-        <main className={styles.main}>
-          <Invoice />
-          <Aside />
-        </main>
+        <Invoice />
+        <Aside />
       </div>
       <Footer />
     </div>

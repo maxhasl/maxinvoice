@@ -21,7 +21,7 @@ const Description = ({
   setTermsValue,
 }) => {
   return (
-    <div>
+    <section className={styles.wrap}>
       <div className={styles.item}>
         <InputGroup
           type="col"
@@ -44,7 +44,7 @@ const Description = ({
           getValue={setTermsValue}
         />
       </div>
-    </div>
+    </section>
   );
 };
 

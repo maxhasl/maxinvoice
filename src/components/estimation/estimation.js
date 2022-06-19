@@ -2,6 +2,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Total from '../total';
 import Addons from '../addons';
+import InputGroup from '../input-group';
+
+import styles from './estimation.module.scss';
+
 import {
   setSubtotalTitle,
   setSubtotalValue,
@@ -13,16 +17,11 @@ import {
   setBalanceDueValue,
   balanceDueSelector,
 } from '../../redux/features/totals';
-
 import {
   setPaidTitle,
   setPaidValue,
   paidSelector,
 } from '../../redux/features/paid';
-
-import InputGroup from '../input-group';
-
-import styles from './estimation.module.scss';
 
 const Estimation = ({
   subtotalTitle,
@@ -42,7 +41,7 @@ const Estimation = ({
   setBalanceDueValue,
 }) => {
   return (
-    <div className={styles.wrap}>
+    <section>
       <Total
         title={subtotalTitle}
         value={subtotalValue}
@@ -71,7 +70,7 @@ const Estimation = ({
         getTitle={setBalanceDueTitle}
         getValue={setBalanceDueValue}
       />
-    </div>
+    </section>
   );
 };
 

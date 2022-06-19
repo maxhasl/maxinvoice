@@ -38,7 +38,7 @@ const Addons = ({
   setShippingVisible,
 }) => {
   return (
-    <div className={styles.wrap}>
+    <section className={styles.wrap}>
       <InputGroup
         type="row"
         child="number"
@@ -80,7 +80,7 @@ const Addons = ({
         getValue={setShippingValue}
       />
       <AddonsControl />
-    </div>
+    </section>
   );
 };
 

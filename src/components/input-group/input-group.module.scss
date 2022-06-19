@@ -1,18 +1,21 @@
 .wrap {
+  width: 100%;
   display: flex;
   position: relative;
+  &.wrap_row {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &.wrap_col {
+    flex-direction: column;
+  }
   &:hover {
     .remove {
       opacity: 1;
     }
   }
 }
-.wrap_col {
-  flex-direction: column;
-}
-.wrap_row {
-  flex-direction: row;
-}
+
 .remove {
   display: flex;
   justify-content: center;
@@ -37,4 +40,13 @@
 .icon {
   color: #c4cdd5;
   transition: 0.2s all linear;
+}
+
+@media screen and (max-width: 767px) {
+  .remove {
+    opacity: 1;
+  }
+  .icon {
+    color: #009e74;
+  }
 }

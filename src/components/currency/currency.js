@@ -12,7 +12,7 @@ import './currency.scss';
 
 const Currency = ({ currency, options, setCurrency }) => {
   return (
-    <div>
+    <section>
       <h3 className={styles.title}>CURRENCY</h3>
       <Select
         value={currency}
@@ -21,7 +21,7 @@ const Currency = ({ currency, options, setCurrency }) => {
         className="container"
         classNamePrefix="select"
       />
-    </div>
+    </section>
   );
 };
 

@@ -6,12 +6,14 @@ const InputText = ({ initialValue, getValue }) => {
   const { value, onChange } = useValue(initialValue, getValue);
 
   return (
-    <input
-      type="text"
-      className={styles.text}
-      value={value}
-      onChange={onChange}
-    />
+    <div className={styles.wrap}>
+      <input
+        type="text"
+        className={styles.text}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
   );
 };
 

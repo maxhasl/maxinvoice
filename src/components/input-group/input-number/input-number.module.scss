@@ -1,5 +1,7 @@
 .wrap {
   position: relative;
+  width: 144px;
+  margin-left: 4px;
 }
 .type {
   position: absolute;
@@ -16,9 +18,8 @@
 }
 .input {
   display: block;
-  width: 144px;
   height: 34px;
-  margin-left: 4px;
+  width: 100%;
   padding: 6px 10px 6px 28px;
   background: #fff;
   border: 1px solid #c4cdd5;
@@ -67,4 +68,10 @@
   width: 12px;
   color: #c4cdd5;
   transition: 0.2s all linear;
+}
+
+@media screen and (max-width: 479px) {
+  .wrap {
+    width: calc(50% - 2px);
+  }
 }

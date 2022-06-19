@@ -1,10 +1,39 @@
-.wrap {
+.from {
   width: 275px;
-  margin: 0 0 15px 0;
+  margin-bottom: 15px;
 }
 .row {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+.col {
+  width: calc(50% - 13px);
+}
+
+@media screen and (max-width: 1199px) {
+  .from {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .from {
+    width: 100%;
+  }
+  .row {
+    &.row_m {
+      flex-direction: column;
+    }
+  }
+  .col {
+    &.col_m {
+      width: 100%;
+      margin-top: 15px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
 }

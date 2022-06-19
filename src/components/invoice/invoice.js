@@ -12,13 +12,10 @@ import styles from './invoice.module.scss';
 
 const Invoice = () => {
   return (
-    <section className={styles.wrap}>
-      <div className={styles.row}>
+    <main className={styles.wrap}>
+      <div className={cn(styles.row, styles.row_header)}>
         <div className={styles.col}>
-          <div className={styles.logo}>
-            <Logo />
-          </div>
-          <Contact />
+          <Logo />
         </div>
         <div className={cn(styles.col, styles.col_rtl)}>
           <div className={styles.title}>
@@ -27,23 +24,36 @@ const Invoice = () => {
           <div className={styles.number}>
             <Number />
           </div>
+        </div>
+      </div>
+      <div className={styles.row}>
+        <div className={styles.col}>
+          <div className={styles.contact}>
+            <Contact />
+          </div>
+        </div>
+        <div className={cn(styles.col, styles.col_rtl)}>
           <div className={styles.details}>
             <Details />
           </div>
         </div>
       </div>
       <div className={styles.row}>
-        <List />
+        <div className={styles.list}>
+          <List />
+        </div>
       </div>
       <div className={styles.row}>
         <div className={styles.col}>
           <Description />
         </div>
         <div className={cn(styles.col, styles.col_rtl)}>
-          <Estimation />
+          <div className={styles.estimation}>
+            <Estimation />
+          </div>
         </div>
       </div>
-    </section>
+    </main>
   );
 };
 

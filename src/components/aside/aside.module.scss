@@ -1,0 +1,26 @@
+.currency {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 999px) {
+  .wrap {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .currency {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+  .currency {
+    margin: 0 0 15px 0;
+  }
+}

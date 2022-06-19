@@ -99,3 +99,41 @@
   color: #c4cdd5;
   transition: 0.2s all linear;
 }
+
+@media screen and (max-width: 767px) {
+  .wrap {
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #c4cdd5;
+    padding: 30px 10px 0;
+    border-radius: 4px;
+  }
+  .input {
+    margin: 0;
+    &.input__big {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  .amount {
+    width: 100%;
+  }
+  .remove {
+    width: 10px;
+    right: 10px;
+    top: 10px;
+    padding: 0;
+    opacity: 1;
+    .icon {
+      color: #009e74;
+    }
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .input {
+    width: 100px;
+  }
+}

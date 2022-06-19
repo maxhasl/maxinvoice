@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import cn from 'classnames';
 import InputTextarea from '../input-group/input-textarea';
 import InputGroup from '../input-group';
 import {
@@ -26,35 +27,39 @@ const Contact = ({
   setShipValue,
 }) => {
   return (
-    <div>
-      <div className={styles.wrap}>
+    <section>
+      <div className={styles.from}>
         <InputTextarea
           placeholder={from.placeholder}
           initialValue={from.value}
           getValue={setFromValue}
         />
       </div>
-      <div className={styles.row}>
-        <InputGroup
-          type="col"
-          child="textarea"
-          placeholder={bill.placeholder}
-          initialName={bill.title}
-          getName={setBillTitle}
-          initialValue={bill.value}
-          getValue={setBillValue}
-        />
-        <InputGroup
-          type="col"
-          child="textarea"
-          placeholder={ship.placeholder}
-          initialName={ship.title}
-          getName={setShipTitle}
-          initialValue={ship.value}
-          getValue={setShipValue}
-        />
+      <div className={cn(styles.row, styles.row_m)}>
+        <div className={cn(styles.col, styles.col_m)}>
+          <InputGroup
+            type="col"
+            child="textarea"
+            placeholder={bill.placeholder}
+            initialName={bill.title}
+            getName={setBillTitle}
+            initialValue={bill.value}
+            getValue={setBillValue}
+          />
+        </div>
+        <div className={cn(styles.col, styles.col_m)}>
+          <InputGroup
+            type="col"
+            child="textarea"
+            placeholder={ship.placeholder}
+            initialName={ship.title}
+            getName={setShipTitle}
+            initialValue={ship.value}
+            getValue={setShipValue}
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
