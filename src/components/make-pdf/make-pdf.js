@@ -1,27 +1,12 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import jsPDF from 'jspdf';
 import { ReactComponent as Download } from './download.svg';
-import template from './template';
+import { makePdf } from '../../redux/features/make-pdf';
 import styles from './make-pdf.module.scss';
 
-const MakePdf = ({ state }) => {
-  const doc = new jsPDF();
-
-  const download = () => {
-    const html = template(state);
-
-    doc.html(html, {
-      callback: (doc) => doc.save('a4.pdf'),
-      margin: [5, 10, 5, 10],
-      width: 190,
-      windowWidth: 800,
-      autoPaging: 'text',
-    });
-  };
-
+const MakePdf = ({ makePdf }) => {
   return (
-    <button className={styles.button} onClick={download}>
+    <button className={styles.button} onClick={makePdf}>
       <Download className={styles.icon} />
       Download Invoice
     </button>
@@ -29,11 +14,11 @@ const MakePdf = ({ state }) => {
 };
 
 MakePdf.propTypes = {
-  state: PropTypes.object.isRequired,
+  makePdf: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  state,
+const mapDispatchToProps = (dispatch) => ({
+  makePdf: () => dispatch(makePdf()),
 });
 
-export default connect(mapStateToProps)(MakePdf);
+export default connect(null, mapDispatchToProps)(MakePdf);

@@ -1,6 +1,6 @@
 import ReactDOMServer from 'react-dom/server';
 import cn from 'classnames';
-import { listAllSelector } from '../../../redux/features/list';
+import { listAllSelector } from '../../../features/list';
 import styles from './template.module.scss';
 
 const template = (state) => {
@@ -31,7 +31,7 @@ const template = (state) => {
               />
             </div>
           ) : null}
-          <pre className={styles.re}>{contact.from.value}</pre>
+          <pre className={styles.contact__text}>{contact.from.value}</pre>
           <div className={styles.row}>
             <div className={styles.col}>
               <h3 className={styles.contact__title}>{contact.bill.title}</h3>
