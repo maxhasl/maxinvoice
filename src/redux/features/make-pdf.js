@@ -3,23 +3,25 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   done: false,
   error: false,
-  process: false,
 };
 
 const { reducer, actions } = createSlice({
   name: 'makePdf',
   initialState,
   reducers: {
-    makePdf(state, { payload: { done, error, process } }) {
+    makePdf(state, { payload: { done, error } }) {
       state.done = done;
       state.error = error;
-      state.process = process;
+    },
+    closeMessage(state) {
+      state.done = false;
+      state.error = false;
     },
   },
 });
 
 export default reducer;
 
-export const { makePdf } = actions;
+export const { makePdf, closeMessage } = actions;
 
 export const makePdfSelector = (state) => state.makePdf;

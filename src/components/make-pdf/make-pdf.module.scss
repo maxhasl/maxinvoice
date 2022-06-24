@@ -23,3 +23,45 @@
   width: 14px;
   margin-right: 8px;
 }
+.result {
+  position: relative;
+  margin-top: 10px;
+}
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  background-color: rgba(0, 158, 50, 0.5);
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  &.message_error {
+    background-color: rgba(256, 0, 0, 0.5);
+  }
+}
+
+.close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background: 0;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s all linear;
+  &:hover {
+    background: #232e38;
+  }
+}
+.close__icon {
+  width: 10px;
+}
