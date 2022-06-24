@@ -45,7 +45,7 @@ const InputNumber = ({
 
 InputNumber.propTypes = {
   controlled: PropTypes.bool,
-  initialValue: PropTypes.number.isRequired,
+  initialValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   initialType: PropTypes.oneOf(['cash', 'percent']),
   currency: PropTypes.objectOf(PropTypes.string),
   getValue: PropTypes.func.isRequired,

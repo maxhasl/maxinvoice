@@ -27,7 +27,7 @@ const Total = ({ title, value, getTitle, getValue, currency }) => {
 
 Total.propTypes = {
   title: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   getTitle: PropTypes.func.isRequired,
   getValue: PropTypes.func.isRequired,
   currency: PropTypes.objectOf(PropTypes.string.isRequired),

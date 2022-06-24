@@ -22,8 +22,10 @@ List.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      quantity: PropTypes.number.isRequired,
-      cost: PropTypes.number.isRequired,
+      quantity: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+        .isRequired,
+      cost: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+        .isRequired,
       amount: PropTypes.number.isRequired,
     })
   ),

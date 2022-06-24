@@ -87,21 +87,21 @@ const Addons = ({
 Addons.propTypes = {
   discount: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     type: PropTypes.oneOf(['cash', 'percent']),
     visible: PropTypes.bool.isRequired,
     button: PropTypes.bool.isRequired,
   }),
   tax: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     type: PropTypes.oneOf(['cash', 'percent']),
     visible: PropTypes.bool.isRequired,
     button: PropTypes.bool.isRequired,
   }),
   shipping: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     type: PropTypes.oneOf(['cash', 'percent']),
     visible: PropTypes.bool.isRequired,
     button: PropTypes.bool.isRequired,

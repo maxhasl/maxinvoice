@@ -78,10 +78,10 @@ Estimation.propTypes = {
   subtotalTitle: PropTypes.string.isRequired,
   subtotalValue: PropTypes.number.isRequired,
   totalTitle: PropTypes.string.isRequired,
-  totalValue: PropTypes.number.isRequired,
+  totalValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   paid: PropTypes.shape({
     title: PropTypes.string,
-    value: PropTypes.number,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     type: PropTypes.oneOf(['cash']),
   }),
   balanceDueTitle: PropTypes.string.isRequired,

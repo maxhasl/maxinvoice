@@ -57,8 +57,9 @@ const ListItem = ({
 ListItem.propTypes = {
   item: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
-    cost: PropTypes.number.isRequired,
+    quantity: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      .isRequired,
+    cost: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     amount: PropTypes.number.isRequired,
   }),
   currency: PropTypes.objectOf(PropTypes.string.isRequired),
