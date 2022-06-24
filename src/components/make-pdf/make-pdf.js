@@ -17,13 +17,12 @@ const MakePdf = ({ status, makePdf, closeMessage }) => {
         <Download className={styles.icon} />
         Download Invoice
       </button>
-      {status.done || status.false ? (
+      {status.done || status.error ? (
         <div className={styles.result}>
-          {status.done ? (
-            <p className={styles.message}>Succes!</p>
-          ) : (
+          {status.done ? <p className={styles.message}>Succes!</p> : null}
+          {status.error ? (
             <p className={cn(styles.message, styles.message_error)}>Error!</p>
-          )}
+          ) : null}
           <button className={styles.close} onClick={closeMessage}>
             <Close className={styles.close__icon} />
           </button>
