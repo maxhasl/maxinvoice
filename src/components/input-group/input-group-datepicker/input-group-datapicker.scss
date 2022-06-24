@@ -21,3 +21,10 @@
     background-color: #10806f;
   }
 }
+.react-datepicker__day--keyboard-selected {
+  background-color: #009e74;
+  transition: all 0.2s linear;
+  &:hover {
+    background-color: #10806f;
+  }
+}
