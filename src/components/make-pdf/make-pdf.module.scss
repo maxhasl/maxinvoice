@@ -30,14 +30,15 @@
 .message {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 50px;
+  padding: 15px 30px;
+  width: 200px;
   border-radius: 4px;
   background-color: rgba(0, 158, 50, 0.5);
   color: white;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
   &.message_error {
     background-color: rgba(256, 0, 0, 0.5);
   }

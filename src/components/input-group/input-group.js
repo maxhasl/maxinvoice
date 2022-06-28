@@ -23,6 +23,7 @@ const InputGroup = ({
   controlled,
   type,
   child,
+  required = false,
 }) => {
   if (!visible) return null;
 
@@ -36,6 +37,7 @@ const InputGroup = ({
             placeholder={placeholder}
             initialValue={initialValue}
             getValue={getValue}
+            required={required}
           />
         );
       case 'text':

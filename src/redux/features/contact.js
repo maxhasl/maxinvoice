@@ -3,12 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   from: {
     placeholder: 'Who is this invoice from? (required)',
-    value: '',
+    value: undefined,
+    required: true,
   },
   bill: {
     placeholder: 'Who is this invoice to?',
     title: 'Bill To',
-    value: '',
+    value: undefined,
   },
   ship: {
     placeholder: '(optional)',

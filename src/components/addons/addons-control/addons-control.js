@@ -21,6 +21,8 @@ const AddonsControl = ({
   setTaxVisible,
   setShippingVisible,
 }) => {
+  console.log('render Addons');
+
   return (
     <div className={styles.wrap}>
       {discount && (

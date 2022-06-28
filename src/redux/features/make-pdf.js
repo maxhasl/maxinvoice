@@ -2,7 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   done: false,
-  error: false,
+  error: {
+    value: false,
+    message: '',
+  },
 };
 
 const { reducer, actions } = createSlice({
@@ -15,7 +18,7 @@ const { reducer, actions } = createSlice({
     },
     closeMessage(state) {
       state.done = false;
-      state.error = false;
+      state.error = { value: false, message: '' };
     },
   },
 });

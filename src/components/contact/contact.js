@@ -31,6 +31,7 @@ const Contact = ({
       <div className={styles.from}>
         <InputTextarea
           placeholder={from.placeholder}
+          required
           initialValue={from.value}
           getValue={setFromValue}
         />
@@ -40,6 +41,7 @@ const Contact = ({
           <InputGroup
             type="col"
             child="textarea"
+            required
             placeholder={bill.placeholder}
             initialName={bill.title}
             getName={setBillTitle}
@@ -66,12 +68,12 @@ const Contact = ({
 Contact.propTypes = {
   from: PropTypes.shape({
     placeholder: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
   }),
   bill: PropTypes.shape({
     placeholder: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    value: PropTypes.string,
   }),
   ship: PropTypes.shape({
     placeholder: PropTypes.string.isRequired,

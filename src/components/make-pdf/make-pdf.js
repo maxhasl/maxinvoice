@@ -17,11 +17,13 @@ const MakePdf = ({ status, makePdf, closeMessage }) => {
         <Download className={styles.icon} />
         Download Invoice
       </button>
-      {status.done || status.error ? (
+      {status.done || status.error.value ? (
         <div className={styles.result}>
           {status.done ? <p className={styles.message}>Succes!</p> : null}
-          {status.error ? (
-            <p className={cn(styles.message, styles.message_error)}>Error!</p>
+          {status.error.value ? (
+            <p className={cn(styles.message, styles.message_error)}>
+              {status.error.message}
+            </p>
           ) : null}
           <button className={styles.close} onClick={closeMessage}>
             <Close className={styles.close__icon} />
@@ -33,7 +35,13 @@ const MakePdf = ({ status, makePdf, closeMessage }) => {
 };
 
 MakePdf.propTypes = {
-  status: PropTypes.objectOf(PropTypes.bool.isRequired),
+  status: PropTypes.shape({
+    done: PropTypes.bool.isRequired,
+    error: PropTypes.shape({
+      value: PropTypes.bool.isRequired,
+      message: PropTypes.string.isRequired,
+    }),
+  }),
   makePdf: PropTypes.func.isRequired,
   closeMessage: PropTypes.func.isRequired,
 };

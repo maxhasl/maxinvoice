@@ -28,4 +28,7 @@
   &:focus {
     border-color: #009e74;
   }
+  &.textarea_required {
+    border-color: #c00;
+  }
 }

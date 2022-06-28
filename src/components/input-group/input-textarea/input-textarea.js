@@ -1,23 +1,33 @@
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import TextareaAutosize from 'react-textarea-autosize';
-import useValue from '../../../hooks/use-value';
 import styles from './input-textarea.module.scss';
+import { useEffect, useState } from 'react';
 
-const InputTextarea = ({ initialValue, getValue, placeholder }) => {
-  const { value, onChange } = useValue(initialValue, getValue);
+const InputTextarea = ({ initialValue, getValue, placeholder, required }) => {
+  const [inputClass, setInputClass] = useState('valid');
+
+  useEffect(() => {
+    if (required)
+      initialValue === '' ? setInputClass('invalid') : setInputClass('valid');
+  }, [required, initialValue]);
 
   return (
     <TextareaAutosize
-      className={styles.textarea}
+      className={
+        inputClass === 'valid'
+          ? styles.textarea
+          : cn(styles.textarea, styles.textarea_required)
+      }
       placeholder={placeholder}
-      value={value}
-      onChange={onChange}
+      value={initialValue}
+      onChange={(e) => getValue(e.target.value)}
     />
   );
 };
 
 InputTextarea.propTypes = {
-  initialValue: PropTypes.string.isRequired,
+  initialValue: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   getValue: PropTypes.func.isRequired,
 };
