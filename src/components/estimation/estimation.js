@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import Total from '../total';
 import Addons from '../addons';
 import InputGroup from '../input-group';
-
-import styles from './estimation.module.scss';
-
 import {
   setSubtotalTitle,
   setSubtotalValue,
