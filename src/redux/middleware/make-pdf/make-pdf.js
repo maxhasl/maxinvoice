@@ -1,6 +1,6 @@
 import jsPDF from 'jspdf';
 import template from './template';
-import { mainTitleSelector } from '../../features/main';
+import { mainTitleSelector, mainNumberSelector } from '../../features/main';
 import {
   contactFromSelector,
   contactBillSelector,
@@ -55,11 +55,12 @@ const middleware = (store) => (next) => (action) => {
     });
   }
 
+  const name = `${mainTitleSelector(state)} #${mainNumberSelector(state)}`;
   const doc = new jsPDF().setFont('Ubuntu');
 
   return doc.html(template(store.getState()), {
     callback: (doc) => {
-      doc.save('a4', { returnPromise: true }).then(
+      doc.save(name, { returnPromise: true }).then(
         () =>
           next({
             ...rest,
