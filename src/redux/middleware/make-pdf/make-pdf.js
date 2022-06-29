@@ -87,7 +87,7 @@ const middleware = (store) => (next) => (action) => {
           })
       );
     },
-    margin: [5, 10, 5, 10],
+    margin: [20, 10, 20, 10],
     width: 190,
     windowWidth: 800,
     autoPaging: 'text',

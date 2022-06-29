@@ -17,27 +17,27 @@
 }
 .logo {
   margin-bottom: 15px;
-  max-width: 200px;
-  max-height: 150px;
+  max-width: 230px;
+  max-height: 180px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 .logo__img {
   width: auto;
-  max-width: 200px;
+  max-width: 230px;
   height: 100%;
-  max-height: 150px;
+  max-height: 180px;
   border-radius: 4px;
   object-fit: contain;
 }
 .contact__text {
   width: 100%;
   margin-bottom: 20px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   color: #313538;
-  line-height: 16px;
+  line-height: 18px;
   font-family: 'Ubuntu';
   white-space: pre-wrap;
 }
@@ -45,9 +45,9 @@
   margin-bottom: 5px;
   color: #777;
   font-family: 'Ubuntu';
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 14px;
+  line-height: 16px;
 }
 .title {
   margin-bottom: 5px;
@@ -71,9 +71,9 @@
   margin-bottom: 15px;
   color: #777;
   font-family: 'Ubuntu';
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 14px;
+  line-height: 16px;
 }
 .details__value {
   width: 150px;
@@ -81,9 +81,9 @@
   text-align: right;
   color: #313538;
   font-family: 'Ubuntu';
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 14px;
+  line-height: 16px;
 }
 .balance__wrap {
   width: 298px;
@@ -101,7 +101,7 @@
   color: #313538;
   font-family: 'Ubuntu';
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 900;
   line-height: 20px;
   text-align: right;
   &:first-child {
@@ -110,7 +110,7 @@
   }
 }
 .listWrap {
-  margin: 60px 0 30px;
+  margin: 60px 0;
   width: 100%;
 }
 .listHeader {
@@ -161,10 +161,10 @@
 .list__value {
   width: 92px;
   margin-right: 10px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   color: #313538;
-  line-height: 18px;
+  line-height: 20px;
   font-family: 'Ubuntu';
   white-space: pre-wrap;
   &:first-child {
@@ -184,15 +184,15 @@
   margin-bottom: 5px;
   color: #777;
   font-family: 'Ubuntu';
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 14px;
+  line-height: 16px;
 }
 .description__text {
   color: #313538;
   font-family: 'Ubuntu';
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 20px;
   white-space: pre-wrap;
 }
