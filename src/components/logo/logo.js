@@ -18,16 +18,21 @@ const Logo = ({ logo, onChange, remove }) => {
         accept="image/png, image/gif, image/jpeg"
         className={styles.file}
         onChange={onChange}
+        data-testid="add-logo"
       />
       {logo.value ? (
-        <div className={styles.imgContainer}>
-          <button className={styles.remove} onClick={remove}>
+        <div className={styles.imgContainer} data-testid="img-wrap">
+          <button
+            className={styles.remove}
+            onClick={remove}
+            data-testid="remove-btn"
+          >
             <Close className={styles.removeIcon} />
           </button>
           <img src={logo.value} alt="Logo" className={styles.img} />
         </div>
       ) : (
-        <div className={styles.placeholder}>
+        <div className={styles.placeholder} data-testid="add-btn">
           <Plus className={styles.plus} /> {logo.placeholder}
         </div>
       )}
